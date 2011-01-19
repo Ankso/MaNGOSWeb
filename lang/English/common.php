@@ -196,7 +196,7 @@ $lang = array(
 	'who' => 'Who',
 	'who_is_online' => 'Who Is Online',
 	'wrath' => 'Wrath of the Lich King',
-	'wrong_password' => 'Your password is incorrect',
+	'wrong_password' => 'Tu contrase&ntilde;a es incorrecta',
 	'yes' => 'Yes',
 	'your_ip_is_banned' => 'Your IP is banned!'
 	);
