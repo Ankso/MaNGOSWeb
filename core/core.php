@@ -15,8 +15,8 @@
 
 class Core
 {
-	var $version = '3.0.3';
-	var $version_date = '2011-01-01, 12:16 pm';
+	var $version = '3.0.4';
+	var $version_date = '2011-01-01, 12:05 pm';
 	var $exp_dbversion = '1.0a';
 
 	function Core()

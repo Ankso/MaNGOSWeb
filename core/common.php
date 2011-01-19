@@ -400,6 +400,8 @@ function random_string($counts)
 {
     $str = "abcdefghijklmnopqrstuvwxyz"; //Count 0-25
     $o = 0;
+	$output = '';
+	
     for($i=0; $i < $counts; $i++)
 	{
         if($o == 1)
