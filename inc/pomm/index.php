@@ -1,0 +1,1 @@
+<strong><font size="+2">Lo sentimos, pero esta p&aacute;gina no es un lugar adecuado para tí :P</font></strong>
