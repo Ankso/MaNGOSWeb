@@ -1,0 +1,24 @@
+- Hay que añadir a la barra derecha de navegación:
+{
+    ->Normas del Servidor.
+    ->Mapa de jugadores online.
+    ->Cómo jugar.
+    ->Atlas interactivo.
+    ->Calculadora de talentos (link a la armería)
+    ->Estadísticas.
+    ->Armería.
+    ->Fondos de pantalla.*
+    ->Capturas.
+    ->Subir captura.*
+    ->Foro & enlaces al mismo.
+    
+    Todos estos componentes ya están listos o bien en este repositorio o en la web nueva, sólo hay que importarlos y crear los enlaces a la barra.
+
+    *Opcional, no es indispensable.
+}
+
+- Crear un foro PHPBB3 basado en PBWoW en la última versión.
+- Acabar las traducciones.
+- Programar el sistema de donaciones y recompensas para que utilice el sistema de external mail en vez de la conexión por RA/SOAP.
+
+- Algunos detalles & tests.
