@@ -1,0 +1,156 @@
+<!-- INCLUDE overall_header.html -->
+
+<a name="maincontent"></a>
+
+<h1>{L_TITLE}</h1>
+
+<p>{L_TITLE_EXPLAIN}</p>
+
+<!-- IF S_ERROR -->
+	<div class="errorbox">
+		<h3>{L_WARNING}</h3>
+		<p>{ERROR_MSG}</p>
+	</div>
+<!-- ENDIF -->
+
+<!-- IF S_VERSIONCHECK -->
+	<fieldset>
+		<legend>PBWoW Database Check</legend>
+		<!-- IF S_CONSTANTSOKAY -->
+			<!-- IF S_DBOKAY -->
+			<p style="font-weight: bold; color:#228822">PBWoW configuration table found ({PBWOW_DBTABLE}).</p>
+			<!-- ELSE -->
+			<p style="font-weight: bold; color:#BC2A4D">No PBWoW configuration table found. Make sure that the table ({PBWOW_DBTABLE}) exists in your phpBB database.</p>
+			<form id="acp_create_config_table" method="post" action="{U_ACTION}">
+				<dl>
+					<dt><label>Create PBWoW configuration table:</label>
+					<br /><span>You haven&acute;t created a configuration table yet for your PBWoW installation. Either do so manually, or hit the &quot;Install&quot; button.</dt>
+					<dd><br /><input type="hidden" name="action" value="create_config_table" /><input class="button2" type="submit" id="submit" name="submit" value="{L_INSTALL}" /></dd>
+				</dl>
+			</form>
+			<!-- ENDIF -->
+		<!-- ELSE -->
+		<p style="font-weight: bold; color:#BC2A4D">Constants not set. Add the following line to your includes/constants.php file:<br />
+		define('PBWOW_CONFIG_TABLE', 		$table_prefix . 'pbwow_config');"</p>
+		<!-- ENDIF -->
+	</fieldset>
+
+<!-- IF S_DBOKAY -->
+	<fieldset>
+		<legend>PBWoW Version Check</legend>
+		<p style="font-weight: bold;">{PBWOW_VERSION}</p>
+		<p><small>Check <a href="http://pbwow.com/forum/index.php">PBWoW.com</a> to see if there are updates available.</small></p>
+	</fieldset>
+
+	<fieldset>
+		<legend>Custom Profile Fields Check</legend>
+		<dl>
+			<dt><label>pbguild</label></dt>
+			<dd><strong style="color:<!-- IF S_CPF_PBGUILD -->#228822">Active<!-- ELSE -->#BC2A4D">Not active!<!-- ENDIF --></strong></dd>
+		</dl>
+		<dl>
+			<dt><label>pblevel</label></dt>
+			<dd><strong style="color:<!-- IF S_CPF_PBLEVEL -->#228822">Active<!-- ELSE -->#BC2A4D">Not active!<!-- ENDIF --></strong></dd>
+		</dl>
+		<dl>
+			<dt><label>pbrace</label></dt>
+			<dd><strong style="color:<!-- IF S_CPF_PBRACE -->#228822">Active<!-- ELSE -->#BC2A4D">Not active!<!-- ENDIF --></strong></dd>
+		</dl>
+		<dl>
+			<dt><label>pbgender</label></dt>
+			<dd><strong style="color:<!-- IF S_CPF_PBGENDER -->#228822">Active<!-- ELSE -->#BC2A4D">Not active!<!-- ENDIF --></strong></dd>
+		</dl>
+		<dl>
+			<dt><label>pbclass</label></dt>
+			<dd><strong style="color:<!-- IF S_CPF_PBCLASS -->#228822">Active<!-- ELSE -->#BC2A4D">Not active!<!-- ENDIF --></strong></dd>
+		</dl>
+		<dl>
+			<dt><label>pbarmorycharlink</label></dt>
+			<dd><strong style="color:<!-- IF S_CPF_PBARMORYCHARLINK -->#228822">Active<!-- ELSE -->#BC2A4D">Not active!<!-- ENDIF --></strong></dd>
+		</dl>		
+		<dl>
+			<dt><label>pbarmoryguildlink</label></dt>
+			<dd><strong style="color:<!-- IF S_CPF_PBARMORYGUILDLINK -->#228822">Active<!-- ELSE -->#BC2A4D">Not active!<!-- ENDIF --></strong></dd>
+		</dl>
+		<dl>
+			<dt><label>pbrealm</label><small>no longer used</small></dt>
+			<dd><strong><!-- IF S_CPF_PBREALM -->Active<!-- ELSE -->Not active<!-- ENDIF --></strong></dd>
+		</dl>
+		<dl>
+			<dt><label>pbpvprank</label><small>no longer used</small></dt>
+			<dd><strong><!-- IF S_CPF_PBPVPRANK -->Active<!-- ELSE -->Not active<!-- ENDIF --></strong></dd>
+		</dl>		
+	</fieldset>
+
+	<fieldset>
+		<legend>Special Rank Images on Viewforum Pages</legend>
+		<!-- IF S_TOPICS_MODDED -->
+		<form id="acp_refresh_topic_ranks" method="post" action="{U_ACTION}">
+			<dl>
+				<dt><label>Refresh special rank images:</label><br /><span>By clicking this button, special rank images of the topic starter will be refreshed for all topics in the database. These are used to display the rank image behind the user&acute;s name on viewforum pages.</dt>
+				<dd><b>This process might take a while on big forums, so be patient.</b><br /><span style="color:#BC2A4D; font-weight:bold;">Only press this button once!</span><br /><br />
+				<input type="hidden" name="action" value="refresh_topic_ranks" /><input class="button2" type="submit" id="submit" name="submit" value="{L_RUN}" /></dd>
+			</dl>
+		</form>
+		<!-- ELSE -->
+		<form id="acp_create_topic_ranks" method="post" action="{U_ACTION}">
+			<dl>
+				<dt><label>Modify the database:</label><br /><span>You haven&acute;t modified your forum viewtopics table ({TOPICS_TABLE}) yet to support this feature. Luckily, this is automated (but only tested on MySQL). This button automatically ads the 2 needed columns (fields) to {TOPICS_TABLE}.</dt>
+				<dd><span style="color:#BC2A4D; font-weight:bold;">Warning! This will make (small) changes to your database!</span><br /><br />
+				<input type="hidden" name="action" value="create_topic_ranks" /><input class="button2" type="submit" id="submit" name="submit" value="{L_INSTALL}" /></dd>
+			</dl>
+		</form>
+		<!-- ENDIF -->
+	</fieldset>
+
+	<fieldset>
+		<legend>Refresh All Themes</legend>
+		<form id="acp_refresh_all_themes" method="post" action="{U_ACTION}">
+			<dl>
+				<dt><label>Refresh all style themes in database:</label><br /><span>This button refreshes all the theme data for every style in the database with a single click. This is particularly handy when editing CSS of styles that use template inheritance and shared stylesheets (like PBWoW).<br /><b>This isn't the same as &quot;clearing the board cache&quot;!</b></dt>
+				<dd><b>This process might take a while on big forums, so be patient.</b><br /><span style="color:#BC2A4D; font-weight:bold;">Only press this button once!</span><br /><br />
+				<input type="hidden" name="action" value="refresh_all_themes" /><input class="button2" type="submit" id="submit" name="submit" value="{L_RUN}" /></dd>
+			</dl>
+		</form>
+	</fieldset>
+<!-- ENDIF -->
+<!-- ENDIF -->
+
+<!-- IF S_DBOKAY -->
+<form id="acp_pbwow" method="post" action="{U_ACTION}">
+<!-- BEGIN options -->
+	<!-- IF options.S_LEGEND -->
+		<!-- IF not options.S_FIRST_ROW -->
+			</fieldset>
+		<!-- ENDIF -->
+		<fieldset>
+			<legend>{options.LEGEND}</legend>
+	<!-- ELSE -->
+
+		<dl>
+			<dt><label for="{options.KEY}">{options.TITLE}:</label><!-- IF options.S_EXPLAIN --><br /><span>{options.TITLE_EXPLAIN}</span><!-- ENDIF --></dt>
+			<dd>{options.CONTENT}</dd>
+		</dl>
+
+	<!-- ENDIF -->
+<!-- END options -->
+
+<!-- IF S_AUTH -->
+	<!-- BEGIN auth_tpl -->
+		{auth_tpl.TPL}
+	<!-- END auth_tpl -->
+<!-- ENDIF -->
+
+<!-- IF not S_VERSIONCHECK -->
+	<p class="submit-buttons">
+		<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+		<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+	</p>
+	{S_FORM_TOKEN}
+<!-- ENDIF -->
+	</fieldset>
+</form>
+
+<!-- ENDIF -->
+
+<!-- INCLUDE overall_footer.html -->
