@@ -1,0 +1,13 @@
+/*\ Safari Form Color \*/
+
+input, textarea, input.post-subject-field, input.login-account-field, input.login-password-field, input.options-email-field, input.options-talent-field, textarea.post-message-text, textarea.options-signature-text { background: white; color: black; !important }
+textarea.post-message-text { width: 604px !important; margin: 29px 0 0 19px; height: 248px !important;  }
+textarea.options-signature-text { width: 604px;  height: 110px; }
+.poll-footer input, a.result, a.result-inactive { top: 20px; }
+.vote-inactive,  .poll-footer input { position: relative; top: 15px; }
+li.delete-posts { border: 1px solid #555; margin: 0 6px; }
+li.delete-posts span { padding: 0 8px 0 6px; }
+.miniadmin ul {  }
+.miniadmin {  }
+
+#menu ul { background:#062C60;  }

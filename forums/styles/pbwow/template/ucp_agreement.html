@@ -1,0 +1,85 @@
+<!-- INCLUDE overall_header.html -->
+
+<center>
+<div id="container" style="width: 775px; position: relative;">
+	<!--// Begin Large Box //-->
+	<div class="border" style="margin: 0 auto;">
+		<div class="im1">
+			<div class="im2">
+				<div class="im3">
+					<div class="im4">
+						<div class="im5">
+							<div class="im6">
+								<div class="im7">
+									<div class="im8">
+										<center>
+											<div class="small-content" style="color:#CCC">
+<!-- Begin Content -->
+<div><img src="{T_IMAGESET_PATH}/x_custom/txt-register.gif" alt="" /></div>
+
+<!-- IF S_SHOW_COPPA or S_REGISTRATION -->
+												
+	<!-- IF S_LANG_OPTIONS -->
+	<script type="text/javascript">
+	// <![CDATA[
+		/**
+		* Change language
+		*/
+		function change_language(lang_iso)
+		{
+			document.forms['register'].change_lang.value = lang_iso;
+			document.forms['register'].submit();
+		}
+	
+	// ]]>
+	</script>
+	
+		<form method="post" action="{S_UCP_ACTION}" id="register">
+			<p class="rightside">
+				<label for="lang">{L_LANGUAGE}:</label><select name="lang" id="lang" onchange="change_language(this.value); return false;" title="{L_LANGUAGE}">{S_LANG_OPTIONS}</select>
+				{S_HIDDEN_FIELDS}
+			</p>
+		</form>
+	
+		<div class="clear"></div>
+	
+	<!-- ENDIF -->
+												
+<form method="post" action="{S_UCP_ACTION}" id="agreement">
+	<p><!-- IF S_SHOW_COPPA -->{L_COPPA_BIRTHDAY}<!-- ELSE -->{L_TERMS_OF_USE}<!-- ENDIF --></p>
+	<fieldset class="submit-buttons">
+		<!-- IF S_SHOW_COPPA -->
+		<strong><a href="{U_COPPA_NO}" class="button1">{L_COPPA_NO}</a></strong>&nbsp; <a href="{U_COPPA_YES}" class="button2">{L_COPPA_YES}</a>
+		<!-- ELSE -->
+		<input type="submit" name="agreed" id="agreed" value="{L_AGREE}" class="button1" />&nbsp;
+		<input type="submit" name="not_agreed" value="{L_NOT_AGREE}" class="button2" />
+		<!-- ENDIF -->
+		{S_HIDDEN_FIELDS}
+		{S_FORM_TOKEN}
+	</fieldset>
+</form>
+
+<!-- ELSEIF S_AGREEMENT -->
+
+<p>{AGREEMENT_TEXT}</p><br />
+<p><a href="{U_BACK}" class="link">{L_BACK}</a></p>
+<br />
+<!-- ENDIF -->	
+
+<!-- End Content -->
+											</div>
+										</center>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--// End Large Box //-->
+</div>
+</center>
+
+<!-- INCLUDE overall_footer.html -->

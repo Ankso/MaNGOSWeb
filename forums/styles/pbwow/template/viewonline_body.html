@@ -1,0 +1,108 @@
+<!-- INCLUDE overall_header.html -->
+<div class="clear" style="height:151px"></div>
+
+<div id="cover" style="position:absolute; z-index:999999; top:0px; right:10px; width:300px; height:3000px; display:none; background-color:red;"></div>
+<div id="topicheader">
+	<div style="float: right;"> <a href="{U_INDEX}"><img src="{T_IMAGESET_LANG_PATH}/forum-index.gif" width="104" height="41" border="0" alt="" /></a> </div>
+	<div id="topicview" style="margin-top: 14px;">
+		<ul>
+			<li><span title="Current time"><small><font color="white">{TOTAL_REGISTERED_USERS_ONLINE} | {TOTAL_GUEST_USERS_ONLINE}<!-- IF S_SWITCH_GUEST_DISPLAY --> &bull; <a href="{U_SWITCH_GUEST_DISPLAY}">{L_SWITCH_GUEST_DISPLAY}</a><!-- ENDIF --> | {CURRENT_TIME_CLEAN}&nbsp;</font></small></span></li>
+		</ul>
+	</div>
+</div>
+
+<div class="theader">
+	<div class="lpage"></div>
+	<div class="rpage-thread">
+		<!-- IF PAGINATION -->
+			<!-- INCLUDE pbwow_pagination.html -->
+		<!-- ENDIF -->		
+	</div>
+</div>
+
+
+<div id="postbackground">
+	<div class="right">
+		<table width="90%" border="0" cellpadding="0" cellspacing="0" class="tableoutline" style="margin: 0 auto;">
+			<tr>
+				<td class="tableheader">
+					<table cellspacing="0" cellpadding="0" border="0" width="100%">
+						<tr>
+							<td><img src="{T_IMAGESET_PATH}/pixel.gif" border="0" width="1" height="22" alt="" /></td>
+							<td style="padding: 0 0 0 5px;" width="100%"><span> <a class="filter" href="{U_SORT_USERNAME}">{L_USERNAME}</a></span></td>
+						</tr>
+					</table>
+				</td>
+				<td class="tableheader" style="padding: 0 0 0 5px;"><span> <a class="filter" href="{U_SORT_LOCATION}">{L_FORUM_LOCATION}</a></span></td>
+				<td class="tableheader" style="padding: 0 0 0 5px;"><span> <a class="filter" href="{U_SORT_UPDATED}">{L_LAST_UPDATED}</a></span></td>
+			</tr>
+			<!-- IF .user_row -->
+
+			<!-- BEGIN user_row -->
+			<tr class="rows">
+				<!-- IF user_row.S_ROW_COUNT is even --><td class="ta2">
+				<!-- ELSE --><td class="t2"><!-- ENDIF -->
+					<img src="{T_IMAGESET_PATH}/square-grey.gif" width="15" height="15" style="vertical-align:middle;" border="0" alt="" />{user_row.USERNAME_FULL}
+					<!-- IF user_row.USER_IP --> <span style="margin-left: 30px;">{L_IP}: <a href="{user_row.U_USER_IP}">{user_row.USER_IP}</a> &#187; <a href="{user_row.U_WHOIS}" onclick="popup(this.href, 750, 500); return false;">{L_WHOIS}</a></span><!-- ENDIF -->
+					<!-- IF user_row.USER_BROWSER --><br />{user_row.USER_BROWSER}<!-- ENDIF --></td>
+				
+				<!-- IF user_row.S_ROW_COUNT is even --><td class="ta3">
+				<!-- ELSE --><td class="t3"><!-- ENDIF --><a href="{user_row.U_FORUM_LOCATION}">{user_row.FORUM_LOCATION}</a></td>				
+				<!-- IF user_row.S_ROW_COUNT is even --><td class="ta6" style="white-space: nowrap">
+				<!-- ELSE --><td class="t6" style="white-space: nowrap" ><!-- ENDIF -->{user_row.LASTUPDATE}&nbsp;
+				</td>
+			</tr>
+			<!-- END user_row -->
+			
+			<!-- ELSE -->
+			<tr class="rows" style="height:30px">
+				<td class="ta5" colspan="3">
+				<span style="color:#FFFFFF;"><strong>{L_NO_ONLINE_USERS}<!-- IF S_SWITCH_GUEST_DISPLAY --> &bull; <a href="{U_SWITCH_GUEST_DISPLAY}">{L_SWITCH_GUEST_DISPLAY}</a><!-- ENDIF --></strong></span>
+				</td>
+			</tr>
+			
+			<!-- ENDIF -->
+
+		</table>
+	</div>
+</div>
+
+
+
+
+
+			
+				
+
+
+<div id="topicfooter" style="height:22px">
+	<div class="rpage">
+		<!-- IF PAGINATION or TOTAL_POSTS -->
+			<!-- INCLUDE pbwow_pagination.html -->
+		<!-- ENDIF -->
+	</div>
+</div>
+<div class="forum-index">
+	<div class="findex" style="margin-top:-1px"> <a href="{U_INDEX}"><img src="{T_IMAGESET_LANG_PATH}/forum-index.gif" width="104" height="41" border="0" title="" alt="" /></a> </div>
+</div>
+<div style="width: 100%; height: 20px;"></div>
+
+
+<!-- INCLUDE pbwow_jumpbox_2.html -->
+
+
+<div align="center" style="padding:10px; margin-top:-20px">
+	<span><b>{L_LEGEND}</b> [ <a href="{U_FAQ}" title="{L_FAQ_EXPLAIN}">More Details</a> ]</span>
+	<table cellspacing="0" cellpadding="0" id="iconLegend">
+		<tr>
+			<td>
+				<table class="tb2" width="100%" cellspacing="0" cellpadding="0" border="0">
+					<tr>
+						<td style="padding:10px">{LEGEND}</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</div>
+<!-- INCLUDE overall_footer.html -->

@@ -1,0 +1,334 @@
+<!-- INCLUDE overall_header.html -->
+
+
+<div class="clear" style="height:151px"></div>
+
+<div id="cover" style="position:absolute; z-index:999999; top:0px; right:10px; width:300px; height:3000px; display:none; background-color:red;"></div>
+<div id="topicheader">
+	<div style="float: right;"> <a href="{U_INDEX}"><img src="{T_IMAGESET_LANG_PATH}/forum-index.gif" width="104" height="41" border="0" alt="" /></a> </div>
+	<div id="topicview" style="margin-top: 14px;">
+		<ul>
+			<li><span title="Current time"><small><font color="white"><b>{PAGE_TITLE}</b> | {CURRENT_TIME_CLEAN}&nbsp;</font></small></span></li>
+		</ul>
+	</div>
+</div>
+
+
+
+<div id="postbackground">
+	<div class="right">	
+	<form method="post" action="{S_PROFILE_ACTION}" id="viewprofile">
+		<div id="postshell11">
+			<div class="resultbox">
+				<div class="postdisplay">
+					<div class="innerborder">
+						<div class="postingcontainer11">
+							<div class="insert">
+							<!-- IF RANK_PROPASS and S_PBWOW_PROPASS_RANKS -->
+							<table id="posttable11" class="propass" cellpadding="0" cellspacing="0" border="0">
+							<!-- ELSE -->
+							<table id="posttable11" cellpadding="0" cellspacing="0" border="0">
+							<!-- ENDIF -->
+								<tr>
+									<!-- IF RANK_BLIZZ and S_PBWOW_BLIZZ_RANKS -->
+										<td class="idbliz11" id="id" rowspan="2">
+									<!-- ELSE -->
+										<td class="id11" id="id" rowspan="2">
+									<!-- ENDIF -->
+										
+										<div id="avatarIDX">
+											<div id="avatar11">
+												<div class="shell">
+													<!-- IF AVATAR_IMG_SRC -->
+													<table cellspacing="0" cellpadding="0" border="0">
+														<tr>
+															<td style="background: url('{AVATAR_IMG_SRC}') no-repeat; width: 64px; height: 64px;"></td>
+														</tr>
+													</table>
+													<div class="frame">
+													<!-- ELSEIF S_PROFILE_PBRACE -->
+													<!-- Generate avatar based on custom profile fields -->
+													<table cellspacing="0" cellpadding="0" border="0">
+														<tr>
+															<td style="background: url('{T_IMAGESET_PATH}/portraits/<!-- IF S_PROFILE_PBLEVEL --><!-- IF PROFILE_PBLEVEL_VALUE > 79 -->wow-80<!-- ELSEIF PROFILE_PBLEVEL_VALUE > 69 -->wow-70<!-- ELSEIF PROFILE_PBLEVEL_VALUE > 59 -->wow<!-- ELSE -->wow-default<!-- ENDIF --><!-- ELSE -->wow-default<!-- ENDIF -->/<!-- IF S_PROFILE_PBGENDER -->{PROFILE_PBGENDER_ID}<!-- ELSE -->0<!-- ENDIF -->-{PROFILE_PBRACE_ID}-<!-- IF S_PROFILE_PBCLASS -->{PROFILE_PBCLASS_ID}<!-- ELSE -->1<!-- ENDIF -->.gif') no-repeat; width: 64px; height: 64px;"></td>
+														</tr>
+													</table>
+													<!-- / Generate avatar based on custom profile fields -->
+													<div class="frame">
+													<!-- ELSE -->
+													<table cellspacing="0" cellpadding="0" border="0">
+														<tr>
+															<td style="background: none; width: 64px; height: 64px;"></td>
+														</tr>
+													</table>
+													<div class="frame-no-char">
+													<!-- ENDIF -->
+													<img src="{T_IMAGESET_PATH}/pixel.gif" width="82" height="83" border="0" alt="" />
+													</div>
+												</div>
+												<div style="position: relative;">
+													<!-- IF AVATAR_IMG_SRC or S_PROFILE_PBRACE -->
+													<div class="iconPosition">
+														<!-- IF SPECIAL_RANK_IMG -->{SPECIAL_RANK_IMG}<!-- ELSEIF S_PROFILE_PBLEVEL and PROFILE_PBLEVEL_VALUE neq 0 --><b><small>{PROFILE_PBLEVEL_VALUE}</small></b><!-- ELSEIF not S_PROFILE_PBRACE and RANK_IMG -->{RANK_IMG}<!-- ELSE --><img src="{T_IMAGESET_PATH}/x_custom/question.gif" alt="" /><!-- ENDIF -->
+													</div>
+													<!-- ENDIF -->
+													<!-- IF RANK_BLIZZ and S_PBWOW_BLIZZ_RANKS -->
+													<!-- ELSE -->
+														<div id="iconpanelhide11">
+														<!-- IF S_PROFILE_PBRACE -->
+														<div id="iconpanel"></div>
+														<div id="default-icon-panel">
+	
+														<!-- Character icons -->
+															<!-- IF S_PROFILE_PBRACE -->
+																<!-- IF S_PROFILE_PBGENDER -->
+																<div class="player-icons-race" style="background: url('{T_IMAGESET_PATH}/icon/race/{PROFILE_PBRACE_ID}-{PROFILE_PBGENDER_ID}.gif') no-repeat;"></div>
+																<!-- ELSE -->
+																<div class="player-icons-race" style="background: url('{T_IMAGESET_PATH}/icon/race/{PROFILE_PBRACE_ID}-0.gif') no-repeat;"> <img src = "{T_IMAGESET_PATH}/pixel.gif" height="18" width="18" alt="" /> </div>
+																<!-- ENDIF -->
+															<!-- ENDIF -->
+															
+															<!-- IF S_PROFILE_PBCLASS -->
+																<div class="player-icons-class" style="background: url('{T_IMAGESET_PATH}/icon/class/{PROFILE_PBCLASS_ID}.gif') no-repeat;"><!-- IF S_PROFILE_PBARMORYCHARLINK --><a href="{PROFILE_PBARMORYCHARLINK_VALUE}" target="_blank"><img src="{T_IMAGESET_PATH}/icon/icon-active.png" alt="" class="png" border="0" height="18" width="18" /></a><!-- ELSE --><img src = "{T_IMAGESET_PATH}/pixel.gif" height="18" width="18" alt="" /><!-- ENDIF --></div>
+															<!-- ENDIF -->
+															
+															<!-- IF RANK_IMG -->
+																<div class="player-icons-pvprank" style="background: url('{RANK_IMG_SRC}') no-repeat;" title="{RANK_TITLE}"></div>
+															<!-- ELSE -->
+																<!-- IF PROFILE_PBRACE_ID == 1 or PROFILE_PBRACE_ID == 3 or PROFILE_PBRACE_ID == 4 or PROFILE_PBRACE_ID == 7 or PROFILE_PBRACE_ID == 11 -->
+																	<div class="player-icons-pvprank" style="background: url('{T_IMAGESET_PATH}/icon/pvpranks/rank_default_0.gif') no-repeat;"></div>
+																<!-- ELSE -->
+																	<div class="player-icons-pvprank" style="background: url('{T_IMAGESET_PATH}/icon/pvpranks/rank_default_1.gif') no-repeat;"></div>
+																<!-- ENDIF -->
+															<!-- ENDIF -->
+														<!-- / Character icons -->
+	
+														</div>
+													<!-- ENDIF -->	
+													</div>
+												<!-- ENDIF -->
+												</div>													
+											</div>
+										</div>
+	
+										<!-- //Begin Character Control Panel// -->
+										<div style="position: relative; width: 200px;">
+											<!-- IF S_IGNORE_POST --><div id="userpanel" class="userpanel" style="top:-4px"><!-- ELSE --><div id="userpanel" class="userpanel"><!-- ENDIF -->
+												<a href="{U_SEARCH_USER}"><img class="icon-search" src="{T_IMAGESET_PATH}/icons/search.gif" alt="view posts by this user" /></a>
+												<!-- IF S_ONLINE --><img class="icon-ignore" src="{T_IMAGESET_PATH}/icons/unignore-user.gif" id="ignore" alt="{L_ONLINE}" />
+												<!-- ELSE --><img class="icon-ignore" src="{T_IMAGESET_PATH}/icons/ignore-user-inactive.gif" id="ignore" alt="{L_OFFLINE}" /><!-- ENDIF -->
+											</div>
+										</div>
+										<!-- End Character Control Panel -->
+										
+										<!-- Begin Character Information Display -->
+										<div style="clear: left;">
+											<!--ie-->
+										</div>
+										
+										<!-- IF RANK_BLIZZ and S_PBWOW_BLIZZ_RANKS -->
+											<div style="position: relative; width: 200px;">
+												<div style="padding-top: 5px;"></div>
+												<div class="chardata">
+													<span>
+														<b style="color:#ffac04;">
+															{USERNAME}
+														</b>
+													</span>
+												</div>
+												<div id="afterAvatar">
+													<small><!-- IF USER_COLOR --><span style="color: {USER_COLOR};"><!-- ELSE --><span><!-- ENDIF -->{SPECIAL_RANK_TITLE}</span></small>
+												</div>
+											</div>
+										<!-- ELSE -->
+											<div style="position: relative; width: 200px;">
+												<div id="pinfo" class="pinfo">
+													<div id="pinfobackground" class="pinfobackground">
+														<div class="chardata">
+															<span><b style="color:#ffac04;">
+																{USERNAME}
+																</b></span>
+														</div>
+														<div id="afterAvatar">
+															<!-- IF S_PROFILE_PBGUILD -->
+															<ul class="listinfo">
+																<li class="icon-guild"><small style="color:#FFB019"><b><!-- IF S_PROFILE_PBARMORYGUILDLINK --><a href="{PROFILE_PBARMORYGUILDLINK_VALUE}" target="_blank">&lt; {PROFILE_PBGUILD_VALUE} &gt;</a><!-- ELSE -->&lt; {PROFILE_PBGUILD_VALUE} &gt;<!-- ENDIF --></b></small></li>
+															</ul>
+															<!-- ENDIF -->
+															<!-- IF SPECIAL_RANK_TITLE -->
+															<ul class="listinfo" style="clear: both;">
+																<li class="icon-realm"><small><b>{SPECIAL_RANK_TITLE}</b></small></li>
+															</ul>
+															<!-- ENDIF -->
+															<div style="clear:both;width:100%;height:1px">
+																<!---->
+															</div>
+														</div>
+													</div>
+													<!-- end pinfobackground -->
+												</div>
+												<!-- end pinfo -->
+												<div id="hideplayerfooter">
+													<div class="pinfobottom">
+														<div class="pifooter"></div>
+													</div>
+												</div>
+											</div>
+										<!-- ENDIF -->
+										<!-- //End Character Display// -->
+										<!-- //grabs character info -->
+									</td>
+									
+									<td class="tools11"><div id="postid11">
+											<ul>
+												<li style="display:table-cell;"><span class="white">
+													<!-- IF U_USER_ADMIN --> [ <a href="{U_USER_ADMIN}">{L_USER_ADMIN}</a> ]<!-- ENDIF -->
+													<!-- IF U_USER_BAN --> [ <a href="{U_USER_BAN}">{L_USER_BAN}</a> ]<!-- ENDIF -->
+													<!-- IF U_SWITCH_PERMISSIONS --> [ <a href="{U_SWITCH_PERMISSIONS}">{L_USE_PERMISSIONS}</a> ]<!-- ENDIF -->
+												</span></li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+								<tr id="body">
+									<td class="message11">
+										<table id="postbody11" cellspacing="0" border="0">
+											<tr>
+												<td>
+													<div class="breakWord">
+														<div class="message-format">
+															<span>
+																
+<table cellspacing="0" border="0" width="600px">
+	<tr>
+		<td>
+			<dl class="details">
+				<dt>{L_USERNAME}:</dt> <dd><!-- IF USER_COLOR --><span style="color: {USER_COLOR}; font-weight: bold;"><!-- ELSE --><span><!-- ENDIF -->{USERNAME}</span></dd>
+				<!-- IF SPECIAL_RANK_TITLE --><dt>{L_RANK}:</dt> <dd>{SPECIAL_RANK_TITLE}</dd><!-- ENDIF -->
+				<!-- IF SPECIAL_RANK_IMG --><dt><!-- IF RANK_TITLE -->&nbsp;<!-- ELSE -->{L_RANK}:<!-- ENDIF --></dt> <dd>{SPECIAL_RANK_IMG}</dd><!-- ENDIF -->
+				<!-- IF RANK_TITLE --><dt>{L_RANK}:</dt> <dd>{RANK_TITLE}</dd><!-- ENDIF -->
+				<!-- IF RANK_IMG --><dt><!-- IF RANK_TITLE -->&nbsp;<!-- ELSE -->{L_RANK}:<!-- ENDIF --></dt> <dd>{RANK_IMG}</dd><!-- ENDIF -->
+				<!-- IF S_USER_INACTIVE --><dt>{L_USER_IS_INACTIVE}:</dt> <dd>{USER_INACTIVE_REASON}</dd><!-- ENDIF -->
+				<!-- IF LOCATION --><dt>{L_LOCATION}:</dt> <dd>{LOCATION}</dd><!-- ENDIF -->
+				<!-- IF AGE --><dt>{L_AGE}:</dt> <dd>{AGE}</dd><!-- ENDIF -->
+				<!-- IF OCCUPATION --><dt>{L_OCCUPATION}:</dt> <dd>{OCCUPATION}</dd><!-- ENDIF -->
+				<!-- IF INTERESTS --><dt>{L_INTERESTS}:</dt> <dd>{INTERESTS}</dd><!-- ENDIF -->
+				<!-- IF S_GROUP_OPTIONS --><dt>{L_USERGROUPS}:</dt> <dd><select name="g">{S_GROUP_OPTIONS}</select> <input type="submit" name="submit" value="{L_GO}" class="button2" /></dd><!-- ENDIF -->
+				<!-- BEGIN custom_fields --><dt>{custom_fields.PROFILE_FIELD_NAME}:</dt> <dd>{custom_fields.PROFILE_FIELD_VALUE}</dd><!-- END custom_fields -->
+				<!-- IF S_USER_LOGGED_IN and S_ZEBRA -->
+					<!-- IF U_REMOVE_FRIEND -->
+						<dt>&nbsp;</dt> <dd><a href="{U_REMOVE_FRIEND}"><strong>{L_REMOVE_FRIEND}</strong></a></dd>
+					<!-- ELSEIF U_REMOVE_FOE -->
+						<dt>&nbsp;</dt> <dd><a href="{U_REMOVE_FOE}"><strong>{L_REMOVE_FOE}</strong></a></dd>
+					<!-- ELSE -->
+						<!-- IF U_ADD_FRIEND -->
+							<dt>&nbsp;</dt> <dd><a href="{U_ADD_FRIEND}"><strong>{L_ADD_FRIEND}</strong></a></dd>
+						<!-- ENDIF -->
+						<!-- IF U_ADD_FOE -->
+							<dt>&nbsp;</dt> <dd><a href="{U_ADD_FOE}"><strong>{L_ADD_FOE}</strong></a></dd>
+						<!-- ENDIF -->
+					<!-- ENDIF -->
+				<!-- ENDIF -->
+			</dl>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<ins><hr noshade="noshade" size="1" color="#9e9e9e" /></ins>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<h3>{L_CONTACT_USER} {USERNAME}</h3>
+			<dl class="details">
+			<!-- IF U_EMAIL --><dt>{L_EMAIL_ADDRESS}:</dt> <dd><a href="{U_EMAIL}">{L_SEND_EMAIL_USER} {USERNAME}</a></dd><!-- ENDIF -->
+			<!-- IF U_WWW --><dt>{L_WEBSITE}:</dt> <dd><a href="{U_WWW}" title="{L_VISIT_WEBSITE}: {U_WWW}">{U_WWW}</a></dd><!-- ENDIF -->
+			<!-- IF U_PM --><dt>{L_PM}:</dt> <dd><a href="{U_PM}">{L_SEND_PRIVATE_MESSAGE}</a></dd>
+			<!-- ENDIF -->
+			<!-- IF U_MSN or USER_MSN --><dt>{L_MSNM}:</dt> <dd><!-- IF U_MSN --><a href="{U_MSN}" onclick="popup(this.href, 550, 320); return false;">{L_SEND_MSNM_MESSAGE}</a><!-- ELSE -->{USER_MSN}<!-- ENDIF --></dd><!-- ENDIF -->
+			<!-- IF U_YIM or USER_YIM --><dt>{L_YIM}:</dt> <dd><!-- IF U_YIM --><a href="{U_YIM}" onclick="popup(this.href, 780, 550); return false;">{L_SEND_YIM_MESSAGE}</a><!-- ELSE -->{USER_YIM}<!-- ENDIF --></dd><!-- ENDIF -->
+			<!-- IF U_AIM or USER_AIM --><dt>{L_AIM}:</dt> <dd><!-- IF U_AIM --><a href="{U_AIM}" onclick="popup(this.href, 550, 320); return false;">{L_SEND_AIM_MESSAGE}</a><!-- ELSE -->{USER_AIM}<!-- ENDIF --></dd><!-- ENDIF -->
+			<!-- IF U_ICQ or USER_ICQ --><dt>{L_ICQ}:</dt> <dd><!-- IF U_ICQ --><a href="{U_ICQ}" onclick="popup(this.href, 550, 320); return false;">{L_SEND_ICQ_MESSAGE}</a><!-- ELSE -->{USER_ICQ}<!-- ENDIF --></dd><!-- ENDIF -->
+			<!-- IF U_JABBER and S_JABBER_ENABLED --><dt>{L_JABBER}:</dt> <dd><a href="{U_JABBER}" onclick="popup(this.href, 550, 320); return false;">{L_SEND_JABBER_MESSAGE}</a></dd><!-- ELSEIF USER_JABBER --><dt>{L_JABBER}:</dt> <dd>{USER_JABBER}</dd><!-- ENDIF -->
+			<!-- IF S_PROFILE_FIELD1 -->
+				<!-- NOTE: Use a construct like this to include admin defined profile fields. Replace FIELD1 with the name of your field. -->
+				<dt>{PROFILE_FIELD1_NAME}:</dt> <dd>{PROFILE_FIELD1_VALUE}</dd>
+			<!-- ENDIF -->
+			</dl>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<ins><hr noshade="noshade" size="1" color="#9e9e9e" /></ins>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<h3>{L_USER_FORUM}</h3>
+			<dl class="details">
+				<dt>{L_JOINED}:</dt> <dd>{JOINED}</dd>
+				<dt>{L_VISITED}:</dt> <dd>{VISITED}</dd>
+				<!-- IF S_WARNINGS -->
+				<dt>{L_WARNINGS}: </dt>
+				<dd><strong>{WARNINGS}</strong><!-- IF U_NOTES or U_WARN --> [ <!-- IF U_NOTES --><a href="{U_NOTES}">{L_VIEW_NOTES}</a><!-- ENDIF --> <!-- IF U_WARN --><!-- IF U_NOTES --> | <!-- ENDIF --><a href="{U_WARN}">{L_WARN_USER}</a><!-- ENDIF --> ]<!-- ENDIF --></dd>
+				<!-- ENDIF -->
+				<dt>{L_TOTAL_POSTS}:</dt>
+					<dd>{POSTS} <!-- IF S_DISPLAY_SEARCH -->| <strong><a href="{U_SEARCH_USER}">{L_SEARCH_USER_POSTS}</a></strong><!-- ENDIF -->
+					<!-- IF POSTS_PCT --><br />({POSTS_PCT} / {POSTS_DAY})<!-- ENDIF -->
+					<!-- IF POSTS_IN_QUEUE and U_MCP_QUEUE --><br />(<a href="{U_MCP_QUEUE}">{L_POSTS_IN_QUEUE}</a>)<!-- ELSEIF POSTS_IN_QUEUE --><br />({L_POSTS_IN_QUEUE})<!-- ENDIF -->
+				</dd>
+				<!-- IF S_SHOW_ACTIVITY and POSTS -->
+					<dt>{L_ACTIVE_IN_FORUM}:</dt> <dd><!-- IF ACTIVE_FORUM --><strong><a href="{U_ACTIVE_FORUM}">{ACTIVE_FORUM}</a></strong><br />({ACTIVE_FORUM_POSTS} / {ACTIVE_FORUM_PCT})<!-- ELSE --> - <!-- ENDIF --></dd>
+					<dt>{L_ACTIVE_IN_TOPIC}:</dt> <dd><!-- IF ACTIVE_TOPIC --><strong><a href="{U_ACTIVE_TOPIC}">{ACTIVE_TOPIC}</a></strong><br />({ACTIVE_TOPIC_POSTS} / {ACTIVE_TOPIC_PCT})<!-- ELSE --> - <!-- ENDIF --></dd>
+				<!-- ENDIF -->
+			</dl>
+		</td>
+	</tr>
+</table>
+
+																<!-- IF SIGNATURE -->
+																	<ins><hr noshade="noshade" size="1" color="#9e9e9e" /></ins>
+																	<span style="color:{POST_AUTHOR_COLOUR}">
+																		{SIGNATURE}
+																	</span>
+																<!-- ENDIF -->
+	
+																</span>
+															</div>
+														</div>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+								<!-- End table posttable -->
+							</div> 
+							<!-- end insert -->
+						</div>
+						<!-- end innercontainer -->
+					</div>
+					<!-- end border -->
+				</div>
+				<!-- end postdisplay -->
+			</div>
+			<!-- end resultbox -->
+		</div>
+		<!-- End div postshell -->
+
+	</form>
+	<!-- End Posts -->
+	</div>
+</div>
+<!-- end postbackground -->
+
+<div id="topicfooter">
+</div>
+<div class="forum-index">
+	<div class="findex"> <a href="{U_INDEX}"><img src="{T_IMAGESET_LANG_PATH}/forum-index.gif" width="104" height="41" border="0" title="" alt="" /></a> </div>
+</div>
+<div style="width: 100%; height: 20px;"></div>
+
+<!-- INCLUDE pbwow_jumpbox_2.html -->
+
+<!-- INCLUDE overall_footer.html -->

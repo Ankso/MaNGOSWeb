@@ -1,0 +1,640 @@
+<!-- INCLUDE overall_header.html -->
+
+<!-- INCLUDE pbwow_header.html -->
+
+<table cellspacing="0" cellpadding="1" border="0" width="100%" class="board-clear">
+	<tr>
+		<td class="tableoutline adbg">
+			<!-- IF S_PBWOW_ADS_TOP -->
+			<center>
+				<div id="ad_728x90" style="margin-bottom:12px; margin-top:10px; padding: 1px; width:728px; background:#1E1E1E none repeat scroll right center;">
+					<!-- IF S_PBWOW_IE6MESSAGE -->{PBWOW_IE6MESSAGE_CODE}<!-- ENDIF -->
+					{PBWOW_ADS_TOP_CODE}
+				</div>
+			</center>
+			<!-- ENDIF -->
+
+			<table cellspacing="0" cellpadding="0" border="0" width="100%" class="tableoutline">
+				<tr>
+					<td>
+						<div class="theader">
+							<div class="lpage-thread">
+								<div id="topicview" style="font-weight: normal;">
+									<ul>
+										<!-- IF S_POST_ANNOUNCE --><li><img src="{T_IMAGESET_PATH}/icons/blizz.gif" border="0" alt="{L_ANNOUNCEMENTS}" /></li><!-- ENDIF -->
+										<!-- IF S_IS_LOCKED -->
+											<li><span><img src="{T_IMAGESET_PATH}/icons/lock-icon.gif" width="15" height="16" border="0" alt= "{L_TOPIC_LOCKED_SHORT}" /></span></li>
+										<!-- ELSE -->
+											<li><span><img src="{T_IMAGESET_PATH}/icons/index-icon.gif" width="14" height="15" border="0" alt= "" /></span></li>
+										<!-- ENDIF -->
+										<!-- IF S_POST_STICKY or S_POST_ANNOUNCE --><li><span><img src="{T_IMAGESET_PATH}/icons/sticky.gif" width="22" height="15" border="0" alt= "" /></span></li><!-- ENDIF -->
+										<li><span class="white"><b>&nbsp;Topic&nbsp;<a href="{U_VIEW_TOPIC}">{TOPIC_TITLE}</a></b></span></li>
+										<li><span class="white"><small>&nbsp; | &nbsp;{CURRENT_TIME_CLEAN}&nbsp;</small></span></li>
+									</ul>
+								</div>
+							</div>
+							<div class="rpage-thread">
+								<!-- IF PAGINATION or TOTAL_POSTS -->
+									<!-- INCLUDE pbwow_pagination.html -->
+								<!-- ENDIF -->
+							</div>
+						</div>
+						<div id="postbackground">
+							<div class="right">
+
+<!-- IF S_HAS_POLL -->
+<div id = "postshell11">
+	<div class = "resultbox">
+		<div class="postdisplay">
+			<div class = "innerborder">
+				<div class = "postingcontainer11">
+					<div class="postdiv11">
+						<div class="deco-frame">
+							<div class="deco-frame-right">
+								<div class="deco-frame-left">
+									<form method="post" action="{S_POLL_ACTION}">
+										<h2><span>Polls</span></h2>
+										<!-- IF S_CAN_VOTE --><img class="poll-result-icon" src="{T_IMAGESET_PATH}/icons/poll-open.gif" alt=""/><!-- ELSE --><img class="poll-result-icon" src="{T_IMAGESET_PATH}/icons/poll-private.gif" alt=""/><!-- ENDIF -->
+										<div class="polls">
+											<div class="poll-date">
+												<div class="poll-date1">
+													<div class="poll-date2"><!-- IF L_POLL_LENGTH -->{L_TIME}:<span> {L_POLL_LENGTH}</span> | <!-- ENDIF -->{L_OPTIONS}: <span>{L_MAX_VOTES}</span></div>
+												</div>
+											</div>
+											<div style="clear: both; height: 1px;"></div>
+											<h1>{L_VIEW_TOPIC_POLL} <span>"{POLL_QUESTION}"</span></h1>
+											<div class="df">
+												<h3><span>{L_VIEW_RESULTS}</span></h3>
+												<table>
+													<tr>
+														<td class="tl"></td>
+														<td class="t"></td>
+														<td class="tr"></td>
+													</tr>
+													<tr>
+														<td class="l"><q></q></td>
+														<td class="bg">
+															<div class="poll-content"> <br/>
+																																			
+																<!-- BEGIN poll_option -->
+																<div class="poll-box">
+																	<div class="poll-option">
+																		<!-- IF poll_option.POLL_OPTION_VOTED --><span>{L_POLL_VOTED_OPTION}:&nbsp;&nbsp;</span><!-- ENDIF -->
+																		{poll_option.POLL_OPTION_CAPTION}
+																		<span>
+																		<!-- IF S_CAN_VOTE -->
+																		<!-- IF S_IS_MULTI_CHOICE -->
+																			<!-- IF poll_option.POLL_OPTION_VOTED -->
+																			<input type="checkbox" name="vote_id[]" id="vote_{poll_option.POLL_OPTION_ID}" value="{poll_option.POLL_OPTION_ID}" checked="checked" />
+																			<!-- ELSE -->
+																			<input type="checkbox" name="vote_id[]" id="vote_{poll_option.POLL_OPTION_ID}" value="{poll_option.POLL_OPTION_ID}" />
+																			<!-- ENDIF -->
+																		<!-- ELSE -->
+																			<!-- IF poll_option.POLL_OPTION_VOTED -->
+																			<input type="radio" name="vote_id[]" id="vote_{poll_option.POLL_OPTION_ID}" value="{poll_option.POLL_OPTION_ID}" checked="checked" />
+																			<!-- ELSE -->
+																			<input type="radio" name="vote_id[]" id="vote_{poll_option.POLL_OPTION_ID}" value="{poll_option.POLL_OPTION_ID}" />
+																			<!-- ENDIF -->
+																		<!-- ENDIF -->
+																		<!-- ENDIF -->
+																		<!-- IF S_DISPLAY_RESULTS -->{poll_option.POLL_OPTION_RESULT} votes<!-- ENDIF -->
+																		</span>
+																	</div>
+																	<!-- IF S_DISPLAY_RESULTS -->
+																	<div class="poll-count">
+																		<div class="poll-count-total">
+																			<span class="poll-bar" id="pollCount{poll_option.POLL_OPTION_ID}">
+																				<span class="pollpercent">{poll_option.POLL_OPTION_PERCENT}</span>
+																			</span>
+																		</div>
+																	</div>
+																	<script type="text/javascript">document.getElementById('pollCount{poll_option.POLL_OPTION_ID}').style.width = "{poll_option.POLL_OPTION_PERCENT}";</script>
+																	<!-- ENDIF -->
+																</div>
+																<!-- END poll_option -->
+
+																<br/>
+																<!-- IF S_DISPLAY_RESULTS -->
+																<span class="totalvotes">{L_TOTAL_VOTES}: {TOTAL_VOTES}</span>
+																<!-- ENDIF -->
+															</div>
+														</td>
+														<td class="r"><q></q></td>
+													</tr>
+													<tr>
+														<td class="bl"></td>
+														<td class="b"></td>
+														<td class="br"></td>
+													</tr>
+												</table>
+												<div class="pfp">
+													<div class="poll-footer"> 
+														
+														<!-- IF not S_DISPLAY_RESULTS -->
+														<a class="result" style="top:20px;" href="{U_VIEW_RESULTS}"><!--<span>{L_VIEW_RESULTS}</span>--></a>
+														<!-- ELSE -->
+														<a class="result-inactive" style="top:20px;"><!--<span>{L_VIEW_RESULTS}</span>--></a>
+														<!-- ENDIF -->
+														
+														<!-- IF S_CAN_VOTE -->
+														<input type="submit" name="update" value="&nbsp;" style="background:url({T_IMAGESET_LANG_PATH}/button-vote.gif) no-repeat; border:none; width:119px; height:36px; margin-top:20px" />
+														<!-- ELSE -->
+														<a class="vote-link-inactive" style="top:20px;"><!--<span>{L_SUBMIT_VOTE}</span>--></a>
+														<!-- ENDIF -->
+				
+													</div>
+												</div>
+											</div>
+										</div>
+									{S_FORM_TOKEN}
+									{S_HIDDEN_FIELDS}
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ENDIF -->
+
+
+<center>
+	<table width="97%" style="padding:0 0 0 1%">
+		<tr>
+			<td valign="top" align="left">
+
+
+
+
+<!-- IF S_FORUM_RULES -->
+<!-- IF U_FORUM_RULES -->
+<div id = "postshell11">
+	<div class = "resultbox">
+		<div class="postdisplay">
+			<div class = "innerborder">
+				<div class = "postingcontainer11">
+					<div class="postdiv11">
+						<table id="posttable11" cellpadding="0" cellspacing="0" border="0" width="100%">
+							<tr class="pberrorcolor">
+								<td align="center" width="100%">
+									<a href="{U_FORUM_RULES}">{L_FORUM_RULES}</a>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ELSE -->
+<div id="postshell21">
+	<div class="resultbox">
+		<div class="postdisplay">
+			<div class="innerborder">
+				<div class="postingcontainer21">
+					<div class="insert">
+						<table id="posttable21" cellpadding="0" cellspacing="0" border="0">
+							<tr>
+								<td class="idbliz21" id="id" rowspan="2">
+									<div id="avatarIDX">
+										<div id="avatar21">
+											<div class="shell">
+												<table cellspacing="0" cellpadding="0" border="0">
+													<tr>
+														<td style="background: url('{T_IMAGESET_PATH}/x_custom/rules.gif') no-repeat; width: 64px; height: 64px;"></td>
+													</tr>
+												</table>
+												<div class="frame">
+													<img src="{T_IMAGESET_PATH}/pixel.gif" width="82" height="83" border="0" alt="" />
+												</div>
+											</div>
+											<div style="position: relative;">
+												<div class="iconPosition">
+													<img src="{T_IMAGESET_PATH}/x_custom/warn.gif" alt="" />
+												</div>
+											</div>													
+										</div>
+									</div>
+
+									<div style="clear: left;">
+										<!--ie-->
+									</div>
+
+									<div style="position: relative; width: 200px;">
+										<div style="padding-top: 5px;"></div>
+										<div class="chardata">
+											<span>
+												<b style="color:#FFF;">
+													{L_FORUM_RULES}
+												</b>
+											</span>
+										</div>
+									</div>
+								</td>
+								<td class ="tools21">
+									<div id="postid21">
+										<ul>
+											<li style="display:table-cell;">
+												<span class="white">
+													<b>&dagger;.&nbsp; <a href="{U_VIEW_TOPIC}">{TOPIC_TITLE}</a></b>
+												</span>
+											</li>
+										</ul>
+									</div>
+								</td>
+							</tr>
+							<tr id="body">
+								<td class="message21">
+									<table id="postbody21" cellspacing="0" border="0">
+										<tr>
+											<td>
+												<div class="breakWord">
+													<div class="message-format">															
+														<span style="color:#FF1111">
+															<b>{FORUM_RULES}</b>
+														</span>
+													</div>
+												</div>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</div> 
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ENDIF -->
+<!-- ENDIF -->
+
+
+
+
+<!-- BEGIN postrow -->
+<!-- IF postrow.S_FIRST_UNREAD --><a id="unread"></a><!-- ENDIF -->
+<a id="p{postrow.POST_ID}"></a>
+<div id="postshell<!-- IF postrow.S_ROW_COUNT is odd -->2<!-- ELSE -->1<!-- ENDIF -->1">
+	<div class="resultbox">
+		<div class="postdisplay">
+			<div class="innerborder">
+				<div class="postingcontainer<!-- IF postrow.S_ROW_COUNT is odd -->2<!-- ELSE -->1<!-- ENDIF -->1">
+					<div class="insert">
+						<table id="posttable<!-- IF postrow.S_ROW_COUNT is odd -->2<!-- ELSE -->1<!-- ENDIF -->1" <!-- IF postrow.RANK_PROPASS and S_PBWOW_PROPASS_RANKS -->class="propass"<!-- ENDIF --> cellpadding="0" cellspacing="0" border="0">
+							<tr>
+								<td class="id<!-- IF postrow.RANK_BLIZZ and S_PBWOW_BLIZZ_RANKS -->bliz<!-- ENDIF --><!-- IF postrow.S_ROW_COUNT is odd -->2<!-- ELSE -->1<!-- ENDIF -->1" id="id" rowspan="2" <!-- IF postrow.S_IGNORE_POST -->style="background-image:none"<!-- ENDIF -->>
+									<div id="avatarIDX" <!-- IF postrow.S_IGNORE_POST -->style="display:none"<!-- ENDIF -->>
+										<div id="avatar<!-- IF postrow.S_ROW_COUNT is odd -->2<!-- ELSE -->1<!-- ENDIF -->1">
+											<div class="shell">
+												<!-- IF postrow.POSTER_AVATAR_SRC -->
+												<table cellspacing="0" cellpadding="0" border="0">
+													<tr>
+														<td style="background: url('{postrow.POSTER_AVATAR_SRC}') no-repeat; width: 64px; height: 64px;"></td>
+													</tr>
+												</table>
+												<div class="frame">
+												<!-- ELSEIF postrow.S_PROFILE_PBRACE -->
+												<!-- Generate avatar based on custom profile fields -->
+												<table cellspacing="0" cellpadding="0" border="0">
+													<tr>
+														<td style="background: url('{T_IMAGESET_PATH}/portraits/<!-- IF postrow.S_PROFILE_PBLEVEL --><!-- IF postrow.PROFILE_PBLEVEL_VALUE > 79 -->wow-80<!-- ELSEIF postrow.PROFILE_PBLEVEL_VALUE > 69 -->wow-70<!-- ELSEIF postrow.PROFILE_PBLEVEL_VALUE > 59 -->wow<!-- ELSE -->wow-default<!-- ENDIF --><!-- ELSE -->wow-default<!-- ENDIF -->/<!-- IF postrow.S_PROFILE_PBGENDER -->{postrow.PROFILE_PBGENDER_ID}<!-- ELSE -->0<!-- ENDIF -->-{postrow.PROFILE_PBRACE_ID}-<!-- IF postrow.S_PROFILE_PBCLASS -->{postrow.PROFILE_PBCLASS_ID}<!-- ELSE -->1<!-- ENDIF -->.gif') no-repeat; width: 64px; height: 64px;"></td>
+													</tr>
+												</table>
+												<!-- / Generate avatar based on custom profile fields -->
+												<div class="frame">
+												<!-- ELSE -->
+												<!-- IF postrow.U_POST_AUTHOR -->
+												<table cellspacing="0" cellpadding="0" border="0">
+													<tr>
+														<td style="background: none; width: 64px; height: 64px;"></td>
+													</tr>
+												</table>
+												<div class="frame-no-char">
+												<!-- ELSE -->
+												<table cellspacing="0" cellpadding="0" border="0">
+													<tr>
+														<td style="background: url('{T_IMAGESET_PATH}/x_custom/avatar.jpg') no-repeat; width: 64px; height: 64px;"></td>
+													</tr>
+												</table>
+												<div class="frame">
+												<!-- ENDIF -->
+												<!-- ENDIF -->
+													<!-- IF postrow.U_POST_AUTHOR --><a href="{postrow.U_POST_AUTHOR}"><img src="{T_IMAGESET_PATH}/pixel.gif" width="82" height="83" border="0" alt="" /></a>
+													<!-- ELSE --><img src="{T_IMAGESET_PATH}/pixel.gif" width="82" height="83" border="0" alt="" />
+													<!-- ENDIF -->
+												</div>
+											</div>
+											<div style="position: relative;">
+												<!-- IF postrow.POSTER_AVATAR_SRC or postrow.S_PROFILE_PBRACE -->
+												<div class="iconPosition">
+													<!-- IF postrow.SPECIAL_RANK_IMG -->{postrow.SPECIAL_RANK_IMG}<!-- ELSEIF postrow.S_PROFILE_PBLEVEL and postrow.PROFILE_PBLEVEL_VALUE neq 0 --><b><small>{postrow.PROFILE_PBLEVEL_VALUE}</small></b><!-- ELSEIF not postrow.S_PROFILE_PBRACE and postrow.U_POST_AUTHOR and postrow.RANK_IMG -->{postrow.RANK_IMG}<!-- ELSE --><img src="{T_IMAGESET_PATH}/x_custom/question.gif" alt="" /><!-- ENDIF -->
+												</div>
+												<!-- ELSEIF not postrow.U_POST_AUTHOR -->
+												<div class="iconPosition">
+													<img src="{T_IMAGESET_PATH}/x_custom/question.gif" alt="" />
+												</div>
+												<!-- ENDIF -->
+
+												<!-- IF not (postrow.RANK_BLIZZ and S_PBWOW_BLIZZ_RANKS) and postrow.U_POST_AUTHOR -->
+												<div id="iconpanelhide<!-- IF postrow.S_ROW_COUNT is odd -->2<!-- ELSE -->1<!-- ENDIF -->1">
+													<!-- IF postrow.S_PROFILE_PBRACE -->
+													<div id="iconpanel"></div>
+													<div id="default-icon-panel">
+
+														<!-- IF postrow.S_PROFILE_PBRACE -->
+														<!-- IF postrow.S_PROFILE_PBGENDER -->
+														<div class="player-icons-race" style="background: url('{T_IMAGESET_PATH}/icon/race/{postrow.PROFILE_PBRACE_ID}-{postrow.PROFILE_PBGENDER_ID}.gif') no-repeat;"> <img src = "{T_IMAGESET_PATH}/pixel.gif" height="18" width="18" alt="" /> </div>
+														<!-- ELSE -->
+														<div class="player-icons-race" style="background: url('{T_IMAGESET_PATH}/icon/race/{postrow.PROFILE_PBRACE_ID}-0.gif') no-repeat;"> <img src = "{T_IMAGESET_PATH}/pixel.gif" height="18" width="18" alt="" /> </div>
+														<!-- ENDIF -->
+														<!-- ENDIF -->
+
+														<!-- IF postrow.S_PROFILE_PBCLASS -->
+														<div class="player-icons-class" style="background: url('{T_IMAGESET_PATH}/icon/class/{postrow.PROFILE_PBCLASS_ID}.gif') no-repeat;"><!-- IF postrow.S_PROFILE_PBARMORYCHARLINK --><a href="{postrow.PROFILE_PBARMORYCHARLINK_VALUE}" target="_blank"><img src="{T_IMAGESET_PATH}/icon/icon-active.png" alt="" class="png" border="0" height="18" width="18" /></a><!-- ELSE --><img src = "{T_IMAGESET_PATH}/pixel.gif" height="18" width="18" alt="" /><!-- ENDIF --></div>
+														<!-- ENDIF -->
+
+														<!-- IF postrow.RANK_IMG -->
+														<div class="player-icons-pvprank" style="background: url('{postrow.RANK_IMG_SRC}') no-repeat;" title="{postrow.RANK_TITLE}"></div>
+														<!-- ELSE -->
+														<!-- IF postrow.PROFILE_PBRACE_ID == 1 or postrow.PROFILE_PBRACE_ID == 3 or postrow.PROFILE_PBRACE_ID == 4 or postrow.PROFILE_PBRACE_ID == 7 or postrow.PROFILE_PBRACE_ID == 11 -->
+														<div class="player-icons-pvprank" style="background: url('{T_IMAGESET_PATH}/icon/pvpranks/rank_default_0.gif') no-repeat;"></div>
+														<!-- ELSE -->
+														<div class="player-icons-pvprank" style="background: url('{T_IMAGESET_PATH}/icon/pvpranks/rank_default_1.gif') no-repeat;"></div>
+														<!-- ENDIF -->
+														<!-- ENDIF -->
+
+													</div>
+													<!-- ENDIF -->	
+												</div>
+												<!-- ENDIF -->
+											</div>													
+										</div><!-- avatar -->
+									</div><!-- avatarIDX -->
+
+									<!-- IF postrow.U_POST_AUTHOR -->
+									<div style="position: relative; width: 200px;">
+										<div id="userpanel" class="userpanel" <!-- IF postrow.S_IGNORE_POST -->style="top:-4px"<!-- ENDIF -->>
+											<a href="{postrow.U_SEARCH}"><img class="icon-search" src="{T_IMAGESET_PATH}/icons/search.gif" alt="view posts by this user" /></a>
+											<!-- IF postrow.S_ONLINE and not postrow.S_IGNORE_POST -->
+											<img class="icon-ignore" src="{T_IMAGESET_PATH}/icons/unignore-user.gif" id="ignore" alt="{L_ONLINE}" />
+											<!-- ELSE -->
+											<img class="icon-ignore" src="{T_IMAGESET_PATH}/icons/ignore-user-inactive.gif" id="ignore" alt="{L_OFFLINE}" />
+											<!-- ENDIF -->
+										</div>
+									</div>
+									<!-- ENDIF -->
+
+									<div style="clear: left;"><!--ie--></div>
+											
+									<!-- IF postrow.RANK_BLIZZ and S_PBWOW_BLIZZ_RANKS -->
+									<div style="position: relative; width: 200px;">
+										<div style="padding-top: 5px;"></div>
+										<div class="chardata">
+											<span>
+												<b style="color:#ffac04;">
+												<a style="text-decoration:none" href="{postrow.U_POST_AUTHOR}">{postrow.POST_AUTHOR}</a>
+												</b>
+											</span>
+										</div>
+										<div id="afterAvatar" <!-- IF postrow.S_IGNORE_POST -->style="display:none"<!-- ENDIF -->>
+											<small><span style="color:{postrow.POST_AUTHOR_COLOUR}">{postrow.SPECIAL_RANK_TITLE}</span></small>
+										</div>
+									</div>
+									<!-- ELSE -->
+									<div style="position: relative; width: 200px;">
+										<div id="pinfo" class="pinfo" <!-- IF postrow.S_IGNORE_POST -->style="background:none; padding:5px 0 0 0"<!-- ENDIF -->>
+											<div id="pinfobackground" class="pinfobackground" <!-- IF postrow.S_IGNORE_POST -->style="background:none"<!-- ENDIF -->>
+												<div class="chardata">
+													<span><b style="color:#ffac04;">
+														<!-- IF postrow.U_POST_AUTHOR -->
+														<a href="{postrow.U_POST_AUTHOR}">{postrow.POST_AUTHOR}</a>
+														<!-- ELSE -->
+														{postrow.POST_AUTHOR}
+														<!-- ENDIF -->
+														</b>
+													</span>
+												</div>
+												<div id="afterAvatar" <!-- IF postrow.S_IGNORE_POST -->style="display:none"<!-- ENDIF -->>
+													<!-- IF postrow.S_PROFILE_PBGUILD -->
+													<ul class="listinfo">
+														<li class="icon-guild"><small style="color:#FFB019"><b><!-- IF postrow.S_PROFILE_PBARMORYGUILDLINK --><a href="{postrow.PROFILE_PBARMORYGUILDLINK_VALUE}" target="_blank">&lt; {postrow.PROFILE_PBGUILD_VALUE} &gt;</a><!-- ELSE -->&lt; {postrow.PROFILE_PBGUILD_VALUE} &gt;<!-- ENDIF --></b></small></li>
+													</ul>
+													<!-- ENDIF -->
+													
+													<!-- IF postrow.SPECIAL_RANK_TITLE -->
+													<ul class="listinfo" style="clear: both;">
+														<li class="icon-realm"><small><b>{postrow.SPECIAL_RANK_TITLE}</b></small></li>
+													</ul>
+													<!-- ENDIF -->
+												
+													<!-- IF not S_IS_BOT -->
+													<!-- IF postrow.U_PM or postrow.U_EMAIL or postrow.U_WWW or postrow.U_MSN or postrow.U_ICQ or postrow.U_YIM or postrow.U_AIM or postrow.U_JABBER -->
+													<ul class="listinfo" style="clear: both;">
+														<li class="icon-realm">		
+															<!-- IF postrow.U_PM --><a href="{postrow.U_PM}" title="{L_PRIVATE_MESSAGE}"><img src="{T_IMAGESET_PATH}/x_custom/pm.gif" border="0" alt="{L_PRIVATE_MESSAGE}" /></a><!-- ENDIF -->
+															<!-- IF postrow.U_EMAIL --><a href="{postrow.U_EMAIL}" title="{L_SEND_EMAIL_USER} {postrow.POST_AUTHOR}"><img src="{T_IMAGESET_PATH}/x_custom/im_email.gif" border="0" alt="{L_SEND_EMAIL_USER} {postrow.POST_AUTHOR}" /></a><!-- ENDIF -->
+															<!-- IF postrow.U_WWW --><a href="{postrow.U_WWW}" title="{L_VISIT_WEBSITE}: {postrow.U_WWW}"><img src="{T_IMAGESET_PATH}/x_custom/www.gif" border="0" alt="{L_WEBSITE}" /></a><!-- ENDIF -->
+															<!-- IF postrow.U_MSN -->&nbsp;<a href="{postrow.U_MSN}" onclick="popup(this.href, 550, 320); return false;" title="{L_MSNM}"><img src="{T_IMAGESET_PATH}/x_custom/im_msn.gif" border="0" alt="{L_MSNM}" /></a><!-- ENDIF -->
+															<!-- IF postrow.U_ICQ -->&nbsp;<a href="{postrow.U_ICQ}" onclick="popup(this.href, 550, 320); return false;" title="{L_ICQ}"><img src="{T_IMAGESET_PATH}/x_custom/im_icq.gif" border="0" alt="{L_ICQ}" /></a><!-- ENDIF -->
+															<!-- IF postrow.U_YIM -->&nbsp;<a href="{postrow.U_YIM}" onclick="popup(this.href, 780, 550); return false;" title="{L_YIM}"><img src="{T_IMAGESET_PATH}/x_custom/im_yahoo.gif" border="0" alt="{L_YIM}" /></a><!-- ENDIF -->
+															<!-- IF postrow.U_AIM -->&nbsp;<a href="{postrow.U_AIM}" onclick="popup(this.href, 550, 320); return false;" title="{L_AIM}"><img src="{T_IMAGESET_PATH}/x_custom/im_aim.gif" border="0" alt="{L_AIM}" /></a><!-- ENDIF -->
+															<!-- IF postrow.U_JABBER -->&nbsp;<a href="{postrow.U_JABBER}" onclick="popup(this.href, 550, 320); return false;" title="{L_JABBER}"><img src="{T_IMAGESET_PATH}/x_custom/im_jabber.gif" border="0" alt="{L_JABBER}" /></a><!-- ENDIF -->
+														</li>
+													</ul>
+													<!-- ENDIF -->
+													<!-- ENDIF -->	
+													<div style="clear:both;width:100%;height:1px"><!----></div>
+												</div>
+											</div>
+										</div><!-- end pinfo -->
+										
+										<div id="hideplayerfooter" <!-- IF postrow.S_IGNORE_POST -->style="display:none"<!-- ENDIF -->>
+											<div class="pinfobottom">
+												<div class="pifooter"></div>
+											</div>
+										</div>
+									</div>
+									<!-- ENDIF -->
+								</td>
+										
+								<td class="tools<!-- IF postrow.S_ROW_COUNT is odd -->2<!-- ELSE -->1<!-- ENDIF -->1">
+									<div id="postid<!-- IF postrow.S_ROW_COUNT is odd -->2<!-- ELSE -->1<!-- ENDIF -->1">
+										<ul>
+											<li style="display:table-cell;"><span class="white">
+											<!-- IF postrow.S_IGNORE_POST -->
+												<div style="width:100px"><small>{postrow.L_IGNORE_POST}</small></div>
+											<!-- ELSE -->
+											<!-- IF postrow.S_UNREAD_POST --><img src="{T_IMAGESET_PATH}/x_custom/new-icon.gif" width="19" height="15" />&nbsp;<!-- ENDIF --><b>{postrow.POST_NUMBER}.&nbsp;
+												<!-- IF postrow.S_POST_REPORTED --><a href="{postrow.U_MCP_REPORT}"><strong style="color:#FF0000">{L_POST_REPORTED}</strong></a><!-- ELSE -->
+												<a href="{postrow.U_MINI_POST}">{postrow.POST_SUBJECT}</a><!-- ENDIF --></b>&nbsp;&nbsp;<small>&raquo; {postrow.POST_DATE}</small>
+											<!-- ENDIF -->
+											</span></li>
+										</ul>
+									</div>
+
+									<div class="miniadmin">
+										<ul>
+<!-- IF not S_IS_BOT -->
+	<!-- IF postrow.U_EDIT -->&nbsp;<a href="{postrow.U_EDIT}" title="{L_EDIT_POST}"><img src="{T_IMAGESET_PATH}/edit-button.gif" border="0" alt="{L_EDIT_POST}" /></a><!-- ENDIF -->
+	<!-- IF postrow.U_DELETE -->&nbsp;<a href="{postrow.U_DELETE}" title="{L_DELETE_POST}"><img src="{T_IMAGESET_PATH}/delete-icon.gif" border="0" alt="{L_DELETE_POST}" /></a><!-- ENDIF -->
+	<!-- IF postrow.U_REPORT -->&nbsp;<a href="{postrow.U_REPORT}" title="{L_REPORT_POST}"><img src="{T_IMAGESET_PATH}/biohazard-button.gif" border="0" alt="{L_REPORT_POST}" /></a><!-- ENDIF -->
+	<!-- IF postrow.U_WARN -->&nbsp;<a href="{postrow.U_WARN}" title="{L_WARN_USER}"><img src="{T_IMAGESET_PATH}/x_custom/warn.gif" border="0" alt="{L_WARN_USER}" /></a><!-- ENDIF -->
+	<!-- IF postrow.U_INFO -->&nbsp;<a href="{postrow.U_INFO}" title="{L_INFORMATION}"><img src="{T_IMAGESET_PATH}/x_custom/icon-help.gif" border="0" alt="{L_INFORMATION}" /></a><!-- ENDIF -->
+<!-- ENDIF -->
+
+<!-- IF not S_IS_BOT and S_DISPLAY_REPLY_INFO -->
+	<!-- IF S_IS_LOCKED -->
+	<a href="{postrow.U_QUOTE}"><img src="{T_IMAGESET_LANG_PATH}/quote-button-inactive.gif" width="63" height="18" border="0" alt="{L_TOPIC_LOCKED}" /></a>
+	<a href="{U_POST_REPLY_TOPIC}"><img src="{T_IMAGESET_LANG_PATH}/reply-button-inactive.gif" width="63" height="18" border="0" alt="{L_TOPIC_LOCKED}" /></a>
+	<!-- ELSE -->
+	<a href="{postrow.U_QUOTE}"><img src="{T_IMAGESET_LANG_PATH}/quote-button.gif" width="63" height="18" border="0" alt="{L_REPLY_WITH_QUOTE}" /></a>
+	<a href="{U_POST_REPLY_TOPIC}"><img src="{T_IMAGESET_LANG_PATH}/reply-button.gif" width="63" height="18" border="0" alt="{L_POST_REPLY}" /></a>
+	<!-- ENDIF -->
+<!-- ENDIF -->
+										</ul>													
+									</div>
+								</td>
+							</tr>
+
+							<tr id="body" <!-- IF postrow.S_IGNORE_POST -->style="display:none"<!-- ENDIF -->>
+								<td class="message<!-- IF postrow.S_ROW_COUNT is odd -->2<!-- ELSE -->1<!-- ENDIF -->1">
+									<table id="postbody<!-- IF postrow.S_ROW_COUNT is odd -->2<!-- ELSE -->1<!-- ENDIF -->1" cellspacing="0" border="0">
+										<tr>
+											<td>
+												<div class="breakWord <!-- IF postrow.RANK_BLIZZ and S_PBWOW_BLIZZ_RANKS -->blizpost<!-- ENDIF -->	">					
+													<div class="message-format">
+														<span>
+															<!-- IF postrow.S_POST_UNAPPROVED -->
+															<a href="{postrow.U_MCP_APPROVE}"><strong style="color:#FF0000">{L_POST_UNAPPROVED}</strong></a><br /><br />
+															<!-- ENDIF -->
+	
+															<span <!-- IF postrow.RANK_BLIZZ and S_PBWOW_BLIZZ_RANKS -->class="pbwow-admin-fix"<!-- ENDIF --> style="color:{postrow.POST_AUTHOR_COLOUR}">
+																{postrow.MESSAGE}
+															</span>
+														
+															<!-- IF postrow.EDITED_MESSAGE or postrow.EDIT_REASON -->
+															<p><small><font color="red">[ {postrow.EDITED_MESSAGE} ]
+															<!-- IF postrow.EDIT_REASON --><br />[ <strong>{L_REASON}:</strong> <em>{postrow.EDIT_REASON}</em> ]<!-- ENDIF -->
+															</font></small></p>
+															<!-- ENDIF -->
+	
+															<!-- IF postrow.S_HAS_ATTACHMENTS -->
+															<ins><hr noshade="noshade" size="1" color="#9e9e9e" /></ins>
+															<b>{L_ATTACHMENTS}</b>
+															<!-- BEGIN attachment -->
+															{postrow.attachment.DISPLAY_ATTACHMENT}
+															<!-- END attachment -->
+															<!-- ENDIF -->
+
+															<!-- IF postrow.S_DISPLAY_NOTICE -->
+															<ins><hr noshade="noshade" size="1" color="#9e9e9e" /></ins>
+															<b>{L_ATTACHMENTS}</b>
+															<div class="rules">{L_DOWNLOAD_NOTICE}</div
+															><!-- ENDIF -->
+															
+															<!-- IF postrow.BUMPED_MESSAGE --><div class="notice">{postrow.BUMPED_MESSAGE}</div><!-- ENDIF -->
+
+															<!-- IF postrow.SIGNATURE -->
+															<ins><hr noshade="noshade" size="1" color="#9e9e9e" /></ins>
+															<span <!-- IF postrow.RANK_BLIZZ and S_PBWOW_BLIZZ_RANKS -->class="pbwow-admin-fix"<!-- ENDIF --> style="color:{postrow.POST_AUTHOR_COLOUR}">
+																{postrow.SIGNATURE}
+															</span>
+															<!-- ENDIF -->
+														</span>
+													</div>
+												</div>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table><!-- End table posttable -->
+					</div><!-- end insert -->
+				</div><!-- end innercontainer -->
+			</div><!-- end border -->
+		</div><!-- end postdisplay -->
+	</div><!-- end resultbox -->
+</div><!-- End div postshell -->
+<!-- END postrow -->
+
+
+
+
+<!-- IF S_QUICK_REPLY -->
+	<!-- INCLUDE quickreply_editor.html -->
+<!-- ENDIF -->
+
+
+
+			<!-- IF S_PBWOW_ADS_SIDE -->
+			<td width="130px" valign="top" align="center">
+				<div style="width:160px; height:600px; padding:1px;margin:4px 0 0 0; background:#1E1E1E none repeat scroll center bottom;">
+					<div id="ad_160x600" style="width:160px; height:12px; text-align:center">
+						{PBWOW_ADS_SIDE_CODE}
+					</div>
+				</div>
+			</td>
+			<!-- ENDIF -->
+		</tr>
+	</table>
+</center>
+							
+							</div><!-- end right -->
+						</div><!-- end postbackground -->
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+<!-- IF S_cccNUM_POSTS > 1 or PREVIOUS_cccPAGE -->
+	<form id="viewtopic" method="post" action="{S_TOPIC_ACTION}">
+	<fieldset class="display-options" style="margin-top: 0; ">
+		<!-- IF not S_IS_BOT -->
+		<label>{L_DISPLAY_POSTS}: {S_SELECT_SORT_DAYS}</label>
+		<label>{L_SORT_BY} {S_SELECT_SORT_KEY}</label> <label>{S_SELECT_SORT_DIR} <input type="submit" name="sort" value="{L_GO}" class="button2" /></label>
+		<!-- ENDIF -->
+	</fieldset>
+	</form>
+<!-- ENDIF -->
+
+<div id="topicfooter" style="height:22px">
+	<div class="rpage">
+		<!-- IF PAGINATION or TOTAL_POSTS -->
+			<!-- INCLUDE pbwow_pagination.html -->
+		<!-- ENDIF -->
+	</div>
+</div>
+<div class="forum-index">
+	<div class="findex" style="margin-top:-1px"> <a href="{U_VIEW_FORUM}"><img src="{T_IMAGESET_LANG_PATH}/forum-index.gif" width="104" height="41" border="0" title="" alt="" /></a> </div>
+</div>
+
+<div style="width: 100%; height: 20px;"></div>
+
+<!-- INCLUDE pbwow_jumpbox_2.html -->
+
+<!-- IF MODERATORS -->
+<div align="center" style="padding:10px; margin-top:-20px">
+	<span><b><!-- IF S_SINGLE_MODERATOR -->{L_MODERATOR}<!-- ELSE -->{L_MODERATORS}<!-- ENDIF --></b></span>
+	<table cellspacing="0" cellpadding="0" id="iconLegend">
+		<tr>
+			<td>
+				<table class="tb2" width="100%" cellspacing="0" cellpadding="0" border="0">
+					<tr>
+						<td style="padding:10px">{MODERATORS}</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</div>
+<!-- ENDIF -->
+
+<!-- INCLUDE overall_footer.html -->

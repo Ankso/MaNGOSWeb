@@ -1,0 +1,89 @@
+<!-- Somehow, if a catagory is visible but the forums within are not (due to none existing or no permission) this top part is not executed which leaves an unclosed GRAY CATAGORY and an unopened BLACK STAND-ALONE table. P.S. Don't try to understand this template. I wrecked my brain making this and even I can hardly understand it fully. -->
+	
+<!-- BEGIN forumrow -->
+	<!-- IF not forumrow.S_FIRST_ROW -->
+		<!-- IF forumrow.S_NO_CAT or forumrow.S_IS_CAT -->
+			<!-- IF not forumrow.S_NO_CAT_LAST -->
+	<!-- ### CLEAN UP previous GRAY CATAGORY ### -->
+			<div style="clear:both">
+				<!--ie-->
+			</div>
+		</div>
+		<!-- IF forumrow.S_NO_CAT --><table width="100%"><!-- ENDIF -->
+	
+			<!-- ENDIF -->
+		<!-- ENDIF -->
+		<!-- IF forumrow.S_NO_CAT_LAST --></table><!-- ENDIF -->
+	<!-- ENDIF -->
+
+
+	<!-- IF forumrow.S_NO_CAT_EACH -->
+	<!-- ### BLACK STAND-ALONE ### -->
+		<!-- IF forumrow.S_FIRST_ROW --><table width="100%"><!-- ENDIF -->
+			<!-- IF forumrow.S_ROW_COUNT is even --><tr><!-- ENDIF -->
+				<td>
+					<!-- IF forumrow.FORUM_IMAGE -->
+					<div style="background:url({forumrow.FORUM_IMAGE_SRC}) no-repeat 7px 7px;" onclick="window.location.href=('{forumrow.U_VIEWFORUM}')">
+					<!-- ELSE -->
+					<div style="background:url({T_IMAGESET_PATH}/forumbullets/bullet.gif) no-repeat 7px 7px;" onClick="window.location.href=('{forumrow.U_VIEWFORUM}')">
+					<!-- ENDIF -->
+						<h3><!-- IF forumrow.S_UNREAD_FORUM --><img src="{T_IMAGESET_PATH}/x_custom/new-icon.gif" width="19" height="15" />&nbsp;&nbsp;<!-- ENDIF --><!-- IF S_ENABLE_FEEDS and forumrow.S_FEED_ENABLED --><!-- <a class="feed-icon-forum" title="{L_FEED} - {forumrow.FORUM_NAME}" href="{U_FEED}?f={forumrow.FORUM_ID}"><img src="{T_IMAGESET_PATH}/prosilver/feed.gif" alt="{L_FEED} - {forumrow.FORUM_NAME}" /></a> --><!-- ENDIF --><a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a></h3>
+						<p>{forumrow.FORUM_DESC}</p>
+						<!-- IF forumrow.SUBFORUMS and forumrow.S_LIST_SUBFORUMS --><br /><strong>{forumrow.L_SUBFORUM_STR}</strong> {forumrow.SUBFORUMS}<!-- ENDIF -->
+					</div>
+				</td>
+			<!-- IF not forumrow.S_ROW_COUNT is even --></tr><!-- ENDIF -->
+		<!-- IF forumrow.S_LAST_ROW --><!-- IF forumrow.S_ROW_COUNT is even --></tr><!-- ENDIF --></table><!-- ENDIF -->
+	<!-- ENDIF -->
+
+	
+	<!-- IF forumrow.S_IS_CAT and not forumrow.S_NO_CAT -->
+	<!-- ### GRAY CATAGORY ### -->
+		<div class="parent-forum haschild" onClick="toggle('childNode{forumrow.FORUM_ID}');toggleChild('arrow{forumrow.FORUM_ID}')">
+			<!-- IF forumrow.FORUM_IMAGE -->
+			<div style="background:url({forumrow.FORUM_IMAGE_SRC}) no-repeat 7px 7px">
+			<!-- ELSE -->
+			<div style="background:url({T_IMAGESET_PATH}/forumbullets/bullet.gif) no-repeat 7px 7px">
+			<!-- ENDIF -->
+				<em id="arrow{forumrow.FORUM_ID}" class="child-view"></em>
+				<h3><!-- IF forumrow.S_IS_CAT --><a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a><!-- ELSE -->{L_FORUM}<!-- ENDIF --></h3>
+				<p>{forumrow.FORUM_DESC}</p>
+			</div>
+		</div>
+		
+		<div class="child-listing" style="display:<!-- IF forumrow.S_UNREAD_FORUM -->block<!-- ELSE -->none<!-- ENDIF -->" id="childNode{forumrow.FORUM_ID}">
+	<!-- ENDIF -->
+
+	<!-- IF not (forumrow.S_IS_CAT or forumrow.S_NO_CAT or forumrow.S_NO_CAT_EACH) -->
+	<!-- ### BLUE CHILD ### -->
+			<!-- IF forumrow.FORUM_IMAGE -->
+			<div class="child icon" style="background-image:url({forumrow.FORUM_IMAGE_SRC});" onclick="window.location.href=('{forumrow.U_VIEWFORUM}')">
+			<!-- ELSE -->
+			<div class="child " onClick="window.location.href=('{forumrow.U_VIEWFORUM}')">
+			<!-- ENDIF -->
+				<h3><!-- IF forumrow.S_UNREAD_FORUM --><img src="{T_IMAGESET_PATH}/x_custom/new-icon.gif" width="19" height="15" />&nbsp;&nbsp;<!-- ENDIF --><a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a></h3>
+				<!-- IF forumrow.SUBFORUMS and forumrow.S_LIST_SUBFORUMS --><br /><strong>{forumrow.L_SUBFORUM_STR}</strong> {forumrow.SUBFORUMS}<!-- ENDIF -->
+			</div>
+	<!-- ENDIF -->
+
+
+	<!-- IF forumrow.S_LAST_ROW and not (forumrow.S_NO_CAT or forumrow.S_NO_CAT_EACH) -->
+	<!-- ### CLEAN UP last GRAY CATAGORY ### -->
+			<div style="clear:both">
+				<!--ie-->
+			</div>
+		</div>
+	<!-- ENDIF -->
+
+
+<!-- BEGINELSE -->
+	<table width="100%">
+		<tr>
+			<td>
+				<div style="background:url({T_IMAGESET_PATH}/x_custom/noforums.gif) no-repeat 7px 7px;">
+					<h3><a href="{forumrow.U_VIEWFORUM}">{L_NO_FORUMS}</a></h3>
+				</div>
+			</td>
+		</tr>
+	</table>
+<!-- END forumrow -->

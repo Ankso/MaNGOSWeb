@@ -1,0 +1,110 @@
+<script type="text/javascript">
+// <![CDATA[
+	function hide_qr(show)
+	{
+		dE('qr_editor_div');
+		dE('qr_pbwow');
+		if (show && document.getElementById('qr_editor_div').style.display != 'none')
+		{
+			document.getElementsByName('message')[0].focus();
+		}
+		return true;
+	}
+
+
+	function init_qr()
+	{
+		dE('qr_pbwow');
+		return true;
+	}
+	onload_functions.push('init_qr();');
+
+	
+	// ]]>
+</script>
+<noscript>
+<div id="postshell11" style="width:700px">
+	<div class="resultbox">
+		<div class="postdisplay">
+			<div class="innerborder">
+				<div class="postingcontainer11">
+					<div class="insert">
+<form method="post" action="{U_QR_ACTION}">
+	<div class="parent-forum haschild" onclick="toggle('childNodeQUICKREPLY');toggleChild('arrowQUICKREPLY')">
+		<div style="background:url({T_IMAGESET_PATH}/forumbullets/mohawk.gif) no-repeat 7px 7px"> <em id="arrowQUICKREPLY" class="child-view"></em>
+			<h3><b>{L_QUICKREPLY}</b></h3>
+		</div>
+	</div>
+	<div class="child-listing" style="display:block" id="childNodeQUICKREPLY">
+
+		<fieldset class="fields1">
+			<dl style="clear: left;">
+				<dt><label for="subject">{L_SUBJECT}:</label></dt>
+				<dd><input type="text" name="subject" id="subject" size="45" maxlength="64" tabindex="2" value="{SUBJECT}" class="inputbox autowidth" /></dd>
+			</dl>
+			<div id="message-box" style="margin:0 auto">
+				<textarea style="height: 9em;" name="message" rows="7" cols="76" tabindex="3" class="inputbox"></textarea>
+			</div>
+		</fieldset>
+		<fieldset class="submit-buttons">
+			{S_FORM_TOKEN}
+			{QR_HIDDEN_FIELDS}
+			<input type="submit" accesskey="s" tabindex="6" name="post" value="{L_SUBMIT}" class="button1" />&nbsp;
+			<input type="submit" accesskey="f" tabindex="6" name="full_editor" value="{L_FULL_EDITOR}" class="button2" />&nbsp;
+		</fieldset>
+
+		<div style="clear:both"><!--ie--></div>
+	</div>
+</form>
+					</div><!-- end insert -->
+				</div><!-- end innercontainer -->
+			</div><!-- end border -->
+		</div><!-- end postdisplay -->
+	</div><!-- end resultbox -->
+</div><!-- End div postshell -->
+</noscript>
+
+<div id="qr_pbwow" style="display:none">
+<div id="postshell11" style="width:700px;">
+	<div class="resultbox">
+		<div class="postdisplay">
+			<div class="innerborder">
+				<div class="postingcontainer11">
+					<div class="insert">
+<form method="post" action="{U_QR_ACTION}">
+	<div class="parent-forum haschild" onclick="toggle('childNodeQUICKREPLY');toggleChild('arrowQUICKREPLY')">
+		<div style="background:url({T_IMAGESET_PATH}/forumbullets/mohawk.gif) no-repeat 7px 7px"> <em id="arrowQUICKREPLY" class="child-view"></em>
+			<h3><b>{L_QUICKREPLY}</b></h3>
+			<!--<fieldset class="submit-buttons" style="margin:0 40px 0 0">
+				<input type="submit" name="show_qr" tabindex="1" class="button2" value="{L_SHOW_QR}" onclick="hide_qr(true);return false;"/>
+			</fieldset>-->
+		</div>
+	</div>
+	<div class="child-listing" style="display:none" id="childNodeQUICKREPLY">
+
+		<fieldset class="fields1">
+			<dl style="clear: left;">
+				<dt><label for="subject">{L_SUBJECT}:</label></dt>
+				<dd><input type="text" name="subject" id="subject" size="45" maxlength="64" tabindex="2" value="{SUBJECT}" class="inputbox autowidth" /></dd>
+			</dl>
+			<div id="message-box" style="margin:0 auto">
+				<textarea style="height: 9em;" name="message" rows="7" cols="76" tabindex="3" class="inputbox"></textarea>
+			</div>
+		</fieldset>
+		<fieldset class="submit-buttons">
+			{S_FORM_TOKEN}
+			{QR_HIDDEN_FIELDS}
+			<input type="submit" accesskey="s" tabindex="6" name="post" value="{L_SUBMIT}" class="button1" />&nbsp;
+			<input type="submit" accesskey="f" tabindex="6" name="full_editor" value="{L_FULL_EDITOR}" class="button2" />&nbsp;
+		</fieldset>
+
+		<div style="clear:both"><!--ie--></div>
+	</div>
+</form>
+					</div><!-- end insert -->
+				</div><!-- end innercontainer -->
+			</div><!-- end border -->
+		</div><!-- end postdisplay -->
+	</div><!-- end resultbox -->
+</div><!-- End div postshell -->
+</div>

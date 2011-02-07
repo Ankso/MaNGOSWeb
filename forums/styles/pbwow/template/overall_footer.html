@@ -1,0 +1,44 @@
+<div class="forum-footer">
+	<div id="ftrText">
+		<div class="width">
+			<small style="color:#666">
+			<a href="{U_INDEX}" accesskey="h">{L_INDEX}</a> &bull; <a href="{U_LOGIN_LOGOUT}" title="{L_LOGIN_LOGOUT}" accesskey="l">{L_LOGIN_LOGOUT}</a>
+            <!-- IF U_PORTAL --> &bull; <a href="{U_PORTAL}">{L_PORTAL}</a><!-- ENDIF -->
+			<!-- IF not S_IS_BOT --> 
+				<!-- IF U_TEAM --> &bull; <a href="{U_TEAM}">{L_THE_TEAM}</a><!-- ENDIF -->
+			 	<!-- IF S_DISPLAY_MEMBERLIST --> &bull; <a href="{U_MEMBERLIST}" title="{L_MEMBERLIST_EXPLAIN}">{L_MEMBERLIST}</a><!-- ENDIF -->
+				 &bull; <a href="{U_DELETE_COOKIES}">{L_DELETE_COOKIES}</a>
+				 <!-- IF S_WATCH_FORUM_LINK --> &bull; <a href="{S_WATCH_FORUM_LINK}" title="{S_WATCH_FORUM_TITLE}">{S_WATCH_FORUM_TITLE}</a><!-- ENDIF -->
+				 <!-- IF U_WATCH_TOPIC --> &bull; <a href="{U_WATCH_TOPIC}" title="{L_WATCH_TOPIC}">{L_WATCH_TOPIC}</a><!-- ENDIF -->
+				 <!-- IF U_BOOKMARK_TOPIC --> &bull; <a href="{U_BOOKMARK_TOPIC}" title="{L_BOOKMARK_TOPIC}">{L_BOOKMARK_TOPIC}</a><!-- ENDIF -->
+				 <!-- IF U_BUMP_TOPIC --> &bull; <a href="{U_BUMP_TOPIC}" title="{L_BUMP_TOPIC}">{L_BUMP_TOPIC}</a><!-- ENDIF -->
+				 <!-- IF U_RESTORE_PERMISSIONS --> &bull; <a href="{U_RESTORE_PERMISSIONS}">{L_RESTORE_PERMISSIONS}</a><!-- ENDIF -->
+			 <!-- ENDIF --><br />
+			Powered by <a href="http://www.phpbb.com/">phpBB</a> &copy; 2000, 2002, 2005, 2007 phpBB Group &bull; {S_TIMEZONE}<!-- IF S_USER_LOGGED_IN --> &bull; {LAST_VISIT_DATE}<!-- ELSE --> &bull; {CURRENT_TIME}<!-- ENDIF --><br />
+			
+			<!-- PBWoW is free, please don't remove this part. -->PBWoW RC4 &copy;2010 PayBas @ <a href="http://pbwow.com" target="_blank">pbwow.com</a>.<!-- PBWoW is free, please don't remove this part. --> &copy;1998-2010 Blizzard Entertainment, Inc. All rights reserved. World of Warcraft, Battle.net, Diablo, <br />
+			StarCraft and Blizzard Entertainment are trademarks or registered trademarks of Blizzard Entertainment, Inc. in the U.S. and/or other countries.<br />
+			This website is in no way related to World of Warcraft, Blizzard Entertainment, Inc. or any of its associates and partners.<br />
+
+			<!-- IF TRANSLATION_INFO --><br />{TRANSLATION_INFO}<!-- ENDIF -->
+			<!-- IF DEBUG_OUTPUT --><br />{DEBUG_OUTPUT}<!-- ENDIF -->
+			<!-- IF U_ACP --><br /><strong><a href="{U_ACP}">{L_ACP}</a></strong><!-- ENDIF --><!-- IF U_ACP and U_MCP -->&nbsp;&bull;&nbsp;<!-- ENDIF --><!-- IF U_MCP --><a href="{U_MCP}">{L_MCP}</a><!-- ENDIF -->
+			</small>
+		</div>
+	</div>
+	<div id="footerShell">
+		<a id="bottom" name="bottom" accesskey="z"></a>
+		<!-- IF not S_IS_BOT -->{RUN_CRON_TASK}<!-- ENDIF -->
+		<div class="logo"><div class="pbfooterlogo"></div></div>
+	</div>
+</div>
+
+<!--<li class="rightside"><a href="#" onclick="fontsizeup(); return false;" onkeypress="fontsizeup(); return false;" class="fontsize" title="{L_CHANGE_FONT_SIZE}">{L_CHANGE_FONT_SIZE}</a></li>-->
+<!-- IF U_EMAIL_TOPIC --><!--<li class="rightside"><a href="{U_EMAIL_TOPIC}" title="{L_EMAIL_TOPIC}" class="sendemail">{L_EMAIL_TOPIC}</a></li>--><!-- ENDIF -->
+<!-- IF U_EMAIL_PM --><!--<li class="rightside"><a href="{U_EMAIL_PM}" title="{L_EMAIL_PM}" class="sendemail">{L_EMAIL_PM}</a></li>--><!-- ENDIF -->
+<!-- IF U_PRINT_TOPIC --><!--<li class="rightside"><a href="{U_PRINT_TOPIC}" title="{L_PRINT_TOPIC}" accesskey="p" class="print">{L_PRINT_TOPIC}</a></li>--><!-- ENDIF -->
+<!-- IF U_PRINT_PM --><!--<li class="rightside"><a href="{U_PRINT_PM}" title="{L_PRINT_PM}" accesskey="p" class="print">{L_PRINT_PM}</a></li>--><!-- ENDIF -->
+
+</div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!--version $Id: poll.html 479 2009-03-15 11:19:27Z kevin74 $ //-->
+<a name="viewpoll"></a>
+{$C_BLOCK_H_L}<dl><dt>{L_POLL}</dt></dl>{$C_BLOCK_H_R}
+	<!-- IF S_HAS_POLL -->
+
+	<!-- BEGIN poll -->
+	<div id = "postshell11">
+		<div class = "resultbox">
+			<div class="postdisplay">
+				<div class = "innerborder">
+					<div class = "postingcontainer11">
+						<div class="postdiv11">
+							<div class="deco-frame">
+								<div class="deco-frame-right">
+									<div class="deco-frame-left">
+									<!-- IF poll.S_CAN_VOTE --><form method="post" action="{poll.S_POLL_ACTION}"><!-- ENDIF -->
+										<div class="polls">
+											<div class="poll-date" style="margin:0 0 0 0;">
+												<div class="poll-date1">
+													<div class="poll-date2">{L_OPTIONS}: <span>{poll.L_MAX_VOTES}</span> | <a href="{poll.U_VIEW_TOPIC}">{L_VIEW_TOPIC}</a></div>
+												</div>
+											</div>
+											<div style="clear: both; height: 1px;"></div>
+											<h1>{L_VIEW_TOPIC_POLL} <span>"{poll.POLL_QUESTION}"</span></h1>
+											<div class="df">
+												<h3><span>{L_VIEW_RESULTS}</span></h3>
+												<table>
+													<tr>
+														<td class="tl"></td>
+														<td class="t"></td>
+														<td class="tr"></td>
+													</tr>
+													<tr>
+														<td class="l"><q></q></td>
+														<td class="bg">
+															<div class="poll-content"> <br/>
+																																			
+																<!-- BEGIN poll_option -->
+																<div class="poll-box">
+																	<div class="poll-option">
+																		<!-- IF poll_option.POLL_OPTION_VOTED --><span>{L_POLL_VOTED_OPTION}:&nbsp;&nbsp;</span><!-- ENDIF -->
+																		{poll.poll_option.POLL_OPTION_CAPTION}
+																		<span>
+																		<!-- IF poll.S_CAN_VOTE -->
+																		<!-- IF poll.S_IS_MULTI_CHOICE -->
+																			<!-- IF poll.poll_option.POLL_OPTION_VOTED -->
+																			<input type="checkbox" name="vote_id[]" id="poll_{poll.TOPIC_ID}_vote_{poll.poll_option.POLL_OPTION_ID}" value="{poll.poll_option.POLL_OPTION_ID}" checked="checked" />
+																			<!-- ELSE -->
+																			<input type="checkbox" name="vote_id[]" id="poll_{poll.TOPIC_ID}_vote_{poll.poll_option.POLL_OPTION_ID}" value="{poll.poll_option.POLL_OPTION_ID}" />
+																			<!-- ENDIF -->
+																		<!-- ELSE -->
+																			<!-- IF poll.poll_option.POLL_OPTION_VOTED -->
+																			<input type="radio" name="vote_id[]" id="poll_{poll.TOPIC_ID}_vote_{poll.poll_option.POLL_OPTION_ID}" value="{poll.poll_option.POLL_OPTION_ID}" checked="checked" />
+																			<!-- ELSE -->
+																			<input type="radio" name="vote_id[]" id="poll_{poll.TOPIC_ID}_vote_{poll.poll_option.POLL_OPTION_ID}" value="{poll.poll_option.POLL_OPTION_ID}" />
+																			<!-- ENDIF -->
+																		<!-- ENDIF -->
+																		<!-- ENDIF -->
+																		<!-- IF poll.S_DISPLAY_RESULTS -->{poll.poll_option.POLL_OPTION_RESULT} votes<!-- ENDIF -->
+																		</span>
+																	</div>
+																	<!-- IF poll.S_DISPLAY_RESULTS -->
+																	<div class="poll-count">
+																		<div class="poll-count-total">
+																			<span class="poll-bar" id="pollCount{poll.TOPIC_ID}{poll.poll_option.POLL_OPTION_ID}">
+																				<span class="pollpercent">{poll.poll_option.POLL_OPTION_PERCENT}</span>
+																			</span>
+																		</div>
+																	</div>
+																	<script type="text/javascript">document.getElementById('pollCount{poll.TOPIC_ID}{poll.poll_option.POLL_OPTION_ID}').style.width = "{poll.poll_option.POLL_OPTION_PERCENT}";</script>
+																	<!-- ENDIF -->
+																</div>
+																<!-- END poll_option -->
+																<br/>
+																<!-- IF poll.S_DISPLAY_RESULTS -->
+																<span class="totalvotes">{L_TOTAL_VOTES}: {poll.TOTAL_VOTES}</span>
+																<!-- ENDIF -->
+															</div>
+														</td>
+														<td class="r"><q></q></td>
+													</tr>
+													<tr>
+														<td class="bl"></td>
+														<td class="b"></td>
+														<td class="br"></td>
+													</tr>
+												</table>
+												<div class="pfp">
+													<div class="poll-footer"> 
+														<!-- IF not poll.S_DISPLAY_RESULTS -->
+														<a class="result" style="top:20px;" href="{U_VIEW_RESULTS}"><!--<span>{L_VIEW_RESULTS}</span>--></a>
+														<!-- ELSE -->
+														<a class="result-inactive" style="top:20px;"><!--<span>{L_VIEW_RESULTS}</span>--></a>
+														<!-- ENDIF -->
+														
+														<!-- IF poll.S_CAN_VOTE -->
+														<input type="submit" name="update" value="&nbsp;" style="background:url({T_IMAGESET_LANG_PATH}/button-vote.gif) no-repeat; border:none; width:119px; height:36px; margin-top:20px" />
+														<!-- ELSE -->
+														<a class="vote-link-inactive" style="top:20px;"><!--<span>{L_SUBMIT_VOTE}</span>--></a>
+														<!-- ENDIF -->
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- IF poll.S_CAN_VOTE -->{poll.S_HIDDEN_FIELDS}<!-- ENDIF -->
+								<!-- IF poll.S_CAN_VOTE --></form><!-- ENDIF -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END poll -->
+
+
+	<!-- ELSE -->
+	<div class="panel" style="margin-bottom: 0px">
+		<div class="inner"><span class="portal-corners-top-inner"></span>
+			<span style="text-align: center;"><strong>{L_NO_POLL}</strong></span>
+		<span class="portal-corners-bottom-inner"></span></div>
+	</div>
+	<!-- ENDIF -->
+{$C_BLOCK_F_L}{$C_BLOCK_F_R}

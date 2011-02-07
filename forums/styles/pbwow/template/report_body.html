@@ -1,0 +1,66 @@
+<!-- INCLUDE overall_header.html -->
+
+<div class="clear"></div>
+<div style="width: 100%; margin: 50px 0 0 0; text-align: left;">
+	<!-- Report Post -->
+	<div style="display: block; width: 100%; text-align: center;">
+		<form method="post" action="{S_REPORT_ACTION}" id="report">
+			<div id="character-post-info"><!--<img src="{T_IMAGESET_PATH}/pixel.gif" width="567" height="1" alt="" /><br />-->
+				<table cellspacing="0" cellpadding="0" border="0" width="400" align="center">
+					<tr>
+						<td colspan="2" align="center"><h2 class="bnetbold"><!-- IF S_REPORT_POST -->{L_REPORT_POST}<!-- ELSE -->{L_REPORT_MESSAGE}<!-- ENDIF --></h2></td>
+					</tr>
+					<tr>
+						<td colspan="2">&nbsp;</td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center"><span><!-- IF S_REPORT_POST -->{L_REPORT_POST_EXPLAIN}<!-- ELSE -->{L_REPORT_MESSAGE_EXPLAIN}<!-- ENDIF --></span></td>
+					</tr>
+					<tr>
+						<td colspan="2">&nbsp;</td>
+					</tr>
+					<tr>
+						<td style="padding-right:10px"><span class="blue"><b>{L_REASON}: </b></span><br/></td>
+						<td width="100%"><select name="reason_id" id="reason_id" class="full" style="width:100%"><!-- BEGIN reason --><option value="{reason.ID}"<!-- IF reason.S_SELECTED --> selected="selected"<!-- ENDIF -->>{reason.DESCRIPTION}</option><!-- END reason --></select>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">&nbsp;</td>
+					</tr>
+					<tr>
+						<td style="padding-right:10px" valign="top"><span class="blue"><b>{L_MORE_INFO}: </b></span></td>
+						<td width="100%"><textarea name="report_text" id="report_text" rows="5" cols="50" style="width:100%">{REPORT_TEXT}</textarea></td>
+					</tr>
+					<tr>
+						<td colspan="2"><span>{L_CAN_LEAVE_BLANK}</span></td>
+					</tr>
+					<tr>
+						<td colspan="2">&nbsp;</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+						<!-- IF S_CAN_NOTIFY -->
+							<span><b>{L_REPORT_NOTIFY}:</b><br />{L_REPORT_NOTIFY_EXPLAIN}
+							<input type="radio" name="notify" id="notify1" value="1" style="border:none; background:none" <!-- IF not S_NOTIFY -->checked="checked"<!-- ENDIF --> /> {L_YES} 
+							<input type="radio" name="notify" id="notify0" value="0" style="border:none; background:none" <!-- IF S_NOTIFY -->checked="checked"<!-- ENDIF --> /> {L_NO}</span>
+						<!-- ENDIF -->
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">&nbsp;</td>
+					</tr>
+					<tr>
+						<td align="center" colspan="2">
+							<input type="submit" name="submit" value="&nbsp;" class="button" style="background:url({T_IMAGESET_LANG_PATH}/accept.gif) no-repeat; width:107px; height:36px" />
+							<input type="submit" name="cancel" value="&nbsp;" class="button" style="background:url({T_IMAGESET_LANG_PATH}/cancel.gif) no-repeat; width:107px; height:36px" />
+							{S_FORM_TOKEN}
+						</td>
+					</tr>
+				</table>
+			</div>
+		</form>
+	</div>
+</div>
+<div class="clear" style="height: 40px;"></div>
+
+<!-- INCLUDE overall_footer.html -->

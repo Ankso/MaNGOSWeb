@@ -1,0 +1,21 @@
+<table cellpadding = "0" cellspacing = "0" border = "0">
+	<tr>
+		<!-- IF PREVIOUS_PAGE or NEXT_PAGE -->
+		<td><!-- IF PREVIOUS_PAGE --><a href="{PREVIOUS_PAGE}"><img src="{T_IMAGESET_PATH}/arrow-left.gif" border=0 alt="{L_PREVIOUS}"></a><!-- ELSE --><img src="{T_IMAGESET_PATH}/arrow-left.gif" border=0 alt=""><!-- ENDIF --></td>
+		<td><small>
+		<!-- IF PAGE_NUMBER -->
+			<!-- IF PAGINATION -->{PAGINATION}<!-- ELSE -->{PAGE_NUMBER}<!-- ENDIF -->
+		<!-- ENDIF -->
+		</small></td>
+		<td><!-- IF NEXT_PAGE --><a href="{NEXT_PAGE}"><img src="{T_IMAGESET_PATH}/arrow-right.gif" border=0 alt="{NEXT_PAGE}"></a><!-- ELSE --><img src="{T_IMAGESET_PATH}/arrow-right.gif" border=0 alt=""><!-- ENDIF --></td>
+		<!-- ENDIF -->
+		<td><small>
+		<!-- IF PAGINATION or TOTAL_POSTS or TOTAL_TOPICS -->
+			<!-- IF PAGINATION --><!--<a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a>--><!-- ENDIF -->
+			<!-- IF not S_IS_BOT and U_MARK_TOPICS --><!--<a href="{U_MARK_TOPICS}" accesskey="m">{L_MARK_TOPICS_READ}</a> &bull; --><!-- ENDIF -->
+			<!-- IF TOTAL_POSTS and not NEWEST_USER --><!-- {TOTAL_POSTS} --><!-- ELSEIF TOTAL_TOPICS and not NEWEST_USER --><!-- {TOTAL_TOPICS} --><!-- ENDIF -->
+			<!-- IF TOTAL_USERS --><!--{TOTAL_USERS}--><!-- ENDIF -->
+		<!-- ENDIF -->
+		</small></td>
+	</tr>
+</table>

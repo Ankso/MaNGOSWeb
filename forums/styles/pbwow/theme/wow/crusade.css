@@ -1,0 +1,17 @@
+/* 
+PBWoW.com
+*/
+
+body { background: #000000 url('{T_IMAGESET_PATH}/themes/crusade/theme-bg.jpg') repeat-x 43% 26px !important; }
+h1.wow-logo { background: url('{T_IMAGESET_PATH}/themes/alliance/wowlogo3.gif') no-repeat !important; }
+#postbackground { background: url('{T_IMAGESET_PATH}/forum-bg-tile-left.jpg') repeat-y 0 0 !important; }
+#postbackground .right { background: url('{T_IMAGESET_PATH}/forum-bg-tile-right.jpg') repeat-y 100% 0 !important; }
+
+.indexbg { background: #000000; background-image:none !important; }
+.indexbg-bg1 { background:transparent url('{T_IMAGESET_PATH}/themes/crusade/index-bg1.jpg') no-repeat scroll 0 0; width:413px; height:300px; position:absolute; left:-413px; top:0px; }
+.indexbg-bg2 { background:transparent url('{T_IMAGESET_PATH}/themes/crusade/index-bg2.jpg') no-repeat scroll 0 0; width:412px; height:300px; position:absolute; left:775px; top:0px; }
+.indexbg-extra1 { background: url('{T_IMAGESET_PATH}/themes/crusade/extra1.gif') no-repeat scroll 0 0; width:404px; height:84px; position:absolute; left:-404px; top:-84px; z-index:6010; }
+.indexbg-extra2 { background: url('{T_IMAGESET_PATH}/themes/crusade/extra2.gif') no-repeat scroll 0 0; width:188px; height:64px; position:absolute; left:795px; top:-64px; z-index:6010; }
+.indexbg-extra3 { background: url('{T_IMAGESET_PATH}/themes/crusade/extra3.gif') no-repeat scroll 0 0; width:55px; height:83px; position:absolute; left:0px; top:184px; z-index:6010; }
+
+.adbg {background:url('{T_IMAGESET_PATH}/forum-bg-tile-top.jpg') repeat-x 0 0}

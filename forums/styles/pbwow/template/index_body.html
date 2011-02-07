@@ -1,0 +1,114 @@
+<!-- INCLUDE overall_header.html -->
+
+<!-- This part is for the header overlay "extras" on the index page. -->
+<div class="index-extras1" style="width:100%; overflow:hidden; position:absolute; height:640px; top:27px;">
+	<div class="index-extras2" style="margin:0 auto; position:relative; display:block; width:775px; top:92px">
+		<div class="indexbg-bg1"></div>
+		<div class="indexbg-bg2"></div>
+		<div class="indexbg-extra1"></div>
+		<div class="indexbg-extra2"></div>
+		<div class="indexbg-extra3"></div>
+		<div class="indexbg-extra4"></div>
+	</div>
+</div>
+
+<div class="drop-shadow" style="background:none"></div>
+
+<center>
+	<div id="container" style="width: 775px; position: relative; text-align:right;">
+		<!--// Begin Large Box //-->
+		<div class="border" style="margin: 0 auto;">
+			<div class="im1">
+				<div class="im2">
+					<div class="im3">
+						<div class="im4">
+							<div class="im5">
+								<div class="im6">
+									<div class="im7">
+										<div class="im8">
+<div style="background: none; width: 100%; display: block;">
+	<div style="width: 700px; margin: 0 auto;" class="index-page">
+	
+		<!-- CHANGE THIS TO THE TYPE OF INDEX YOU WANT -->
+			<!-- INCLUDE custom/index_content1.html -->
+		<!-- CHANGE THIS TO THE TYPE OF INDEX YOU WANT -->
+	
+		<div class="clear"></div>
+		<div class="indexing">
+		<!-- INCLUDE forumlist_body.html -->
+	
+			<!-- IF S_DISPLAY_ONLINE_LIST -->
+			<div class="parent-forum haschild" onclick="toggle('childNodeONLINE');toggleChild('arrowONLINE')">
+				<div style="background:url({T_IMAGESET_PATH}/x_custom/whos_online.gif) no-repeat 7px 7px"> <em id="arrowONLINE" class="child-view"></em>
+					<!-- IF U_VIEWONLINE --><h3><a href="{U_VIEWONLINE}">{L_WHO_IS_ONLINE}</a></h3><!-- ELSE --><h3><b>{L_WHO_IS_ONLINE}</b></h3><!-- ENDIF -->
+					<p>{TOTAL_USERS_ONLINE} ({L_ONLINE_EXPLAIN})<br />{RECORD_USERS}</p>
+				</div>
+			</div>
+			<div class="child-listing" style="display:none" id="childNodeONLINE">
+				<p>{LOGGED_IN_USER_LIST}
+				<!-- IF LEGEND --><br /><em>{L_LEGEND}: {LEGEND}</em><!-- ENDIF --></p>
+				<div style="clear:both">
+					<!--ie-->
+				</div>
+			</div>
+			<!-- ENDIF -->
+			
+			<!-- IF S_DISPLAY_BIRTHDAY_LIST and BIRTHDAY_LIST -->
+			<div class="parent-forum haschild" onclick="toggle('childNodeBIRTHDAY');toggleChild('arrowBIRTHDAY')">
+				<div style="background:url({T_IMAGESET_PATH}/x_custom/birthday.gif) no-repeat 7px 7px"> <em id="arrowBIRTHDAY" class="child-view"></em>
+					<h3><b>{L_BIRTHDAYS}</b></h3>
+					<p><!-- IF BIRTHDAY_LIST --><!-- ELSE -->{L_NO_BIRTHDAYS}<!-- ENDIF --></p>
+				</div>
+			</div>
+			<div class="child-listing" style="display:none" id="childNodeBIRTHDAY">
+				<p><!-- IF BIRTHDAY_LIST -->{L_CONGRATULATIONS}: <strong>{BIRTHDAY_LIST}</strong><!-- ELSE -->{L_NO_BIRTHDAYS}<!-- ENDIF --></p>
+				<div style="clear:both">
+					<!--ie-->
+				</div>
+			</div>
+			<!-- ENDIF -->
+	
+			<!-- IF NEWEST_USER or S_DISPLAY_SEARCH or (S_USER_LOGGED_IN and not S_IS_BOT) -->
+			<div class="parent-forum haschild" onclick="toggle('childNodeSTATS');toggleChild('arrowSTATS')">
+				<div style="background:url({T_IMAGESET_PATH}/x_custom/statistics.gif) no-repeat 7px 7px"> <em id="arrowSTATS" class="child-view"></em>
+					<h3><b>{L_STATISTICS}</b></h3>
+					<p>{TOTAL_POSTS} &bull; {TOTAL_TOPICS} &bull; {TOTAL_USERS} &bull; {NEWEST_USER}</p>
+				</div>
+			</div>
+			<div class="child-listing" style="display:none" id="childNodeSTATS">
+				<p align="center">
+			<!-- IF S_DISPLAY_SEARCH or (S_USER_LOGGED_IN and not S_IS_BOT) -->
+				<!-- IF S_DISPLAY_SEARCH -->
+					<a href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a><!-- IF S_USER_LOGGED_IN --> &bull; <a href="{U_SEARCH_UNREAD}">{L_SEARCH_UNREAD}</a> &bull; <a href="{U_SEARCH_NEW}">{L_SEARCH_NEW}</a><!-- ENDIF --> &bull; <a href="{U_SEARCH_ACTIVE_TOPICS}">{L_SEARCH_ACTIVE_TOPICS}</a>
+				<!-- ENDIF -->
+				<!-- IF not S_IS_BOT and U_MARK_FORUMS --> &bull; <a href="{U_MARK_FORUMS}" accesskey="m">{L_MARK_FORUMS_READ}</a><!-- ENDIF -->
+			<!-- ENDIF -->
+				</p>
+				<div style="clear:both">
+					<!--ie-->
+				</div>
+			</div>
+			<!-- ENDIF -->
+		</div>
+	</div>
+	<div id="forumlistcontainerX" style="text-align:left; padding-top:60px; width: 98%;">
+		<div style="clear:both">
+			<!--ie-->
+		</div>
+		<!-- End Content -->
+	</div>
+</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--// End Large Box //-->
+	</div>
+</center>
+
+<!-- INCLUDE overall_footer.html -->

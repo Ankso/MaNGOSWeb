@@ -1,0 +1,565 @@
+<!-- INCLUDE overall_header.html -->
+
+<div class="clear" style="height:55px"></div>
+<div id="searchshell">
+<div id="searchborder">
+	<div>
+		<div>
+			<div>
+				<div>
+					<div class="padding">
+	<div class="searchbox" style="height:60px">
+		<div class="listbox">
+			<ul>
+				<li class="icon"><img src="{T_IMAGESET_PATH}/icons/arrow.gif" border="0" alt="{L_RETURN_TO}: {SEARCH_TOPIC}" /></li>
+				<li class="text" style="width:400px"><span><b><!-- IF SEARCH_TOPIC --><a href="{U_SEARCH_TOPIC}">{L_RETURN_TO}: {SEARCH_TOPIC}</a><!-- ELSE --><a href="{U_SEARCH}" title="{L_SEARCH_ADV}">{L_RETURN_TO_SEARCH_ADV}</a><!-- ENDIF --><b></span>				
+				</li>
+			</ul>
+			<!-- IF SEARCH_IN_RESULTS -->
+			<form method="post" action="{S_SEARCH_ACTION}">
+			<ul style="padding-top:5px">
+				<li class="icon"><img src="{T_IMAGESET_PATH}/icons/search-text.gif" border="0" alt="Search" /></li>
+				<li class="text"><span><b>{L_SEARCH_IN_RESULTS}:</b></span>
+				</li>
+				
+				<li><span><input type="text" name="add_keywords" id="add_keywords" size="40" value="{SEARCH_WORDS}" /></span>
+				</li>
+			</ul>
+			<div style="position: relative; clear: both; width: 1px;"><input type="submit" name="submit" value="&nbsp;" style="position: absolute; top: -38px; left: 603px; background:url({T_IMAGESET_LANG_PATH}/search-button.gif) no-repeat; height:42px; width:82px; border:none" /></div>
+			</form>
+			<!-- ENDIF -->
+		</div>		
+	</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+
+<div id="cover" style="position:absolute; z-index:999999; top:0px; right:10px; width:300px; height:3000px; display:none; background-color:red;"></div>
+<div id="topicheader">
+	<div style="float: right;"> <a href="{U_INDEX}"><img src="{T_IMAGESET_LANG_PATH}/forum-index.gif" width="104" height="41" border="0" alt="" /></a> </div>
+	<div id="topicview" style="margin-top: 14px;">
+		<ul>
+			<li><span title="Current time"><small><font color="white"><b>&nbsp;<!-- IF SEARCH_TITLE -->{SEARCH_TITLE}<!-- ELSE -->{SEARCH_MATCHES}<!-- ENDIF --></b><!-- IF SEARCH_WORDS -->: <a href="{U_SEARCH_WORDS}">{SEARCH_WORDS}</a><!-- ENDIF --><!-- IF IGNORED_WORDS --> | {L_IGNORED_TERMS}: <strong>{IGNORED_WORDS}</strong><!-- ENDIF --> | {CURRENT_TIME_CLEAN}&nbsp;</font></small></span></li>
+		</ul>
+	</div>
+</div>
+
+
+
+<!-- IF .searchresults -->
+
+	<div id="paging">
+		<div class="lpage">
+			<!-- IF PAGINATION or .searchresults or S_SELECT_SORT_KEY or S_SELECT_SORT_DAYS -->
+				<!-- INCLUDE pbwow_pagination.html -->
+			<!-- ENDIF -->	
+		</div>
+	</div>
+
+	<!-- IF S_SHOW_TOPICS -->
+
+	<div id="postbackground">
+		<div class="right">
+			<table width="90%" border="0" cellpadding="0" cellspacing="0" class="tableoutline" style="margin: 0 auto;">
+				<tr>
+					<td class="tableheader">
+						<table cellspacing="0" cellpadding="0" border="0">
+							<tr>
+								<td><img src="{T_IMAGESET_PATH}/pixel.gif" border="0" width="1" height="22" alt="" /></td>
+								<td style="padding: 0 0 0 5px;"><span> <a class="filter" href="#">{L_SUBJECT}</a></span></td>
+							</tr>
+						</table>
+					</td>
+					<td class="tableheader">
+						<table cellspacing="0" cellpadding="0" border="0">
+							<tr>
+								<td><img src="{T_IMAGESET_PATH}/pixel.gif" border="0" width="1" height="22" alt="" /></td>
+								<td style="padding: 0 0 0 5px;"><span> <a class="filter" href="#">{L_FORUM}</a></span></td>
+							</tr>
+						</table>
+					</td>
+					<td align="center" class="tableheader"><span> <a class="filter" href="#">{L_AUTHOR}</a></span></td>
+					<td align="center" class="tableheader"><span> <a class="filter" href="#">{L_REPLIES}</a></span></td>
+					<td align="center" class="tableheader"><span> <a class="filter" href="#">{L_VIEWS}</a></span></td>
+					<td align="center" class="tableheader"><span> <a class="filter" href="#">{L_LAST_POST}</a></span></td>
+					<td class="tableheader">
+						<table cellspacing="0" cellpadding="0" border="0">
+							<tr>
+								<td><img src="{T_IMAGESET_PATH}/pixel.gif" border="0" width="1" height="22" alt="" /></td>
+								<td style="padding: 0 0 0 5px;"><span> <a class="filter" href="#">{L_LAST_UPDATED}</a></span></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+
+				<!-- BEGIN searchresults -->
+				<tr class="rows">
+					<!-- IF searchresults.S_ROW_COUNT is even --><td class="ta2">
+					<!-- ELSE --><td class="t2"><!-- ENDIF -->	
+						<!-- IF searchresults.S_TOPIC_UNAPPROVED or searchresults.S_POSTS_UNAPPROVED or searchresults.S_TOPIC_REPORTED or searchresults.ATTACH_ICON_IMG -->
+							<div style="float:right; display:inline">
+						<!-- IF searchresults.S_TOPIC_UNAPPROVED or searchresults.S_POSTS_UNAPPROVED --><a href="{searchresults.U_MCP_QUEUE}">{searchresults.UNAPPROVED_IMG}</a>&nbsp;<!-- ENDIF -->
+						<!-- IF searchresults.S_TOPIC_REPORTED --><a href="{searchresults.U_MCP_REPORT}"><img src="{T_IMAGESET_PATH}/biohazard-button.gif" border="0" /></a>&nbsp;<!-- ENDIF -->
+						<!-- IF searchresults.ATTACH_ICON_IMG --><img src="{T_IMAGESET_PATH}/x_custom/icon_topic_attach.gif" border="0" />&nbsp;<!-- ENDIF -->
+							</div>	
+						<!-- ENDIF -->				
+						<!-- IF searchresults.S_UNREAD_TOPIC -->
+						<a href="{searchresults.U_NEWEST_POST}"><img src="{T_IMAGESET_PATH}/square-new.gif" width="15" height="15" style="vertical-align:middle;" border="0" alt="" /></a>
+						<!-- ELSE -->
+						<a href="{searchresults.U_VIEW_TOPIC}"><img src="{T_IMAGESET_PATH}/square.gif" width="15" height="15" style="vertical-align:middle;" border="0" alt="" /></a>
+						<!-- ENDIF -->
+						<a href="{searchresults.U_VIEW_TOPIC}" class="active">{searchresults.TOPIC_TITLE}</a>
+						<!-- IF searchresults.PAGINATION -->
+							<small>[Page: {searchresults.PAGINATION}</small>] 
+						<!-- ENDIF -->
+					</td>
+					<!-- IF searchresults.S_ROW_COUNT is even --><td class="ta3"><!-- ELSE --><td class="t3"><!-- ENDIF --><!-- IF not searchresults.S_TOPIC_GLOBAL --><a href="{searchresults.U_VIEW_FORUM}">{searchresults.FORUM_TITLE}</a><!-- ELSE --> ({L_GLOBAL})<!-- ENDIF --></td>
+					<!-- IF searchresults.S_ROW_COUNT is even --><td class="ta3" style="white-space:nowrap">
+					<!-- ELSE --><td class="t3" style="white-space:nowrap"><!-- ENDIF --><!-- IF searchresults.U_TOPIC_AUTHOR --><!-- IF searchresults.TOPIC_AUTHOR_COLOUR --><a href="{searchresults.U_TOPIC_AUTHOR}" style="text-decoration:none; color:{searchresults.TOPIC_AUTHOR_COLOUR}"><!-- ELSE --><a href="{searchresults.U_TOPIC_AUTHOR}" style="text-decoration:none; color:#d7cea4"><!-- ENDIF -->{searchresults.TOPIC_AUTHOR}</a><!-- ELSE -->{searchresults.TOPIC_AUTHOR}<!-- ENDIF --><!-- IF searchresults.TOPIC_AUTHOR_RANK_IMG -->&nbsp;{searchresults.TOPIC_AUTHOR_RANK_IMG}"<!-- ENDIF --></td>
+					<!-- IF searchresults.S_ROW_COUNT is even --><td class="ta4">
+					<!-- ELSE --><td class="t4"><!-- ENDIF -->{searchresults.TOPIC_REPLIES}</td>
+					<!-- IF searchresults.S_ROW_COUNT is even --><td class="ta5">
+					<!-- ELSE --><td class="t5"><!-- ENDIF -->{searchresults.TOPIC_VIEWS}</td>
+					<!-- IF searchresults.S_ROW_COUNT is even --><td class="ta6" style="white-space: nowrap">
+					<!-- ELSE --><td class="t6" style="white-space: nowrap" ><!-- ENDIF -->{L_POST_BY_AUTHOR}&nbsp;<b><!-- IF searchresults.U_LAST_POST_AUTHOR --><a href="{searchresults.U_LAST_POST_AUTHOR}" style="text-decoration:none; color:#d7cea4">{searchresults.LAST_POST_AUTHOR}</a><!-- ELSE -->{searchresults.LAST_POST_AUTHOR}<!-- ENDIF --></b></td>
+<!-- IF searchresults.S_ROW_COUNT is even --><td class="ta6" style="white-space: nowrap">
+					<!-- ELSE --><td class="t6" style="white-space: nowrap" ><!-- ENDIF --><!-- IF not S_IS_BOT -->&nbsp;<a href="{searchresults.U_LAST_POST}"><b>{searchresults.LAST_POST_TIME}</b></a><!-- ENDIF --></td>
+				</tr>
+				<!-- END searchresults -->
+			</table>
+		</div>
+	</div>
+
+	<!-- ELSE -->
+
+	<script type="text/javascript">
+	//<![CDATA[
+	var objGlobal;
+	var startContainerHeight=0;
+	var topPadding=365;
+	if(Browser.safari)
+		topPadding=240;
+	var topScrollLocation=0;
+	
+	function floater(){
+		try{
+		var scrollTopValue=document.documentElement.scrollTop;
+		if(Browser.safari)
+			scrollTopValue=document.body.scrollTop;
+		var divHeight=document.getElementById("floatingContainer"+previousPost).offsetHeight;
+		var browserHeight=document.documentElement.clientHeight;
+			if(scrollTopValue>topPadding && divHeight<browserHeight){
+				if((scrollTopValue+divHeight)<(document.body.offsetHeight-260))
+					objGlobal.style.top=scrollTopValue-topPadding+"px";
+			}else{
+				objGlobal.style.top="0px";
+			}
+		}catch(err){ }
+	}
+	
+	function init(){
+		objGlobal = document.getElementById("floatingContainer2");
+		window.onscroll=floater;
+		switchPost(postIdArray[0])
+	}
+	
+	function testFunc(){
+		alert(objGlobal.style.top)
+		objGlobal.style.top=200+"px";
+	}
+	
+	var previousPost=0;
+	var previousBg=1;
+	
+	function hilightPost(postId) {
+		var obj;
+		if(postId != previousPost && postId != 0){
+			obj = document.getElementById("colorMod" + postId);
+			obj.style.backgroundColor="#0D242D";
+		}
+	}
+	
+	function restorePost(postId) {
+		var obj;
+		if(postId != previousPost && postId != 0){
+			obj = document.getElementById("colorMod" + postId);
+			obj.style.backgroundColor="transparent";
+		}
+	}
+	
+	function switchPost(postId, linkId) {
+		var obj;
+		if (postId == previousPost) {
+			document.location.href=linkId;
+		}else{
+			if(previousPost) {
+				obj = document.getElementById("colorMod" + previousPost);
+				// added to avoid javascript error for no search results
+				if (obj == null) {
+					return;
+				}
+				obj.style.backgroundColor="transparent";
+				
+				obj = document.getElementById("floatingContainer" + previousPost);
+				obj.style.display="none";		
+				
+				obj = document.getElementById("searchArrow" + previousPost);
+				obj.style.visibility="hidden";
+				
+				obj = document.getElementById("miniText" + previousPost);
+				obj.innerHTML='<img src="{T_IMAGESET_LANG_PATH}/button-preview-post.gif" border="0" alt="" />';
+			}
+	
+			obj = document.getElementById("searchArrow" + postId);
+			// added to avoid javascript error for no search results
+			if (obj == null) {
+				return;
+			}
+			obj.style.visibility="visible";
+			obj = document.getElementById("floatingContainer" + postId);
+			obj.style.display="block";
+			obj = document.getElementById("colorMod" + postId);
+			obj.style.backgroundColor="#063449";
+			obj = document.getElementById("miniText" + postId);
+			obj.innerHTML='<img src="{T_IMAGESET_LANG_PATH}/button-jumpto-post.gif" border="0" alt="" />';
+	
+			var divHeight=document.getElementById("floatingContainer"+postId).offsetHeight;
+	
+			if(startContainerHeight==0)
+				startContainerHeight = document.getElementById("searchbackground").offsetHeight;
+			
+			obj = document.getElementById("floatingContainer");
+	
+			if(!Browser.opera)
+			if (divHeight > startContainerHeight){
+				obj.style.height=divHeight+"px";
+				obj = document.getElementById("searchbackground");
+				obj.style.height=divHeight+"px";
+			}else{
+				obj.style.height=startContainerHeight+"px";
+				obj = document.getElementById("searchbackground");
+				obj.style.height=startContainerHeight+"px";			
+			}
+			
+			//alert(obj.style.height)
+			previousPost = postId;
+			floater();
+			//testFunc();
+		}
+	}
+	
+	function checkSearchField(){
+		textSearch = document.searchForm.searchText.value;
+		characterName = document.searchForm.characterName.value;
+		return true;
+	}
+	//]]>
+	</script>
+	
+	<script type="text/javascript">
+	//<![CDATA[
+		var postIdArray = new Array;
+	//]]>
+	</script>
+	
+	<style type="text/css">
+		.breakWord { width:100%; overflow: hidden; word-wrap:break-word; }
+	</style>
+
+
+	<div id="searchcontainer">
+		<table cellspacing="0" cellpadding="0" border="0" width="100%" style="min-width: 920px;">
+			<tr>
+				<td width="50%" valign="top"><!--[if IE]><div style="width: 450px;"><img src="{T_IMAGESET_PATH}/pixel.gif" /></div><![endif]-->
+					<div style="position: relative; display: block; width: 100%;">
+						<div style="margin: 0 auto; position: relative; width: 420px;">
+							<div class="searchbanner"><img src="{T_IMAGESET_LANG_PATH}/title-search-results.gif" style="position: absolute; top: 7px; left: 120px;" border="0" title="Search Results" alt="search-results" /> </div>
+						</div>
+					</div>
+					<div id="searchbackground">
+						<div class="right">
+							<!--[if IE]><img src="{T_IMAGESET_PATH}/pixel.gif" alt="" width="1" height="240" align="left" /><![endif]-->
+	
+	
+							<!-- BEGIN searchresults -->
+	
+							<script type="text/javascript">
+							//<![CDATA[
+							postIdArray[{searchresults.S_ROW_COUNT}]="{searchresults.POST_ID}";
+							//]]>
+							</script>
+							<a name="{searchresults.POST_ID}"></a>
+							<div id="postshell<!-- IF searchresults.S_ROW_COUNT is odd -->2<!-- ELSE -->1<!-- ENDIF -->1" style="cursor: pointer;" onClick="javascript:switchPost('{searchresults.POST_ID}','{searchresults.U_VIEW_POST}')" onMouseOver="javascript:hilightPost('{searchresults.POST_ID}')" onMouseOut="javascript:restorePost('{searchresults.POST_ID}')">
+								<div class="resultbox">
+									<div class="postdisplay">
+										<div class="innerborder">
+											<div class="postingcontainer<!-- IF searchresults.S_ROW_COUNT is odd -->2<!-- ELSE -->1<!-- ENDIF -->1">
+												<div class="insert">
+													<div id="resultsContainer">
+														<div class="resultbox">
+															<!-- search results container -->
+															<div class="post<!-- IF searchresults.S_ROW_COUNT is odd -->2<!-- ELSE -->1<!-- ENDIF -->">
+																<div class="postf<!-- IF searchresults.S_ROW_COUNT is odd -->2<!-- ELSE -->1<!-- ENDIF -->">
+																	<div class="floatRight">
+																		<div id="miniText{searchresults.POST_ID}" class="miniText"><img src="{T_IMAGESET_LANG_PATH}/button-preview-post.gif" border="0" alt="" /> </div>
+																		<div class="searchArrow" id="searchArrow{searchresults.POST_ID}"></div>
+																		<img src="{T_IMAGESET_PATH}/icons/arrow.gif" border="0" alt="" style="position:relative; top:7px;" /> </div>
+																	<div id="colorMod{searchresults.POST_ID}" class="excerptPadd">
+																		<div class="breakWord">
+																			<ul>
+																				<li><span><a href="javascript:switchPost('{searchresults.POST_ID}','{searchresults.U_VIEW_POST}')">{searchresults.POST_SUBJECT}</a></span><br />
+																					<span class="blue" style="font-size:11px;">{L_POSTED} {L_POST_BY_AUTHOR} <b>{searchresults.POST_AUTHOR}</b> &raquo; {searchresults.POST_DATE}</span> </li>
+																				<li class="summary"><span><i><!-- IF searchresults.S_IGNORE_POST -->{searchresults.L_IGNORE_POST}<!-- ENDIF --><!-- IF searchresults.S_POST_REPORTED --><img src="{T_IMAGESET_PATH}/biohazard-button.gif" border="0" /><!-- ENDIF -->{searchresults.MESSAGE}</i></span> </li>
+																			</ul>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<!-- end search results container -->
+													</div>
+						<div style="clear:both">
+							<!---->
+						</div>
+												</div>
+												<!-- end insert -->
+											</div>
+											<!-- end innercontainer -->
+										</div>
+										<!-- end border -->
+									</div>
+									<!-- end postdisplay -->
+								</div>
+								<!-- end resultbox -->
+							</div>
+							<!-- End div postshell -->
+							
+							<!-- END searchresults -->
+
+	
+						</div>
+					</div>
+				</td>
+				<td width="50%" valign="top" class="displaybox"><!--[if IE]><div style="width: 450px;"><img src="{T_IMAGESET_PATH}/pixel.gif" /></div><![endif]-->
+					<div style="position: relative; z-index: 999999999; width: 100%;">
+						<div style="margin: 0 auto; position: relative; width: 420px;">
+							<div class="postpreview">
+								<img src="{T_IMAGESET_LANG_PATH}/title-post-preview.gif" style="position: absolute; top: 7px; left: 128px;" border="0" title="Post Preview" alt="post-preview" /> 
+							</div>
+						</div>
+					</div>
+					<div id="floatingContainer">
+						<div id="floatingContainer2">
+	
+	
+							<!-- BEGIN searchresults -->
+	
+							<a name="{searchresults.POST_ID}"></a>
+							<div id="floatingContainer{searchresults.POST_ID}" style="display:none;">
+								<div class="resultbox">
+									<div class="postdisplay">
+										<div class="innerborder">
+											<div class="innercontainer">
+												<div class="secondcontainer">
+													<div class="breakWord">
+														<div style="float: right; width:0px; height:0px; margin:0; padding:0">
+															<div style="position: relative; width:0px; height:0px;"><a href="{searchresults.U_VIEW_POST}" class="{S_CONTENT_FLOW_END}"><img src="{T_IMAGESET_LANG_PATH}/button-jumptopost.gif" title="{L_JUMP_TO_POST}" style="position:absolute; top:2px; right:4px;" border="0" alt="{L_JUMP_TO_POST}" /></a></div>
+														</div>
+														<ul>
+															<li class="postavatar">
+																<div id="avatar" style="width: 85px;">
+																	<div class="shell">
+																		<!-- IF searchresults.POSTER_AVATAR_SRC -->
+																		<table cellspacing="0" cellpadding="0" border="0">
+																			<tr>
+																				<td style="background: url('{searchresults.POSTER_AVATAR_SRC}') no-repeat; width: 64px; height: 64px;"></td>
+																			</tr>
+																		</table>
+																		<div class="frame">
+																		<!-- ELSEIF searchresults.S_PROFILE_PBRACE -->
+																		<!-- Generate avatar based on custom profile fields -->
+																		<table cellspacing="0" cellpadding="0" border="0">
+																			<tr>
+																				<td style="background: url('{T_IMAGESET_PATH}/portraits/<!-- IF searchresults.S_PROFILE_PBLEVEL --><!-- IF searchresults.PROFILE_PBLEVEL_VALUE > 79 -->wow-80<!-- ELSEIF searchresults.PROFILE_PBLEVEL_VALUE > 69 -->wow-70<!-- ELSEIF searchresults.PROFILE_PBLEVEL_VALUE > 59 -->wow<!-- ELSE -->wow-default<!-- ENDIF --><!-- ELSE -->wow-default<!-- ENDIF -->/<!-- IF searchresults.S_PROFILE_PBGENDER -->{searchresults.PROFILE_PBGENDER_ID}<!-- ELSE -->0<!-- ENDIF -->-{searchresults.PROFILE_PBRACE_ID}-<!-- IF searchresults.S_PROFILE_PBCLASS -->{searchresults.PROFILE_PBCLASS_ID}<!-- ELSE -->1<!-- ENDIF -->.gif') no-repeat; width: 64px; height: 64px;"></td>
+																			</tr>
+																		</table>
+																		<!-- / Generate avatar based on custom profile fields -->
+																		<div class="frame">
+																		<!-- ELSE -->
+																			<!-- IF searchresults.U_POST_AUTHOR -->
+																			<table cellspacing="0" cellpadding="0" border="0">
+																				<tr>
+																					<td style="background: none; width: 64px; height: 64px;"></td>
+																				</tr>
+																			</table>
+																			<div class="frame-no-char">
+																			<!-- ELSE -->
+																			<table cellspacing="0" cellpadding="0" border="0">
+																				<tr>
+																					<td style="background: url('{T_IMAGESET_PATH}/x_custom/avatar.jpg') no-repeat; width: 64px; height: 64px;"></td>
+																				</tr>
+																			</table>
+																			<div class="frame">
+																			<!-- ENDIF -->
+																		<!-- ENDIF -->
+																		<!-- IF searchresults.U_POST_AUTHOR --><a href="{searchresults.U_POST_AUTHOR}"><img src="{T_IMAGESET_PATH}/pixel.gif" width="82" height="83" border="0" alt="" /></a>
+																		<!-- ELSE --><img src="{T_IMAGESET_PATH}/pixel.gif" width="82" height="83" border="0" alt="" />
+																		<!-- ENDIF -->
+																		</div>
+																	</div>
+
+																	<div style="position: relative;">
+																		<!-- IF searchresults.POSTER_AVATAR_SRC or searchresults.S_PROFILE_PBRACE -->
+																		<div class="iconPosition" style="right: 4px;_right: 1px;">
+																			<!-- IF searchresults.SPECIAL_RANK_IMG -->{searchresults.SPECIAL_RANK_IMG}<!-- ELSEIF searchresults.S_PROFILE_PBLEVEL and searchresults.PROFILE_PBLEVEL_VALUE neq 0 --><b><small>{searchresults.PROFILE_PBLEVEL_VALUE}</small></b><!-- ELSEIF not searchresults.S_PROFILE_PBRACE and searchresults.U_POST_AUTHOR and searchresults.RANK_IMG -->{searchresults.RANK_IMG}<!-- ELSE --><img src="{T_IMAGESET_PATH}/x_custom/question.gif" alt="" /><!-- ENDIF -->
+																		</div>
+																		<!-- ELSEIF not searchresults.U_POST_AUTHOR -->
+																		<div class="iconPosition">
+																			<img src="{T_IMAGESET_PATH}/x_custom/question.gif" alt="" />
+																		</div>
+																		<!-- ENDIF -->
+																		<!-- IF searchresults.S_PROFILE_PBRACE -->
+																		<div id="iconpanelhide11">
+																			<div id="search-iconpanel"></div>
+																			<div id="search-icon-panel">
+																			<!-- Character icons -->
+																				<!-- IF searchresults.S_PROFILE_PBRACE -->
+																					<!-- IF searchresults.S_PROFILE_PBGENDER -->
+																					<div class="player-icons-race" style="background: url('{T_IMAGESET_PATH}/icon/race/{searchresults.PROFILE_PBRACE_ID}-{searchresults.PROFILE_PBGENDER_ID}.gif') no-repeat;"> <img src = "{T_IMAGESET_PATH}/pixel.gif" height="18" width="18" alt="" /> </div>
+																					<!-- ELSE -->
+																					<div class="player-icons-race" style="background: url('{T_IMAGESET_PATH}/icon/race/{searchresults.PROFILE_PBRACE_ID}-0.gif') no-repeat;"> <img src = "{T_IMAGESET_PATH}/pixel.gif" height="18" width="18" alt="" /> </div>
+																					<!-- ENDIF -->
+																				<!-- ENDIF -->
+																				
+																				<!-- IF searchresults.S_PROFILE_PBCLASS -->
+																					<div class="player-icons-class" style="background: url('{T_IMAGESET_PATH}/icon/class/{searchresults.PROFILE_PBCLASS_ID}.gif') no-repeat;"><!-- IF searchresults.S_PROFILE_PBARMORYCHARLINK --><a href="{searchresults.PROFILE_PBARMORYCHARLINK_VALUE}" target="_blank"><img src="{T_IMAGESET_PATH}/icon/icon-active.png" alt="" class="png" border="0" height="18" width="18" /></a><!-- ELSE --><img src = "{T_IMAGESET_PATH}/pixel.gif" height="18" width="18" alt="" /><!-- ENDIF --></div>
+																				<!-- ENDIF -->
+
+
+																				<!-- IF searchresults.RANK_IMG -->
+																					<div class="player-icons-pvprank" style="background: url('{searchresults.RANK_IMG_SRC}') no-repeat;" title="{searchresults.RANK_TITLE}"></div>
+																				<!-- ELSE -->
+																					<!-- IF searchresults.PROFILE_PBRACE_ID == 1 or searchresults.PROFILE_PBRACE_ID == 3 or searchresults.PROFILE_PBRACE_ID == 4 or searchresults.PROFILE_PBRACE_ID == 7 or searchresults.PROFILE_PBRACE_ID == 11 -->
+																						<div class="player-icons-pvprank" style="background: url('{T_IMAGESET_PATH}/icon/pvpranks/rank_default_0.gif') no-repeat;"></div>
+																					<!-- ELSE -->
+																						<div class="player-icons-pvprank" style="background: url('{T_IMAGESET_PATH}/icon/pvpranks/rank_default_1.gif') no-repeat;"></div>
+																					<!-- ENDIF -->
+																				<!-- ENDIF -->
+																			<!-- / Character icons -->
+																			</div>
+																		</div>
+																		<!-- ENDIF -->
+																	</div>
+																</div>
+															</li>
+															<li class = "userdata"><span> <a href="{searchresults.U_VIEW_POST}">{searchresults.POST_SUBJECT}</a><br/>
+																{searchresults.POST_DATE}</span><br />
+																<span><b>{L_POST_BY_AUTHOR} <span style="color:#FFAC04;">{searchresults.POST_AUTHOR_FULL}</span>
+																 <!--<a href="#"><img src="{T_IMAGESET_PATH}/icons/search.gif" style="vertical-align: middle;" width="17" height="21" border="0" alt="search" /></a>--></b><br />
+																<!-- IF searchresults.S_PROFILE_PBGUILD --><small>Guild:&nbsp;</small> 
+																<small><b>{searchresults.PROFILE_PBGUILD_VALUE}</b></small><br />
+																<!-- ENDIF -->
+																<!-- IF searchresults.FORUM_TITLE --><small>{L_FORUM}:&nbsp;</small> 
+																<small><b><a href="{searchresults.U_VIEW_FORUM}">{searchresults.FORUM_TITLE}</a></b></small>
+																<!-- ENDIF -->
+																</span>
+															</li>
+														</ul>
+														<ul>
+															<li class="summary">
+																<div id="messagepanel">
+																	<div class="message-body"> <img src="{T_IMAGESET_PATH}/search-text-bubble.gif" border="0" alt="" style="position: absolute; top: -15px; _top: -14px; left: 120px; _left: 115px;" />
+																		<div class="message-format">
+
+																			<!-- IF searchresults.RANK_BLIZZ and S_PBWOW_BLIZZ_RANKS -->
+																			<span class="pbwow-admin-fix" style="color:{searchresults.POST_AUTHOR_COLOUR}">
+																			<!-- ELSE -->
+																			<span style="color:{searchresults.POST_AUTHOR_COLOUR}">
+																			<!-- ENDIF -->
+																				{searchresults.MESSAGE_FULL}
+																			</span>
+																		</div>
+																	</div>
+																</div>
+															</li>
+														</ul>
+														<!-- IF searchresults.FORUM_TITLE -->
+															<!--{L_FORUM}: <a href="{searchresults.U_VIEW_FORUM}">{searchresults.FORUM_TITLE}</a>-->
+														<!-- ENDIF -->
+													</div>
+													<!-- end break -->
+												</div>
+												<!-- end secondcontainer -->
+											</div>
+											<!-- end innercontainer -->
+										</div>
+										<!-- end border -->
+									</div>
+									<!-- end postdisplay -->
+								</div>
+								<!-- end resultbox -->
+							</div>
+							
+							<!-- END searchresults -->
+	
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+	<!-- ENDIF -->
+
+	<div class="theader">
+		<div class="lpage">
+			<!-- IF PAGINATION or .searchresults or S_SELECT_SORT_KEY or S_SELECT_SORT_DAYS -->
+				<!-- INCLUDE pbwow_pagination.html -->
+			<!-- ENDIF -->	
+		</div>
+		<div class="rpage" style="width:500px">
+			<ul>
+				<li>
+				<!-- IF S_SELECT_SORT_DAYS or S_SELECT_SORT_KEY -->
+					<form method="post" action="{S_SEARCH_ACTION}">
+						{S_SELECT_SORT_DAYS} <!-- IF S_SELECT_SORT_KEY -->{S_SELECT_SORT_KEY} {S_SELECT_SORT_DIR}<!-- ENDIF --> <input type="submit" name="sort" value="&nbsp;" style="height:19px; width:21px; background:url({T_IMAGESET_PATH}/jump-button.gif) no-repeat; border:none; cursor:pointer" />
+						<!--{L_DISPLAY_TOPICS}: {S_SELECT_SORT_DAYS}-->
+					</form>
+				<!-- ENDIF -->
+				</li>
+				<li style="margin: 3px 2px 0 3px;"><span><b><!-- IF S_SELECT_SORT_DAYS or S_SELECT_SORT_KEY --><!-- IF S_SHOW_TOPICS -->{L_DISPLAY_POSTS}<!-- ELSE -->{L_SORT_BY}<!-- ENDIF -->:&nbsp;<!-- ENDIF --></b></span></li>
+			</ul>
+		</div>
+	</div>
+
+
+<!-- ELSE -->
+
+
+<div style="clear: both;"></div>
+<div id="postbackground">
+	<div class="right">
+		<div class="search-dialogue">
+			<span><strong>{L_NO_SEARCH_RESULTS}</strong></span>
+		</div>
+	</div>
+</div>
+
+
+<!-- ENDIF -->
+
+
+</div>
+<div class="forum-index">
+	<div class="findex"> <a href="{U_VIEW_FORUM}"><img src="{T_IMAGESET_LANG_PATH}/forum-index.gif" width="104" height="41" border="0" title="" alt="" /></a> </div>
+</div>
+<div style="width: 100%; height: 20px;"></div>
+<br clear="all" />
+
+<!-- INCLUDE overall_footer.html -->

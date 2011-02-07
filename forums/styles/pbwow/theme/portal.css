@@ -1,0 +1,73 @@
+/* inner corners */
+
+span.portal-corners-top-inner {
+	margin: 0 -5px;
+}
+
+span.portal-corners-bottom-inner {
+	margin: 0 -5px;
+	clear: both;
+}
+
+span.portal-corners-top-inner, span.portal-corners-bottom-inner{
+	font-size: 1px;
+	line-height: 1px;
+	display: block;
+	height: 5px;
+	background-repeat: no-repeat;
+}
+
+/* main menu, user menu and the links */
+
+.portal-navigation{
+width: auto;
+}
+
+.portal-navigation ul{
+list-style-type: none;
+margin: 0;
+padding: 0;
+margin-bottom: 8px; /*bottom spacing between each UL and rest of content*/
+}
+
+.portal-navigation ul li{
+padding-bottom: 2px; /*bottom spacing between menu items*/
+}
+
+.portal-navigation ul li a{
+/*background-image: url("{T_THEME_PATH}/images/portal/arrowbullet.gif");*/
+background-repeat: no-repeat;
+background-position: center left; /*custom bullet list image*/
+display: block;
+padding: 2px 0;
+padding-left: 19px; /*link text is indented 19px*/
+font-weight: bold;
+/*font-size: 90%;*/
+}
+
+.portal-navigation div.menutitle{
+padding: 1px 0;
+font: bold 90% 'Trebuchet MS', 'Lucida Grande', Arial, sans-serif;
+font-size: 12px;
+}
+
+
+
+/* For PBWoW Portal */
+.indexingportal { clear:both;color:#e5e5e5;font:11px/14px Arial, Helvatica, sans-serif;padding:0 }
+.indexingportal table {border:0;padding:0;margin:0;border-collapse:collapse}
+.indexingportal td {background:black url('{T_IMAGESET_PATH}/forum-list-sep.gif') no-repeat 50% 100%}
+.indexingportal td {vertical-align:top;border:6px solid black;/*cursor:pointer*/}
+.indexingportal ul.forums td:hover {background:#14171b}
+.indexingportal span {font-size:11px;color:#909090;}
+/*.indexingportal h3 {margin:0;padding:0;font:12px/18px Arial, Helvatica, sans-serif}*/
+.indexingportal h3 a {font-weight:bold;text-decoration:none}
+.indexingportal p {margin:0;padding:4px 0}
+
+.indexingportal h3, .indexingportal li.header dl dt {color:#FFF; font-size:18px; letter-spacing:-1px; margin:0; padding-bottom:8px; text-align:left; font-family:Arial,Helvetica,sans-serif; font-weight:bold; text-transform:uppercase;}
+.indexingportal h3, .indexingportal li.header dl dt a {color:#FFF; font-weight:bold;text-decoration:none}
+
+.indexingportal .portal-navigation ul li{ padding: 0 0 3px 0; background: url('{T_IMAGESET_PATH}/square.gif') no-repeat 0 3px; font-size:12px;}
+.border .im8 .indexingportal ul.topiclist li{ padding: 0; background: none; }
+.indexingportal dd { margin-left: 0; }
+.indexingportal ul.forums { background:none; background-image:none; }

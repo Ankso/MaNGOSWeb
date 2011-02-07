@@ -1,0 +1,83 @@
+/* 
+PBWoW.com
+*/
+
+body { background: #000000 url('{T_IMAGESET_PATH}/themes/wrath/theme-bg.jpg') repeat-x 100% 26px; }
+h1.wow-logo { background: url('{T_IMAGESET_PATH}/themes/wrath/wowlogo.png') no-repeat 0 0; }
+.logo-container { background: url('{T_IMAGESET_PATH}/themes/wrath/decor-left.gif') no-repeat left top !important; }
+.logo-right { background: url('{T_IMAGESET_PATH}/themes/wrath/decor-right.gif') no-repeat right top !important;  }
+#postbackground { background: #000 url('{T_IMAGESET_PATH}/themes/wrath/forum-tile-left.jpg') repeat-y left top; }
+#postbackground .right { background: url('{T_IMAGESET_PATH}/themes/wrath/forum-tile-right.jpg') repeat-y right top; }
+.bg-theme { background: url('{T_IMAGESET_PATH}/themes/wrath/single-bg.jpg') no-repeat 100% 1px; }
+#header { background: url('{T_IMAGESET_PATH}/themes/wrath/top-tile.gif') repeat-x top center; }
+.left-gryphon { background: url('{T_IMAGESET_PATH}/themes/wrath/gryphon-left.gif') no-repeat; }
+.right-gryphon { background: url('{T_IMAGESET_PATH}/themes/wrath/gryphon-right.gif') no-repeat; }
+#footerShell { background: url('{T_IMAGESET_PATH}/themes/wrath/bottom-bg.gif') repeat-x; }
+.pbfooterlogo { background:url('{T_IMAGESET_PATH}/themes/wrath/bottom-blizzlogo.gif') no-repeat; width:400px; height:46px; margin:auto; }
+
+#search {background:url('{T_IMAGESET_PATH}/themes/wrath/forumliner-bg.gif') repeat-x; }
+#search div.forum-index { background:url('{T_IMAGESET_PATH}/themes/wrath/footer-forumindex-right-top.gif') no-repeat right; }
+#search li.a { background:url('{T_IMAGESET_PATH}/themes/wrath/forum-menu-left.gif') no-repeat; }
+#search li.b { background:url('{T_IMAGESET_PATH}/themes/wrath/forum-menu-search-bg.gif') repeat-x; }
+#search li.c { background:url('{T_IMAGESET_PATH}/themes/wrath/forum-menu-search-right.gif') no-repeat; }
+#search .pbsearch-left { background:url('{T_IMAGESET_PATH}/themes/wrath/forum-menu-search-left.gif'); width:12px; height:39px; border:none; }
+#search .pbsearch-adv { background-image: url('{T_IMAGESET_LANG_PATH}/wrath/forum-menu-advanced-search.gif'); }
+#search .pbsearch-menumid { background:url('{T_IMAGESET_PATH}/themes/wrath/forum-menu-mid.gif'); width:19px; height:39px; border:none; }
+
+#search #pbsearch-search { background:url('{T_IMAGESET_LANG_PATH}/wrath/forum-menu-search.gif'); width:74px; height:39px; border:none; cursor:pointer; }
+.tbottom,.forum-index {background:url('{T_IMAGESET_PATH}/themes/wrath/forumliner-bg2.gif') repeat-x; }
+#topicheader { background: url('{T_IMAGESET_PATH}/themes/wrath/topic-bg.gif') repeat-x; }
+.findex {background: url('{T_IMAGESET_PATH}/themes/wrath/footer-forumindex-right-bot.gif') no-repeat;}
+.border .im1{ background: url('{T_IMAGESET_PATH}/themes/wrath/border-left.gif') repeat-y 0 0; }
+.border .im2{ background: url('{T_IMAGESET_PATH}/themes/wrath/border-right.gif') repeat-y 100% 0;}
+.border .im3{ background: url('{T_IMAGESET_PATH}/themes/wrath/border-top.gif') repeat-x 0 0; }
+.border .im4{ background: url('{T_IMAGESET_PATH}/themes/wrath/border-bot.gif') repeat-x 0 100%; }
+.border .im5{ background: url('{T_IMAGESET_PATH}/themes/wrath/border-top-left.gif') no-repeat 0 0; }
+.border .im6{ background: url('{T_IMAGESET_PATH}/themes/wrath/border-top-right.gif') no-repeat 100% 0; }
+.border .im7{ background: url('{T_IMAGESET_PATH}/themes/wrath/border-bot-left.gif') no-repeat 0 100%; }
+.border .im8{ background: url('{T_IMAGESET_PATH}/themes/wrath/border-bot-right.gif') no-repeat 100% 100%;position:relative;z-index:9 }
+.border .im8 li{ padding: 9px 0 0 15px; background: url('{T_IMAGESET_PATH}/square.gif') no-repeat 0 8px; }
+
+#user { background: url('{T_IMAGESET_PATH}/themes/wrath/login-bg.gif') repeat-y; }
+#user div.top { background: url('{T_IMAGESET_PATH}/themes/wrath/login-top.gif') no-repeat; }
+#login { background: url('{T_IMAGESET_PATH}/themes/wrath/login-bg.gif') repeat-y; }
+#login div.top { background: url('{T_IMAGESET_PATH}/themes/wrath/login-top.gif') no-repeat; }
+#logoutbuttons { background: url('{T_IMAGESET_PATH}/themes/wrath/login-bot-tile.gif') repeat-x; }
+#logoutbuttons ul li.left { background: url('{T_IMAGESET_PATH}/themes/wrath/login-bot-left.gif') no-repeat; }
+#logoutbuttons ul li.mid { background: url('{T_IMAGESET_PATH}/themes/wrath/login-bot-mid.gif') no-repeat; }
+#logoutbuttons ul li.right { background: url('{T_IMAGESET_PATH}/themes/wrath/login-bot-right.gif') no-repeat; }
+#logoutbuttons ul li .pblogout { background:url('{T_IMAGESET_LANG_PATH}/wrath/login-bot-logout.gif'); width:97px; height:42px; border:none; cursor:pointer; }
+#logoutbuttons ul li .pboptions { background:url('{T_IMAGESET_LANG_PATH}/wrath/login-bot-options.gif'); width:98px; height:42px; border:none; cursor:pointer; }
+#loginbuttons { background: url('{T_IMAGESET_PATH}/themes/wrath/login-bot-tile.gif') repeat-x; }
+#loginbuttons ul li.left { background: url('{T_IMAGESET_PATH}/themes/wrath/login-bot-left.gif') no-repeat; }
+#loginbuttons ul li.mid { background: url('{T_IMAGESET_PATH}/themes/wrath/login-bot-mid.gif') no-repeat; }
+#loginbuttons ul li.right { background: url('{T_IMAGESET_PATH}/themes/wrath/login-bot-right.gif') no-repeat; }
+#loginbuttons ul li .pblogin { background:url('{T_IMAGESET_LANG_PATH}/wrath/login-bot-login.gif') no-repeat; width:97px; height:42px; border:none; cursor:pointer; }
+#loginbuttons ul li .pbfaq { background:url('{T_IMAGESET_LANG_PATH}/wrath/login-bot-help.gif'); width:98px; height:42px; cursor:pointer; }
+#forumHead .list { background: url('{T_IMAGESET_LANG_PATH}/wrath/header-blank.gif') no-repeat; }
+
+
+
+
+
+/*#forumHead li.title a.index:active,#forumHead li.title a.index:visited,#forumHead li.title a.index { font:12px/18px Georgia, "Times New Roman", serif;color:#ffb019 }
+#forumHead li.title a.index:hover {color:white}*/
+#login,#login div.top,#loginbuttons{ width: 235px; }
+#login,#user {background-repeat:no-repeat !important;background-position:0 15px !important;}	
+#user {height:100px}
+#login div.textfields { margin: 0 0 0 25px;}
+#login span { font:14px/20px Georgia, "Times New Roman", Times, serif;color:#c3e0f9}
+#portrait div.shell {margin: 7px 0 0 25px;}
+#user div.body { width: 120px; }
+#logoutbuttons div.iconPosition {top: -23px; left: 69px;  }
+
+.indexbg { background: #000000 url('{T_IMAGESET_PATH}/themes/wrath/custom-index/index-bg0.jpg') no-repeat 50% 119px; }
+.indexbg-bg1 { background:transparent url('{T_IMAGESET_PATH}/themes/wrath/custom-index/index-bg1.jpg') no-repeat scroll 0 0; width:713px; height:550px; position:absolute; left:-713px; top:0px; }
+.indexbg-bg2 { background:transparent url('{T_IMAGESET_PATH}/themes/wrath/custom-index/index-bg2.jpg') no-repeat scroll 0 0; width:712px; height:550px; position:absolute; left:775px; top:0px; }
+.indexbg-extra1 { background: url('{T_IMAGESET_PATH}/themes/wrath/custom-index/extra.gif') no-repeat scroll 0 0; width:150px; height:76px; position:absolute; left:-175px; top:-76px; z-index:6010; }
+
+.adbg {background:url('{T_IMAGESET_PATH}/themes/wrath/ad-bg.jpg') repeat-x 0 0}
+
+/* Top Nav Styling */
+#shared_topnav { background: #072540 url('{T_IMAGESET_PATH}/themes/wrath/topnav-bg.gif') 50% 0;  }
+.topnav { background: url('{T_IMAGESET_PATH}/themes/wrath/topnav-bg2.gif') no-repeat 50% 0; }

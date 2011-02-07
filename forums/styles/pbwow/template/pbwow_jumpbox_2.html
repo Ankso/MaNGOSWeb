@@ -1,0 +1,38 @@
+<!-- IF S_VIEWTOPIC -->
+	<!--<p></p><p><a href="{U_VIEW_FORUM}" class="left-box {S_CONTENT_FLOW_BEGIN}" accesskey="r">{L_RETURN_TO} {FORUM_NAME}</a></p>-->
+<!-- ELSEIF S_VIEWFORUM -->
+	<!--<p></p><p><a href="{U_INDEX}" class="left-box {S_CONTENT_FLOW_BEGIN}" accesskey="r">{L_RETURN_TO} {L_INDEX}</a></p>-->
+<!-- ELSEIF SEARCH_TOPIC -->
+	<!--<p></p><p><a class="left-box {S_CONTENT_FLOW_BEGIN}" href="{U_SEARCH_TOPIC}" accesskey="r">{L_RETURN_TO}: {SEARCH_TOPIC}</a></p>-->
+<!-- ELSEIF S_SEARCH_ACTION -->
+	<!--<p></p><p><a class="left-box {S_CONTENT_FLOW_BEGIN}" href="{U_SEARCH}" title="{L_SEARCH_ADV}" accesskey="r">{L_RETURN_TO_SEARCH_ADV}</a></p>-->
+<!-- ENDIF -->
+
+
+<div style="position: relative; width: 100%;">
+	<div style="position: absolute; left: 20px; top: -78px;_top: -85px;">
+	<!-- IF S_DISPLAY_JUMPBOX -->
+		<form method="post" id="jumpbox" action="{S_JUMPBOX_ACTION}" onsubmit="if(document.jumpbox.f.value == -1){return false;}" style="display:inline">
+		<span><small class="nav"><!-- IF S_IN_MCP and S_MERGE_SELECT -->{L_SELECT_TOPICS_FROM}<!-- ELSEIF S_IN_MCP -->{L_MODERATE_FORUM}<!-- ELSE -->{L_JUMP_TO}<!-- ENDIF --> :</small></span> 
+		<small>
+			<select name="f" id="f" style="display:inline; margin-left: 10px;" onchange="if(this.options[this.selectedIndex].value != -1){ document.forms['jumpbox'].submit() }">
+			<!-- BEGIN jumpbox_forums -->
+				<!-- IF jumpbox_forums.S_FORUM_COUNT == 1 --><option value="-1">------------------</option><!-- ENDIF -->
+				<option value="{jumpbox_forums.FORUM_ID}"{jumpbox_forums.SELECTED}><!-- BEGIN level -->&nbsp; &nbsp;<!-- END level -->{jumpbox_forums.FORUM_NAME}</option>
+			<!-- END jumpbox_forums -->
+			</select>
+		</small>	
+		<input type="submit" type="submit" value="&nbsp;" style="height:19px; width:21px; background:url({T_IMAGESET_PATH}/jump-button.gif) no-repeat; border:none; cursor:pointer" />
+		</form>
+	<!-- ENDIF -->
+	<!-- IF S_TOPIC_MOD -->
+		<form method="post" action="{S_MOD_ACTION}" style="display:inline; padding-left:20px">
+		<span><small class="nav">{L_QUICK_MOD} :</small></span>
+		<small>
+		{S_TOPIC_MOD} <input type="submit" value="&nbsp;" style="height:19px; width:21px; background:url({T_IMAGESET_PATH}/jump-button.gif) no-repeat; border:none; cursor:pointer" />
+		{S_FORM_TOKEN}
+		</small>
+		</form>
+	<!-- ENDIF -->
+	</div>
+</div>

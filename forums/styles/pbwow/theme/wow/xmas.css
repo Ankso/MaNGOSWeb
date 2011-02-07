@@ -1,0 +1,14 @@
+/* 
+PBWoW.com
+*/
+
+body { background: #000000 url('{T_IMAGESET_PATH}/themes/xmas/theme-bg.jpg') repeat-x 50% 26px !important; }
+h1.wow-logo { background: url('{T_IMAGESET_PATH}/themes/alliance/wowlogo3.gif') no-repeat !important; }
+#postbackground { background: url('{T_IMAGESET_PATH}/themes/xmas/forum-xmas-tile-left.jpg') repeat-y left top; }
+#postbackground .right { background: url('{T_IMAGESET_PATH}/themes/xmas/forum-xmas-tile-right.jpg') repeat-y right top; }
+
+/* Top Nav Styling */
+#shared_topnav { background: #072540 url('{T_IMAGESET_PATH}/themes/wrath/topnav-bg.gif') 50% 0;  }
+.topnav { background: url('{T_IMAGESET_PATH}/themes/wrath/topnav-bg2.gif') no-repeat 50% 0; }
+
+.adbg {background:url('{T_IMAGESET_PATH}/themes/xmas/ad-bg.jpg') repeat-x 0 0}

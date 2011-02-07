@@ -1,0 +1,29 @@
+/*  phpBB 3.0 Style Sheet
+    --------------------------------------------------------------
+	Style name:		PBWoW WotLK
+	Based on style:	proSilver (this is the default phpBB 3 style)
+	Original author:	PayBas ( http://pbwow.com/ )
+	Modified by:		
+	
+	Copyright 2009 PayBas ( http://pbwow.com/ )
+    --------------------------------------------------------------
+*/
+
+@import url("../../pbwow/theme/common.css");
+@import url("../../pbwow/theme/links.css");
+@import url("../../pbwow/theme/content.css");
+@import url("../../pbwow/theme/buttons.css");
+@import url("../../pbwow/theme/cp.css");
+@import url("../../pbwow/theme/forms.css");
+@import url("../../pbwow/theme/tweaks.css");
+@import url("../../pbwow/theme/colours.css");
+
+@import url("../../pbwow/theme/wow/master.css");
+@import url("../../pbwow/theme/wow/forums.css");
+@import url("../../pbwow/theme/wow/topnav.css");
+@import url("../../pbwow/theme/wow/languages.css");
+
+
+@import url("../../pbwow/theme/wow/wrath.css");
+
+@import url("../../pbwow/theme/portal.css");

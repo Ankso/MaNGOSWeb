@@ -1,0 +1,27 @@
+/* 
+PBWoW.com
+*/
+
+body { background: #000000 url('{T_IMAGESET_PATH}/themes/cataclysm/theme-bg.jpg') repeat-x 100% 13px; }
+h1.wow-logo { background: url('{T_IMAGESET_PATH}/themes/cataclysm/wowlogo.png') no-repeat 0 0; }
+#postbackground { background: url('{T_IMAGESET_PATH}/forum-bg-tile-left.jpg') repeat-y 0 0 !important; }
+#postbackground .right { background: url('{T_IMAGESET_PATH}/forum-bg-tile-right.jpg') repeat-y 100% 0 !important; }
+/*#postbackground { background: url('{T_IMAGESET_PATH}/themes/classic/forum-tile-left.jpg') repeat-y 0 0 !important; }
+#postbackground .right { background: url('{T_IMAGESET_PATH}/themes/classic/forum-tile-right.jpg') repeat-y 100% 0 !important; }*/
+.logo-container { background: url('{T_IMAGESET_PATH}/themes/cataclysm/decor-left.gif') no-repeat left top !important; }
+.logo-right { background: url('{T_IMAGESET_PATH}/themes/cataclysm/decor-right.gif') no-repeat right top !important; }
+.bg-theme { background: url('{T_IMAGESET_PATH}/themes/cataclysm/single-bg.jpg') no-repeat 100% 0 !important; height: 166px; }
+
+#header { background: url('{T_IMAGESET_PATH}/themes/cataclysm/top-tile.jpg') repeat-x top center; }
+
+.indexbg { background: #000000; background-image:none !important; }
+.indexbg-bg1 { background:transparent url('{T_IMAGESET_PATH}/themes/cataclysm/index-bg1.jpg') no-repeat scroll 0 0; width:344px; height:368px; position:absolute; left:-344px; top:0px; }
+.indexbg-bg2 { background:transparent url('{T_IMAGESET_PATH}/themes/cataclysm/index-bg2.jpg') no-repeat scroll 0 0; width:385px; height:394px; position:absolute; left:775px; top:0px; }
+.indexbg-extra1 { background: url('{T_IMAGESET_PATH}/themes/cataclysm/extra1.gif') no-repeat scroll 0 0; width:216px; height:53px; position:absolute; left:-216px; top:-53px; z-index:6010; }
+.indexbg-extra2 { background: url('{T_IMAGESET_PATH}/themes/cataclysm/extra2.gif') no-repeat scroll 0 0; width:272px; height:87px; position:absolute; left:710px; top:-87px; z-index:6010; }
+.indexbg-extra3 { background: url('{T_IMAGESET_PATH}/themes/cataclysm/extra3.png') no-repeat scroll 0 0; width:63px; height:176px; position:absolute; left:0px; top:0px; z-index:6010; }
+.indexbg-extra4 { background: url('{T_IMAGESET_PATH}/themes/cataclysm/extra4.png') no-repeat scroll 0 0; width:157px; height:101px; position:absolute; left:618px; top:0px; z-index:6010; }
+
+/*.bg-theme { background: url('{T_IMAGESET_PATH}/themes/classic/single-bg.jpg') no-repeat 100% 0 !important; height: 170px; }*/
+
+.adbg {background:url('{T_IMAGESET_PATH}/forum-bg-tile-top.jpg') repeat-x 0 0}

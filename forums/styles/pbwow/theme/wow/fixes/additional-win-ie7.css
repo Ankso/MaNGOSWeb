@@ -1,0 +1,11 @@
+/*\ IE 7 PNG Optimization \*/
+
+
+/*body { background-position: 26px right; }*/
+#character-post-info.admin-box, .pinfobackground, .gborder, #errorcontainer div.messages, #searchshell div.searchbox, #character-post-info { background: url('../../../../pbwow/imageset/back7.png'); }
+.subnav-container {  background: url('../../../../pbwow/imageset/back2-7.png'); }
+table.board-clear { clear: both; margin: 11px 0 0 0; }
+.poll-date { width: auto; }
+
+.index-extras1 {z-index:6000}
+.index-extras2 {z-index:6000}

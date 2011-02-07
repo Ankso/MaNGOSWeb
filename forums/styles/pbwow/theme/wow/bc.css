@@ -1,0 +1,67 @@
+/* 
+PBWoW.com
+*/
+
+body { background: #000000 url('{T_IMAGESET_PATH}/themes/bc/theme-bg.jpg') repeat-x 100% 26px; }
+h1.wow-logo { background: url('{T_IMAGESET_PATH}/themes/bc/wowlogo.png') no-repeat 0 0; }
+.logo-container { background: url('{T_IMAGESET_PATH}/themes/bc/decor-left.gif') no-repeat left top !important; }
+.logo-right { background: url('{T_IMAGESET_PATH}/themes/bc/decor-right.gif') no-repeat right top !important;  }
+#postbackground { background: #000 url('{T_IMAGESET_PATH}/themes/bc/forum-tile-left.jpg') repeat-y left top; }
+#postbackground .right { background: url('{T_IMAGESET_PATH}/themes/bc/forum-tile-right.jpg') repeat-y right top; }
+.bg-theme { background: url('{T_IMAGESET_PATH}/themes/bc/single-bg.jpg') no-repeat 100% 0 !important; height: 170px; }
+#header { background: url('{T_IMAGESET_PATH}/themes/bc/top-tile.gif') repeat-x top center; }
+.left-gryphon { background: url('{T_IMAGESET_PATH}/themes/bc/gryphon-left.gif') no-repeat; }
+.right-gryphon { background: url('{T_IMAGESET_PATH}/themes/bc/gryphon-right.gif') no-repeat; }
+#footerShell { background: url('{T_IMAGESET_PATH}/themes/bc/bottom-bg.gif') repeat-x; }
+.pbfooterlogo { background:url('{T_IMAGESET_PATH}/themes/bc/bottom-blizzlogo.gif') no-repeat; width:400px; height:46px; margin:auto; }
+
+#search {background:url('{T_IMAGESET_PATH}/themes/bc/forumliner-bg.gif') repeat-x; }
+#search div.forum-index { background:url('{T_IMAGESET_PATH}/themes/bc/footer-forumindex-right-top.gif') no-repeat right; }
+#search li.a { background:url('{T_IMAGESET_PATH}/themes/bc/forum-menu-left.gif') no-repeat; }
+#search li.b { background:url('{T_IMAGESET_PATH}/themes/bc/forum-menu-search-bg.gif') repeat-x; }
+#search li.c { background:url('{T_IMAGESET_PATH}/themes/bc/forum-menu-search-right.gif') no-repeat; }
+#search .pbsearch-left { background:url('{T_IMAGESET_PATH}/themes/bc/forum-menu-search-left.gif'); width:12px; height:39px; border:none; }
+#search .pbsearch-adv { background-image: url('{T_IMAGESET_LANG_PATH}/bc/forum-menu-advanced-search.gif'); }
+#search .pbsearch-menumid { background:url('{T_IMAGESET_PATH}/themes/bc/forum-menu-mid.gif'); width:19px; height:39px; border:none; }
+#search .pbsearch-newtopic { background:url('{T_IMAGESET_LANG_PATH}/bc/forum-menu-newtopic.gif'); width:123px; height:39px; border:none; } /*When changing language, check width too.*/
+#search #pbsearch-search { background:url('{T_IMAGESET_LANG_PATH}/bc/forum-menu-search.gif'); width:74px; height:39px; border:none; cursor:pointer; }
+.tbottom,.forum-index {background:url('{T_IMAGESET_PATH}/themes/bc/forumliner-bg2.gif') repeat-x; }
+#topicheader { background: url('{T_IMAGESET_PATH}/themes/bc/topic-bg.gif') repeat-x; }
+.findex {background: url('{T_IMAGESET_PATH}/themes/bc/footer-forumindex-right-bot.gif') no-repeat; }
+.border .im1{ background: url('{T_IMAGESET_PATH}/themes/bc/border-left.gif') repeat-y 0 0; }
+.border .im2{ background: url('{T_IMAGESET_PATH}/themes/bc/border-right.gif') repeat-y 100% 0;}
+.border .im3{ background: url('{T_IMAGESET_PATH}/themes/bc/border-top.gif') repeat-x 0 0; }
+.border .im4{ background: url('{T_IMAGESET_PATH}/themes/bc/border-bot.gif') repeat-x 0 100%; }
+.border .im5{ background: url('{T_IMAGESET_PATH}/themes/bc/border-top-left.gif') no-repeat 0 0; }
+.border .im6{ background: url('{T_IMAGESET_PATH}/themes/bc/border-top-right.gif') no-repeat 100% 0; }
+.border .im7{ background: url('{T_IMAGESET_PATH}/themes/bc/border-bot-left.gif') no-repeat 0 100%; }
+.border .im8{ background: url('{T_IMAGESET_PATH}/themes/bc/border-bot-right.gif') no-repeat 100% 100%;position:relative;z-index:9 }
+.border .im8 li{ padding: 9px 0 0 15px; background: url('{T_IMAGESET_PATH}/square.gif') no-repeat 0 8px; }
+
+#user { background: url('{T_IMAGESET_PATH}/themes/bc/login-bg.gif') repeat-y; }
+#user div.top { background: url('{T_IMAGESET_PATH}/themes/bc/login-top.gif') no-repeat; }
+#login { background: url('{T_IMAGESET_PATH}/themes/bc/login-bg.gif') repeat-y; }
+#login div.top { background: url('{T_IMAGESET_PATH}/themes/bc/login-top.gif') no-repeat; }
+#logoutbuttons { background: url('{T_IMAGESET_PATH}/themes/bc/login-bot-tile.gif') repeat-x; }
+#logoutbuttons ul li.left { background: url('{T_IMAGESET_PATH}/themes/bc/login-bot-left.gif') no-repeat; }
+#logoutbuttons ul li.mid { background: url('{T_IMAGESET_PATH}/themes/bc/login-bot-mid.gif') no-repeat; }
+#logoutbuttons ul li.right { background: url('{T_IMAGESET_PATH}/themes/bc/login-bot-right.gif') no-repeat; }
+#logoutbuttons ul li .pblogout { background:url('{T_IMAGESET_LANG_PATH}/bc/login-bot-logout.gif'); width:97px; height:42px; border:none; cursor:pointer; }
+#logoutbuttons ul li .pboptions { background:url('{T_IMAGESET_LANG_PATH}/bc/login-bot-options.gif'); width:98px; height:42px; border:none; cursor:pointer; }
+#loginbuttons { background: url('{T_IMAGESET_PATH}/themes/bc/login-bot-tile.gif') repeat-x; }
+#loginbuttons ul li.left { background: url('{T_IMAGESET_PATH}/themes/bc/login-bot-left.gif') no-repeat; }
+#loginbuttons ul li.mid { background: url('{T_IMAGESET_PATH}/themes/bc/login-bot-mid.gif') no-repeat; }
+#loginbuttons ul li.right { background: url('{T_IMAGESET_PATH}/themes/bc/login-bot-right.gif') no-repeat; }
+#loginbuttons ul li .pblogin { background:url('{T_IMAGESET_LANG_PATH}/bc/login-bot-login.gif') no-repeat; width:97px; height:42px; border:none; cursor:pointer; }
+#loginbuttons ul li .pbfaq { background:url('{T_IMAGESET_LANG_PATH}/bc/login-bot-help.gif'); width:98px; height:42px; cursor:pointer; }
+#forumHead .list { background: url('{T_IMAGESET_LANG_PATH}/bc/header-blank.gif') no-repeat; }
+
+/* Future IE6 fix */
+/* h1.wow-logo { background: none !important; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=crop, src='{T_IMAGESET_PATH}/bc/wowlogo.png'); } */
+
+.indexbg { background: #000000 url('{T_IMAGESET_PATH}/themes/bc/custom-index/index-bg0.jpg') no-repeat 50% 119px; }
+.indexbg-bg1 { background:transparent url('{T_IMAGESET_PATH}/themes/bc/custom-index/index-bg1.jpg') no-repeat scroll 0 0; width:366px; height:550px; position:absolute; left:-366px; top:0px; }
+.indexbg-bg2 { background:transparent url('{T_IMAGESET_PATH}/themes/bc/custom-index/index-bg2.jpg') no-repeat scroll 0 0; width:365px; height:550px; position:absolute; left:775px; top:0px; }
+.indexbg-extra1 { background: url('{T_IMAGESET_PATH}/themes/bc/custom-index/extra1.gif') no-repeat scroll 0 0; width:320px; height:76px; position:absolute; left:-366px; top:-76px; z-index:6010; }
+
+.adbg {background:url('{T_IMAGESET_PATH}/themes/bc/ad-bg.jpg') repeat-x 0 0}

@@ -1,0 +1,124 @@
+/*
+Copyright 2006 Blizzard Entertainment, Inc.
+forums.worldofwarcraft.com Localization CSS 
+*/
+
+/*\ Index Page \*/
+/*_________________________________________________________________________*/
+
+.index-spacer { height: 55px; }
+.tcg { height: 134px; width: 595px; background: url('{T_IMAGESET_LANG_PATH}/udtcg.gif') no-repeat; margin: -20px auto; }
+.tcg p { padding: 48px 0 0 155px; }
+/*.index-intro img {background:url('{T_IMAGESET_PATH}/B.gif') no-repeat 0 0}*/
+
+/*\ Account Options \*/
+/*_________________________________________________________________________*/
+
+#post .options-box h1 { background: url('{T_IMAGESET_LANG_PATH}/login-account.gif') no-repeat; }
+#post .options-email h2 { background: url('{T_IMAGESET_LANG_PATH}/options-email.gif') no-repeat; }
+#post .options-basic h1 { background: url('{T_IMAGESET_LANG_PATH}/options-timezone.gif') no-repeat; }
+#post .options-basic h4 { background: url('{T_IMAGESET_LANG_PATH}/options-talents.gif') no-repeat; }
+#post .message-top h5 { background: url('{T_IMAGESET_LANG_PATH}/options-signature.gif') no-repeat; }
+.options-title { background: url('{T_IMAGESET_LANG_PATH}/options-title.gif') no-repeat; }
+
+
+/*\ Login Page \*/
+/*_________________________________________________________________________*/
+
+.login-title { background: url('{T_IMAGESET_LANG_PATH}/login-title.gif') no-repeat; }
+#login-page h4 { background: url('{T_IMAGESET_LANG_PATH}/login-account.gif') no-repeat; }
+#login-page h5 { background: url('{T_IMAGESET_LANG_PATH}/login-password.gif') no-repeat; }
+a.quickadmin { background: url('{T_IMAGESET_LANG_PATH}/icon-admin.gif') no-repeat 0 0; }
+
+/*\ Forum Selector \*/
+/*_________________________________________________________________________*/
+/*#forumHead .list { background: url('{T_IMAGESET_LANG_PATH}/header-blank.gif') no-repeat 0 16px;  }*/
+
+
+/*\ Post Topic / Reply \*/
+/*_________________________________________________________________________*/
+
+.post-title { background: url('{T_IMAGESET_LANG_PATH}/post-title.gif') no-repeat; width:200px; }
+.post-title2 { background: url('{T_IMAGESET_LANG_PATH}/post-title.gif') no-repeat; }
+#post h1 { background: url('{T_IMAGESET_LANG_PATH}/post-subject.gif') no-repeat; }
+#post h2 { background: url('{T_IMAGESET_LANG_PATH}/post-message.gif') no-repeat; }
+#admin-container h1 { background: url('{T_IMAGESET_LANG_PATH}/title-admin.gif') no-repeat; }
+#post li.bold { background: url('{T_IMAGESET_LANG_PATH}/button-bold.gif') no-repeat; }
+#post li.italic { background: url('{T_IMAGESET_LANG_PATH}/button-italic.gif') no-repeat; }
+#post li.underline { background: url('{T_IMAGESET_LANG_PATH}/button-underline.gif') no-repeat; }
+#post li.list { background: url('{T_IMAGESET_LANG_PATH}/button-list.gif') no-repeat; }
+#post li.tabbed-list { background: url('{T_IMAGESET_LANG_PATH}/button-tabbed-list.gif') no-repeat; }
+#post li.hr { background: url('{T_IMAGESET_LANG_PATH}/button-hr.gif') no-repeat; }
+#post li.pre { background: url('{T_IMAGESET_LANG_PATH}/button-pre.gif') no-repeat; }
+#post li.quote { background: url('{T_IMAGESET_LANG_PATH}/button-quote.gif') no-repeat; }
+.char-admin-tools { background: url('{T_IMAGESET_LANG_PATH}/account-tools.gif') no-repeat; }
+
+/*\ Theme Switcher \*/
+/*_________________________________________________________________________*/
+
+h1.theme-title { background: url('{T_IMAGESET_LANG_PATH}/theme-select-banner.gif') no-repeat; }
+
+
+/*\ Language Switcher \*/
+/*_________________________________________________________________________*/
+h1.language-title { background: url('{T_IMAGESET_LANG_PATH}/language-select-banner.gif') no-repeat; }
+
+
+/*\ Quick Search \*/
+/*_________________________________________________________________________*/
+
+/*img#forum-menu-quicksearch { left: 203px; }
+#search div.advanced-search { left: 288px;background-position:0 0;background-repeat:no-repeat }*/
+img#forum-menu-quicksearch { left: 226px; }
+#search div.advanced-search { left: 314px; background-position:0 0;background-repeat:no-repeat }
+#search div.advanced-search a:link, #search div.advanced-search a:active, #search div.advanced-search a:visited { background-position:0 0;width: 107px; height: 17px; display:block; }
+#search div.advanced-search a:hover { background-position:0 -17px; }
+
+
+/*  Polls */
+/*_________________________________________________________________________*/
+
+.poll-date { top:0; left:5px; }
+.deco-frame h2 { background: url('{T_IMAGESET_LANG_PATH}/poll.gif') no-repeat; }
+.poll-footer input, a.vote-link { background: url('{T_IMAGESET_LANG_PATH}/button-vote.gif') no-repeat !important; }
+a.result { background: url('{T_IMAGESET_LANG_PATH}/button-results.gif') no-repeat; }
+a.result-inactive { background: url('{T_IMAGESET_LANG_PATH}/button-results-inactive.gif') no-repeat; }
+a.vote-link-inactive, .vote-inactive { background: url('{T_IMAGESET_LANG_PATH}/button-vote-inactive.gif') no-repeat; }
+.df h3 { background: url('{T_IMAGESET_LANG_PATH}/poll-results.gif') no-repeat; }
+
+
+/*\ Error Handling \*/
+/*_________________________________________________________________________*/
+
+a.redirect, a.redirect:active, a.redirect:visited { display: block; background: url('{T_IMAGESET_LANG_PATH}/button-clickhere.gif') no-repeat; height: 36px; width: 200px; margin: 10px auto; }
+a.redirect:hover { background-position: 0 -36px; }
+
+
+
+
+
+/*\ DE \
+img#forum-menu-quicksearch { left: 222px; }
+#search div.advanced-search { background: url('{T_IMAGESET_PATH}/de_DE/forum-menu-advanced-search.gif') no-repeat 0 0; left: 307px; }
+
+\ GB \
+img#forum-menu-quicksearch { left: 203px; }
+#search div.advanced-search { background: url('{T_IMAGESET_PATH}/en_GB/forum-menu-advanced-search.gif') no-repeat 0 0; left: 288px; }
+
+\ ES \
+img#forum-menu-quicksearch { left: 226px; }
+#search div.advanced-search { background: url('{T_IMAGESET_PATH}/es_ES/forum-menu-advanced-search.gif') no-repeat 0 0; left: 314px; }
+
+\ FR \
+img#forum-menu-quicksearch { left: 223px; }
+#search div.advanced-search { background: url('{T_IMAGESET_PATH}/fr_FR/forum-menu-advanced-search.gif') no-repeat 0 0; left: 309px; }
+
+\ RU \
+img#forum-menu-quicksearch { left: 226px; }
+#search div.advanced-search { background: url('{T_IMAGESET_PATH}/ru_RU/forum-menu-advanced-search.gif') no-repeat 0 0; left: 314px; }
+
+#search img.quicksearch-newtopic {  top: -7px; left: 42px; }
+
+\ RU Forum Selector \
+#forumHead .list { background: url('{T_IMAGESET_PATH}/ru_RU/header-blank-long.gif') no-repeat 0 16px; position: relative; left: -15px; }
+select.forum-dropdown { margin-left: 0; width: auto; }*/

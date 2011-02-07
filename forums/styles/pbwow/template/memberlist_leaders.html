@@ -1,0 +1,134 @@
+<!-- INCLUDE overall_header.html -->
+<div class="clear" style="height:151px"></div>
+
+<div id="cover" style="position:absolute; z-index:999999; top:0px; right:10px; width:300px; height:3000px; display:none; background-color:red;"></div>
+<div id="topicheader">
+	<div style="float: right;"> <a href="{U_INDEX}"><img src="{T_IMAGESET_LANG_PATH}/forum-index.gif" width="104" height="41" border="0" alt="" /></a> </div>
+	<div id="topicview" style="margin-top: 14px;">
+		<ul>
+			<li><span title="Current time"><small><font color="white"><b>{PAGE_TITLE}</b> | {CURRENT_TIME_CLEAN}&nbsp;</font></small></span></li>
+		</ul>
+	</div>
+</div>
+
+<div class="theader">
+	<div class="lpage"></div>
+	<div class="rpage-thread">
+		<!-- IF PAGINATION -->
+			<!-- INCLUDE pbwow_pagination.html -->
+		<!-- ENDIF -->		
+	</div>
+</div>
+
+
+<form method="post" action="{S_MODE_ACTION}">
+
+<div id="postbackground">
+	<div class="right">
+		<table width="90%" border="0" cellpadding="0" cellspacing="0" class="tableoutline" style="margin: 0 auto;">
+			<tr>
+				<td class="tableheader">
+					<table cellspacing="0" cellpadding="0" border="0" width="100%">
+						<tr>
+							<td><img src="{T_IMAGESET_PATH}/pixel.gif" border="0" width="1" height="22" alt="" /></td>
+							<td style="padding: 0 0 0 5px;" width="100%"><span> <a class="filter" href="#">{L_ADMINISTRATORS}</a></span></td>
+							<td style="padding: 0 5px 0 0;"><span class="rank-img"><a class="filter" href="#">{L_RANK}</a></span></td>
+						</tr>
+					</table>
+				</td>
+				<td class="tableheader" style="padding: 0 0 0 5px;"><span> <a class="filter" href="#">{L_PRIMARY_GROUP}</a></span></td>
+				<td class="tableheader" style="padding: 0 0 0 5px;"><span> <a class="filter" href="#">{L_FORUMS}</a></span></td>
+			</tr>
+			
+			<!-- BEGIN admin -->
+			<tr class="rows">
+				<!-- IF admin.S_ROW_COUNT is even --><td class="ta2">
+				<!-- ELSE --><td class="t2"><!-- ENDIF -->
+					<!-- IF admin.RANK_IMG or admin.RANK_TITLE -->
+						<div style="float:right; display:inline">
+							<!-- IF admin.RANK_IMG -->{admin.RANK_IMG}<!-- ELSE -->{admin.RANK_TITLE}<!-- ENDIF -->
+						</div>	
+					<!-- ENDIF -->
+					<img src="{T_IMAGESET_PATH}/square-grey.gif" width="15" height="15" style="vertical-align:middle;" border="0" alt="" />{admin.USERNAME_FULL}</td>
+				<!-- IF admin.S_ROW_COUNT is even --><td class="ta3" style="white-space:nowrap">
+				<!-- ELSE --><td class="t3" style="white-space:nowrap"><!-- ENDIF -->
+				<!-- IF admin.U_GROUP --><a<!-- IF admin.GROUP_COLOR --> style="font-weight: bold; color:#{admin.GROUP_COLOR}"<!-- ENDIF --> href="{admin.U_GROUP}">{admin.GROUP_NAME}</a>
+				<!-- ELSE -->{admin.GROUP_NAME}<!-- ENDIF -->
+				</td>
+				<!-- IF admin.S_ROW_COUNT is even --><td class="ta6">
+				<!-- ELSE --><td class="t6"><!-- ENDIF -->-</td>
+				</td>
+			</tr>
+			
+			<!-- BEGINELSE -->
+			<tr class="rows" style="height:30px">
+				<td class="ta5" colspan="3">
+				<span style="color:#FFFFFF;"><strong>{L_NO_ADMINISTRATORS}</strong></span>
+				</td>
+			</tr>
+			<!-- END admin -->
+
+			<tr>
+				<td class="tableheader">
+					<table cellspacing="0" cellpadding="0" border="0" width="100%">
+						<tr>
+							<td><img src="{T_IMAGESET_PATH}/pixel.gif" border="0" width="1" height="22" alt="" /></td>
+							<td style="padding: 0 0 0 5px;" width="100%"><span> <a class="filter" href="#">{L_MODERATORS}</a></span></td>
+							<td style="padding: 0 5px 0 0;"><span class="rank-img"><a class="filter" href="#">{L_RANK}</a></span></td>
+						</tr>
+					</table>
+				</td>
+				<td class="tableheader" style="padding: 0 0 0 5px;"><span> <a class="filter" href="#">{L_PRIMARY_GROUP}</a></span></td>
+				<td class="tableheader" style="padding: 0 0 0 5px;"><span> <a class="filter" href="#">{L_FORUMS}</a></span></td>
+			</tr>
+
+
+			<!-- BEGIN mod -->
+			<tr class="rows">
+				<!-- IF mod.S_ROW_COUNT is even --><td class="ta2">
+				<!-- ELSE --><td class="t2"><!-- ENDIF -->
+					<!-- IF mod.RANK_IMG or mod.RANK_TITLE -->
+						<div style="float:right; display:inline">
+							<!-- IF mod.RANK_IMG -->{mod.RANK_IMG}<!-- ELSE -->{mod.RANK_TITLE}<!-- ENDIF -->
+						</div>	
+					<!-- ENDIF -->
+					<img src="{T_IMAGESET_PATH}/square-grey.gif" width="15" height="15" style="vertical-align:middle;" border="0" alt="" />{mod.USERNAME_FULL}</td>
+				<!-- IF mod.S_ROW_COUNT is even --><td class="ta3" style="white-space:nowrap">
+				<!-- ELSE --><td class="t3" style="white-space:nowrap"><!-- ENDIF -->
+				<!-- IF mod.U_GROUP --><a<!-- IF mod.GROUP_COLOR --> style="font-weight: bold; color:#{mod.GROUP_COLOR}"<!-- ENDIF --> href="{mod.U_GROUP}">{mod.GROUP_NAME}</a>
+				<!-- ELSE -->{mod.GROUP_NAME}<!-- ENDIF -->
+				</td>
+				<!-- IF mod.S_ROW_COUNT is even --><td class="ta6">
+				<!-- ELSE --><td class="t6"><!-- ENDIF --><!-- IF not mod.FORUMS -->{L_ALL_FORUMS}<!-- ELSE --><select style="width: 100%;">{mod.FORUMS}</select><!-- ENDIF --></td>
+				</td>
+			</tr>
+
+			<!-- BEGINELSE -->
+			<tr class="rows" style="height:30px">
+				<td class="ta5" colspan="3">
+				<span style="color:#FFFFFF;"><strong>{L_NO_MODERATORS}</strong></span>
+				</td>
+			</tr>
+			<!-- END mod -->
+
+		</table>
+	</div>
+</div>
+
+</form>
+
+
+<div id="topicfooter" style="height:22px">
+	<div class="rpage">
+		<!-- IF PAGINATION or TOTAL_POSTS -->
+			<!-- INCLUDE pbwow_pagination.html -->
+		<!-- ENDIF -->
+	</div>
+</div>
+<div class="forum-index">
+	<div class="findex" style="margin-top:-1px"> <a href="{U_INDEX}"><img src="{T_IMAGESET_LANG_PATH}/forum-index.gif" width="104" height="41" border="0" title="" alt="" /></a> </div>
+</div>
+<div style="width: 100%; height: 20px;"></div>
+
+<!-- INCLUDE pbwow_jumpbox_2.html -->
+<!-- INCLUDE overall_footer.html -->

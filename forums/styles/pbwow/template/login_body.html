@@ -1,0 +1,151 @@
+<!-- INCLUDE overall_header.html -->
+
+<div style="min-width: 775px; margin: 0; padding: 0;">
+	<table cellspacing="0" cellpadding="0" border="0">
+		<tr>
+			<td><br/>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<img src="{T_IMAGESET_PATH}/pixel.gif" width="775" height="1" border="0" alt="" /> </td>
+		</tr>
+	</table>
+</div>
+<div id="search"></div>
+<!--<form action="{S_LOGIN_ACTION}" method="post" id="login">-->
+<form action="{S_LOGIN_ACTION}" method="post">
+	<div id="post">
+		<div class="post-box">
+			<div class="post-box-bottom">
+				<div class="post-box-top">
+					<div id="post-topic-shell">
+						<div class="resultbox">
+							<div id="postdisplay">
+								<div class="innerborder">
+									<div class="insert">
+										<blockquote>
+											<div class="post-top">
+												<div id="login-page">
+													<div style="height: 2px; font-size: 1px; position: relative;"></div>
+													<div class="login-message">
+														<ul>
+															<li>
+																<h3></h3>
+															</li>
+															<li class="help-tip">
+															<!-- IF LOGIN_ERROR --><span style="color:red">{LOGIN_ERROR}</span><!-- ELSEIF LOGIN_EXPLAIN -->{LOGIN_EXPLAIN}<!-- ELSE -->{L_LOGIN}<!-- ENDIF --> </li>
+														</ul>
+													</div>
+													<!-- end login-message-->
+													<div class="login-account">
+														<div class="login-title"></div>
+														<h4><span>{L_USERNAME}:</span></h4>
+														<input type="text" tabindex="1" name="{USERNAME_CREDENTIAL}" id="{USERNAME_CREDENTIAL}" size="20" value="{USERNAME}" class="login-account-field" />
+													</div>
+													<!-- end login-account-->
+													<div class="login-password">
+														<h5><span>{L_PASSWORD}:</span></h5>
+														<input type="password" tabindex="2" id="{PASSWORD_CREDENTIAL}" name="{PASSWORD_CREDENTIAL}" size="20" class="login-password-field" />
+													</div>
+													<!-- end login-password-->
+												</div>
+												<!-- end login-page-->
+
+												<!-- IF S_DISPLAY_FULL_LOGIN and (U_SEND_PASSWORD or U_RESEND_ACTIVATION) -->
+													<!-- IF U_SEND_PASSWORD --><div class="forgot-password" style="right: 80px; text-align:right"><a href="{U_SEND_PASSWORD}">{L_FORGOT_PASS}</a></div><!-- ENDIF -->
+													<!-- IF U_RESEND_ACTIVATION --><div class="forgot-password" style="top: -135px; right: -70px; text-align:right"><a href="{U_RESEND_ACTIVATION}">{L_RESEND_ACTIVATION}</a></div><!-- ENDIF -->
+												<!-- ENDIF -->
+												
+												<!-- IF CAPTCHA_TEMPLATE and S_CONFIRM_CODE -->
+													<!-- DEFINE $CAPTCHA_TAB_INDEX = 3 -->
+													<!-- INCLUDE {CAPTCHA_TEMPLATE} -->
+												<!-- ENDIF -->
+										
+												
+												<div class="options-container">
+													<div class="options-left">
+														<div class="options-right">
+															<div class="options-bot">
+																<div class="options-top nobg">
+																	<div class="login-options">
+																		<!-- IF S_DISPLAY_FULL_LOGIN -->
+																			<!-- IF S_AUTOLOGIN_ENABLED --><input type="checkbox" name="autologin" id="autologin" tabindex="4" style="border:none; background:none" /> {L_LOG_ME_IN}<br /><!-- ENDIF -->
+																			<input type="checkbox" name="viewonline" id="viewonline" tabindex="5" style="border:none; background:none" /> {L_HIDE_ME}
+																		<!-- ENDIF -->
+		 															</div>
+																	<!-- end sig-options-->
+																	<div class="post-button">
+																		<div class="post-button-left">
+																			<div class="post-button-right">
+																				<ul>
+																					<li>
+																						<!--<input type="image" class="button" value="{L_LOGIN}" src="{T_IMAGESET_LANG_PATH}/button-login.gif" name="login" tabindex="6" />-->
+																						<input type="submit" name="login" tabindex="6" value="" style="width:104px; height:30px; background:url({T_IMAGESET_LANG_PATH}/button-login.gif) no-repeat; border:none; cursor:pointer"/>
+																					</li>
+																					<li><a href="{U_INDEX}"><img src="{T_IMAGESET_LANG_PATH}/button-cancel.gif" border="0"/></a></li>
+																				</ul>
+																			</div>
+																			<!-- end post-button-right -->
+																		</div>
+																		<!-- end post-button-left -->
+																	</div>
+																	<!-- end post-button-->
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<!-- end options-container -->
+
+												<!-- IF not S_ADMIN_AUTH and S_REGISTER_ENABLED -->
+												<div class="vp-content" style="padding-bottom:20px">
+													<table>
+														<thead>
+															<tr>
+																<td>{L_REGISTER}</td>
+															</tr>
+														</thead>
+														<tbody>
+															<tr class="r0">
+																<td>
+																	{L_LOGIN_INFO}
+																</td>
+															</tr>
+															<tr class="r1">
+																<td align="center">
+																	<a href="{U_TERMS_USE}" class="link" style="border:none; display:inline"><span style="display:inline-block; margin:0 10px; cursor:pointer">{L_TERMS_USE}</span></a><a href="{U_PRIVACY}" class="link" style="border:none; display:inline"><span style="display:inline-block; margin:0 10px; cursor:pointer">{L_PRIVACY}</span></a><a href="{U_REGISTER}" class="link" style="border:none; display:inline"><span style="display:inline-block; margin:0 10px; cursor:pointer">{L_REGISTER}</span></a>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+												<!-- ENDIF -->
+
+											</div>
+											<!-- end post-top -->
+										</blockquote>
+									</div>
+									<!-- end insert -->
+								</div>
+								<!-- end border -->
+							</div>
+							<!-- end postdisplay -->
+						</div>
+						<!-- end resultbox -->
+					</div>
+					<!-- End div postshell -->
+				</div>
+				<!-- end post-box-top -->
+			</div>
+			<!-- end post-box-bottom -->
+		</div>
+		<!-- end post-box -->
+	</div>
+	<!-- end post -->
+{S_HIDDEN_FIELDS}
+</form>
+<div class="tbottom"></div>
+
+<!-- INCLUDE overall_footer.html -->

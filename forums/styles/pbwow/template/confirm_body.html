@@ -1,0 +1,33 @@
+<!-- INCLUDE overall_header.html -->
+
+<form id="confirm" action="{S_CONFIRM_ACTION}" method="post" style="margin:0px; padding:0px;">
+<div class="clear"></div>
+<div style="width: 100%; margin: 0 auto; text-align: left;">
+	<div style="display: block; width: 100%; text-align: center;">
+		<div id="character-post-info" style="margin-top: 100px; margin-bottom: 50px; padding:20px 0px;"><!--<img src="{T_IMAGESET_PATH}/pixel.gif" width="567" height="1" alt="" /><br />-->
+			<table cellspacing="0" cellpadding="0" border="0" width="400" align="center">
+				<tr>
+					<td align="center"><h2 class="bnetbold">{MESSAGE_TITLE}</h2></td>
+				</tr>
+				<tr>
+					<td><span>{MESSAGE_TEXT}<span></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td align="center">
+						{S_HIDDEN_FIELDS}
+						<input type="submit" name="confirm" value="{L_YES}" style=" background:url({T_IMAGESET_LANG_PATH}/accept.gif) no-repeat; border:none; width:107px; height:36px; font-size:1px" />
+						<input type="submit" name="cancel" value="{L_NO}" style=" background:url({T_IMAGESET_LANG_PATH}/cancel.gif) no-repeat; border:none; width:107px; height:36px; font-size:1px" />
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<div class="clear" style="height: 40px;"></div>
+<div class="tbottom"></div>
+</form>
+
+<!-- INCLUDE overall_footer.html -->

@@ -1,0 +1,33 @@
+/* 
+PBWoW.com
+*/
+
+/*body { background: #000000 url('{T_IMAGESET_PATH}/themes/diablo/theme-bg.jpg') repeat-x 100% 26px; }*/
+body {background:#000 url('{T_IMAGESET_PATH}/themes/diablo/frontpage-footer.jpg') scroll no-repeat 50% 100% !important; }
+.outer-container {background: url('{T_IMAGESET_PATH}/themes/diablo/theme-bg.jpg') repeat-x 100% 26px;}
+/*.outer-container {background:url('{T_IMAGESET_PATH}/themes/bnet/theme-bg.jpg') repeat-x 0 149px; background-position:center 175px;}*/
+
+h1.wow-logo { position: absolute; top: 0px; left: 190px; margin: 0; padding: 0; width: 352px; height: 192px; background: url('{T_IMAGESET_PATH}/themes/diablo/logo.gif') no-repeat !important; }
+#postbackground { background: url('{T_IMAGESET_PATH}/themes/diablo/forum-tile-left.jpg') repeat-y 0 0 !important; }
+#postbackground .right { background: url('{T_IMAGESET_PATH}/themes/diablo/forum-tile-right.jpg') repeat-y 100% 0 !important; }
+.bg-theme { background: url('{T_IMAGESET_PATH}/themes/diablo/single-bg.jpg') no-repeat 100% 0 !important; height: 170px; }
+.left-gryphon { background: url('{T_IMAGESET_PATH}/themes/diablo/gryphon-left.gif') no-repeat; }
+.right-gryphon { background: url('{T_IMAGESET_PATH}/themes/diablo/gryphon-right.gif') no-repeat; }
+.logo-container { background: url('{T_IMAGESET_PATH}/themes/diablo/decor-left.gif') no-repeat left top !important; }
+.logo-right { background: url('{T_IMAGESET_PATH}/themes/diablo/decor-right.gif') no-repeat right top !important; }
+
+#header { background: url('{T_IMAGESET_PATH}/themes/diablo/top-tile.jpg') repeat-x top center; }
+
+.indexbg { background: url('{T_IMAGESET_PATH}/themes/diablo/index-bg0.jpg') no-repeat 50% 119px !important; }
+.indexbg-bg1 { background:transparent url('{T_IMAGESET_PATH}/themes/diablo/index-bg1.jpg') no-repeat scroll 0 0; width:338px; height:650px; position:absolute; left:-338px; top:0px; }
+.indexbg-bg2 { background:transparent url('{T_IMAGESET_PATH}/themes/diablo/index-bg2.jpg') no-repeat scroll 0 0; width:337px; height:650px; position:absolute; left:775px; top:0px; }
+.indexbg-extra1 { background: url('{T_IMAGESET_PATH}/themes/diablo/extra1.gif') no-repeat scroll 0 0; width:73px; height:131px; position:absolute; left:739px; top:40px; z-index:6010; }
+
+.adbg {background:url('{T_IMAGESET_PATH}/forum-bg-tile-top.jpg') repeat-x 0 0}
+
+/* Top Nav Styling */
+#shared_topnav { background: #072540 url('{T_IMAGESET_PATH}/themes/diablo/topnav-bg.gif') 50% 0;  }
+.topnav { background: url('{T_IMAGESET_PATH}/themes/diablo/topnav-bg2.gif') no-repeat 50% 0; border-bottom-color: #523314; }
+
+#footerShell { height:35px; background:none !important}
+#footerShell .logo { display:none }

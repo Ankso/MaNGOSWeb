@@ -1,0 +1,19 @@
+.outer-container {zoom:1}
+h1.wow-logo {background: none !important; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=crop, src='styles/pbwow/imageset/themes/bnet/bnetlogo.png'); }
+.language-switcher-container { top: -18px !important; left: 200px !important; }
+.pinfobackground { background:url('styles/pbwow/imageset/themes/bnet/back.gif') repeat 0 0;filter:none !important }
+.pifooter { background: none !important;filter:none !important }
+.poll-date {width:50%}
+#searchcontainer div.searchbanner, #searchcontainer div.postpreview { background: none; filter:none; }
+.login-border {padding:3px;position:relative;top:-6px;zoom:1;left:16px;}
+#login .login-toggle {left:16px}
+.logpage {margin:25px 30px 0 0 !important;}
+#user div.top {width:auto}
+#searchborder  {width:550px;}
+#searchshell div.searchbox {width:100%;background:url('styles/pbwow/imageset/themes/bnet/search-form.jpg') no-repeat 100% 0 !important;filter:none !important }
+.language-selector {width:40px;}
+#portrait .frame,#avatar .frame { left:-15px; }
+#portrait .frame-no-char { left:-15px;}
+#portrait .shell {margin:7px 0 0 11px}
+#logoutbuttons div.iconPosition,#avatar div.iconPosition {top: -9px;}
+#avatar11 .iconPosition, #avatar21 .iconPosition {left:-22px; }

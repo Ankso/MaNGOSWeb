@@ -1,0 +1,43 @@
+<!-- INCLUDE overall_header.html -->
+
+<div class="clear"></div>
+<div style="width: 100%; margin: 50px 0 0 0; text-align: left;">
+	<div style="display: block; width: 100%; text-align: center;">
+		<form id="login_forum" method="post" action="{S_LOGIN_ACTION}">
+		{S_FORM_TOKEN}
+			<div id="character-post-info"><!--<img src="{T_IMAGESET_PATH}/pixel.gif" width="567" height="1" alt="" /><br />-->
+				<table cellspacing="0" cellpadding="0" border="0" width="400" align="center">
+					<tr>
+						<td colspan="2" align="center"><h2 class="bnetbold">{L_LOGIN} {FORUM_NAME}</h2></td>
+					</tr>
+					<tr>
+						<td colspan="2">&nbsp;</td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center"><!-- IF LOGIN_ERROR --><span class="error">{LOGIN_ERROR}</span><!-- ELSE --><span>{L_LOGIN_FORUM}</span><!-- ENDIF --></td>
+					</tr>
+					<tr>
+						<td colspan="2">&nbsp;</td>
+					</tr>
+					<tr>
+						<td><span class="blue"><b>{L_PASSWORD}: </b></span><br/></td>
+						<td width="100%" style="padding: 0px 10px"><input style="width:100%" type="password" name="password" id="password" size="50" tabindex="1" />
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">&nbsp;</td>
+					</tr>
+					<tr>
+						<td align="center" colspan="2">
+							
+							<input type="submit" name="login" value="&nbsp;" tabindex="2" class="button" style="background:url({T_IMAGESET_LANG_PATH}/button-login.gif) no-repeat; width:104px; height:30px" />{S_HIDDEN_FIELDS}
+						</td>
+					</tr>
+				</table>
+			</div>
+		</form>
+	</div>
+</div>
+<div class="clear" style="height: 40px;"></div>
+
+<!-- INCLUDE overall_footer.html -->

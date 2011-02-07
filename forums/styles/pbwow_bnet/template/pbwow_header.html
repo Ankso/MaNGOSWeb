@@ -1,0 +1,195 @@
+<div id="topimg-container">
+	<div id="topimg">
+	</div>
+</div>
+
+<div class="bg-theme">
+	<!-- Start Login Box -->
+	<div class="login-header-container">
+		<table cellspacing="0" cellpadding="0" border="0" width="100%">
+			<tr>
+				<td>
+					<!-- IF not (S_IN_UCP or S_IN_MCP) -->
+					<div id="forumHead" style="position:relative">
+						<div class="icon"><a href="{U_VIEW_FORUM}"><!-- IF PBFORUM_IMAGE___SRC --><img src="{T_IMAGESET_PATH}/forumbullets/bnet/{PBFORUM_IMAGE_SRC}" width="85" height="89" border="0" /><!-- ELSE --><img src="{T_IMAGESET_PATH}/forumbullets/bnet/general.gif" width="85" height="89" border="0" /><!-- ENDIF --></a></div>
+						<div class="list" style="background: url('{T_IMAGESET_PATH}/themes/bnet/header-blank.gif') no-repeat;">
+							<span class="forumnav">{L_FORUMS}:</span>
+							<ul>
+								<li class="title">
+									<h1 class="ftitle"><!-- BEGIN navlinks --><a href="{navlinks.U_VIEW_FORUM}" class="index">{navlinks.FORUM_NAME}</a><!-- IF not navlinks.S_IS_LAST -->&nbsp;>&nbsp;<!-- ENDIF --><!-- END navlinks --></h1>
+								</li>
+								
+								<li class="sel">
+									<div style="white-space:nowrap" class="text"><span><small class="nav">{L_FORUMS}:</small></span></div>
+									<form method="post" id="jumpbox2" action="{S_JUMPBOX_ACTION}" onsubmit="if(document.jumpbox2.f.value == -1){return false;}" style=" display:inline" >
+									<select class="forum-dropdown" name="f" id="f" onchange="if(this.options[this.selectedIndex].value != -1){ document.forms['jumpbox2'].submit() }">
+									<!-- BEGIN jumpbox_forums -->
+									<!-- IF jumpbox_forums.S_FORUM_COUNT == 1 --><option value="-1">---------------------------------------</option><!-- ENDIF -->
+									<option value="{jumpbox_forums.FORUM_ID}"{jumpbox_forums.SELECTED}><!-- BEGIN level -->&nbsp; &nbsp;<!-- END level -->{jumpbox_forums.FORUM_NAME}</option>
+									<!-- END jumpbox_forums -->
+									</select>
+									<input type="submit" value="&nbsp;" style="height:21px; width:21px; background:none; border:none; cursor:pointer" />
+									<!--<img src="{T_IMAGESET_PATH}/pixel.gif" alt="Jump To This Forum" width="21" height="21" border="0" align="middle" title="Jump To This Forum" />-->
+									</form>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- ENDIF -->
+					
+
+
+					<!-- IF not S_IS_BOT and S_USER_LOGGED_IN -->
+				<div class="account-loggedin">
+					<div id="user">
+						<div class="top"></div>
+						<div class="body">
+							<ul>
+								<li class="gateway"><span>Name:</span></li>
+								<li><span title="{L_SEARCH_SELF}"><b><a href="{U_SEARCH_SELF}">{S_USERNAME}</a></b></span></li>
+								<br/>
+								<!-- IF S_DISPLAY_PM --> 
+								<li style="clear:both; width:100%"><span>Inbox:</span><span>&#160;<b><a href="{U_PRIVATEMSGS}">{PRIVATE_MESSAGE_INFO}</a></b></span></li>
+								<!-- ENDIF -->
+								<br/>
+								<li style="clear:both;white-space:nowrap"><span><!--<a href="#">Select Character</a>--></span></li>
+							</ul>
+						</div>
+						<div id="portrait">
+							<div class="shell">
+							
+								<!-- IF PBUSER_AVATAR_SRC -->
+								<table cellspacing="0" cellpadding="0" border="0">
+									<tr>
+										<td style="background: url('{PBUSER_AVATAR_SRC}'); width: 64px; height: 64px;"></td>
+									</tr>
+								</table>
+								<div class="frame">
+								<!-- ELSEIF PBPROFILE_RACE -->
+								<!-- Generate avatar based on custom profile fields -->
+								<table cellspacing="0" cellpadding="0" border="0">
+									<tr>
+										<td style="background: url('{T_IMAGESET_PATH}/portraits/<!-- IF PBPROFILE_LEVEL --><!-- IF PBPROFILE_LEVEL > 79 -->wow-80<!-- ELSEIF PBPROFILE_LEVEL > 69 -->wow-70<!-- ELSEIF PBPROFILE_LEVEL > 59 -->wow<!-- ELSE -->wow-default<!-- ENDIF --><!-- ELSE -->wow-default<!-- ENDIF -->/<!-- IF PBPROFILE_GENDER -->{PBPROFILE_GENDER}<!-- ELSE -->0<!-- ENDIF -->-{PBPROFILE_RACE}-<!-- IF PBPROFILE_CLASS -->{PBPROFILE_CLASS}<!-- ELSE -->1<!-- ENDIF -->.gif'); width: 64px; height: 64px;"></td>
+									</tr>
+								</table>
+								<!-- / Generate avatar based on custom profile fields -->
+								<div class="frame">
+								<!-- ELSE -->
+								<table cellspacing="0" cellpadding="0" border="0">
+									<tr>
+										<td style="background: none; width: 64px; height: 64px;"></td>
+									</tr>
+								</table>
+								<div class="frame-no-char">
+								<!-- ENDIF -->
+									<a href="{U_PROFILE}"><img src="{T_IMAGESET_PATH}/pixel.gif" width= "82" height="83" border="0" alt="" /></a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="logoutbuttons">
+						<div style="position: relative;">
+							<!-- IF PBUSER_AVATAR_SRC or PBPROFILE_RACE -->
+							<div class="iconPosition" style="left:41px">
+								<!-- IF PBRANK_IMG_SRC --><img src="{PBRANK_IMG_SRC}" alt="{PBRANK_TITLE}" /><!-- ELSE --><b><small><!-- IF PBPROFILE_LEVEL -->{PBPROFILE_LEVEL}<!-- ELSE --><img src="{T_IMAGESET_PATH}/x_custom/question.gif" alt="" /><!-- ENDIF --></small></b> <!-- ENDIF -->
+							</div>
+							<!-- ENDIF -->
+						</div>
+						<ul class="btblue">
+							<li class="left"></li>
+							<li><a class="btn" href="{U_LOGIN_LOGOUT}" accesskey="l"><span>{L_LOGOUT}</span></a></li>
+							<li class="mid"></li>
+							<li><a class="btn" href="{U_PROFILE}" accesskey="u"><span>{L_PROFILE}</span></a></li>
+							<li class="right"></li>
+						</ul>
+					</div>
+				</div>
+					
+					<!-- ELSE -->
+				<form action="{PB_LOGIN_ACTION}" method="post">
+				<div class="account-login">
+					<div id="login">
+						<div class="top"></div>
+						<div class="textfields">
+							<div class="login-border">
+							<ul class="hdr">
+								<li class="title">
+									<span>{L_USERNAME}:</span> </li>
+								<li>
+									<input type="text" name="username" id="username" class="inputbox" title="{L_USERNAME}" size="16" style="width: 120px;" />
+								</li>
+							</ul>
+							<br clear="all" />
+							<ul>
+								<li class="title">
+									<span>{L_PASSWORD}:</span> </li>
+								<li>
+									<input type="password" name="password" id="password" class="inputbox" title="{L_PASSWORD}" size="16" style="width: 120px;" />
+								</li>
+							</ul>
+							</div>
+						</div>
+					</div>
+					<div id="loginbuttons">
+						<ul class="btblue">
+							<li class="left"></li>
+							<li class="login">
+								<input type="submit" name="login" value="{L_LOGIN}" class="login-button" />
+							</li>
+							<li class="mid"></li>
+							<li class="help"><a href="{U_FAQ}" title="{L_FAQ_EXPLAIN}" class="btn"><span>{L_FAQ}</span></a></li>
+							<li class="right"></li>
+						</ul>
+					</div>
+				</div>
+				</form>
+					<!-- ENDIF -->
+				</td>
+			</tr>
+		</table>
+	</div>
+	<!-- End Login Box -->
+	<div class="clear" style="height: 1px;"><a name="start_here"></a></div>
+	
+
+
+	<!-- IF S_DISPLAY_SEARCH and not S_IN_SEARCH -->
+	<form method="post" id="forum-search" action="{S_SEARCHBOX_ACTION}">
+	<!-- ENDIF -->
+	<div id="search">
+		<ul><!-- IF S_VIEWTOPIC or S_VIEWFORUM -->
+			<li class="a">
+				<div class="btblue">
+					<!-- IF not S_IS_BOT and S_DISPLAY_POST_INFO -->
+					<a class="btn" href="{U_POST_NEW_TOPIC}"><span>{L_POST_NEW_TOPIC}</span></a>
+					<!-- ELSE -->
+					<a class="btn" href="#"><span>{L_POST_NEW_TOPIC}</span></a>
+					<!-- ENDIF -->
+				</div>
+			</li>
+			<!-- ENDIF -->
+
+			<!-- IF S_DISPLAY_SEARCH and not S_IN_SEARCH -->
+			<!-- IF S_DISPLAY_SEARCHBOX -->
+			<li class="mid-area">
+				<div class="advanced-search"> {L_SEARCH} <a href="{U_SEARCH}"> {L_SEARCH_ADV} </a> </div>
+				<input type="text" size="20" class="quick-search-field" name="keywords" id="search_keywords" onclick="if (this.value == '{LA_SEARCH_FORUM}') this.value = '';" onblur=""/>
+				<input type="submit" class="quick-search" title="Search" value=""  onmouseover="this.style.backgroundPosition='0 -23px'" onMouseOut="this.style.backgroundPosition='0 0'"/>
+				<input type="hidden" value="{FORUM_ID}" name="fid[]" />
+			</li>
+			<!-- ENDIF -->
+			<!-- ENDIF -->
+		</ul>
+		<!-- IF not S_VIEWFORUM -->
+			<div class="forum-index" id="forum-index"><div class="btblue"><!-- IF S_IN_UCP --><a class="btn" href="{U_INDEX}"><!-- ELSE --><a class="btn" href="{U_VIEW_FORUM}"><!-- ENDIF --><span>{L_INDEX}</span></a></div></div>
+		<!-- ENDIF -->
+	</div>
+	<!-- IF S_DISPLAY_SEARCH and not S_IN_SEARCH -->
+	</form>
+	<!-- ENDIF -->
+
+</div>
+
+<!--[if gt IE 6]>
+<div class="ie7margin"></div>
+<![endif]-->

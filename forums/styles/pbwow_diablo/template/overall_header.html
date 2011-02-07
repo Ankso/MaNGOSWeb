@@ -1,0 +1,485 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<html xmlns="http://www.w3.org/1999/xhtml" dir="{S_CONTENT_DIRECTION}" lang="{S_USER_LANG}" xml:lang="{S_USER_LANG}">
+<head>
+<meta http-equiv="content-type" content="text/html; charset={S_CONTENT_ENCODING}" />
+<meta http-equiv="content-style-type" content="text/css" />
+<meta http-equiv="content-language" content="{S_USER_LANG}" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="resource-type" content="document" />
+<meta name="distribution" content="global" />
+<!--<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />-->
+<!-- IF S_ENABLE_FEEDS -->
+	<link rel="alternate" type="application/atom+xml" title="{L_FEED} - {SITENAME}" href="{U_FEED}" />
+	<!-- IF S_ENABLE_FEEDS_NEWS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FEED_NEWS}" href="{U_FEED}?mode=news" /><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_FORUMS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_ALL_FORUMS}" href="{U_FEED}?mode=forums" /><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_TOPICS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_ALL_TOPICS}" href="{U_FEED}?mode=topics" /><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_FORUM and S_FORUM_ID --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FORUM} - {FORUM_NAME}" href="{U_FEED}?f={S_FORUM_ID}" /><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_TOPIC and S_TOPIC_ID --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_TOPIC} - {TOPIC_TITLE}" href="{U_FEED}?f={S_FORUM_ID}&amp;t={S_TOPIC_ID}" /><!-- ENDIF -->
+<!-- ENDIF -->
+<meta name="copyright" content="2000, 2002, 2005, 2007 phpBB Group" />
+<meta name="keywords" content="pbwow, pbunderground, phpbb, forum, skin, style, warcraft, world of warcraft, worldofwarcraft, diablo, new, pbunderground.com, pbwow.com, world, vbulletin, wow, custom, official, fan" />
+<meta name="description" content="" />
+{META}
+<title>{SITENAME} -&gt; <!-- IF S_IN_MCP -->{L_MCP} -&gt; <!-- ELSEIF S_IN_UCP -->{L_UCP} -&gt; <!-- ENDIF -->{PAGE_TITLE}</title>
+
+<script type="text/javascript">
+// <![CDATA[
+	var jump_page = '{LA_JUMP_PAGE}:';
+	var on_page = '{ON_PAGE}';
+	var per_page = '{PER_PAGE}';
+	var base_url = '{A_BASE_URL}';
+	var style_cookie = 'phpBBstyle';
+	var style_cookie_settings = '{A_COOKIE_SETTINGS}';
+	var onload_functions = new Array();
+	var onunload_functions = new Array();
+
+	<!-- IF S_USER_PM_POPUP -->
+		if ({S_NEW_PM})
+		{
+			var url = '{UA_POPUP_PM}';
+			window.open(url.replace(/&amp;/g, '&'), '_phpbbprivmsg', 'height=225,resizable=yes,scrollbars=yes, width=400');
+		}
+	<!-- ENDIF -->
+
+	/**
+	* Find a member
+	*/
+	function find_username(url)
+	{
+		popup(url, 760, 570, '_usersearch');
+		return false;
+	}
+
+	/**
+	* New function for handling multiple calls to window.onload and window.unload by pentapenguin
+	*/
+	window.onload = function()
+	{
+		for (var i = 0; i < onload_functions.length; i++)
+		{
+			eval(onload_functions[i]);
+		}
+	}
+
+	window.onunload = function()
+	{
+		for (var i = 0; i < onunload_functions.length; i++)
+		{
+			eval(onunload_functions[i]);
+		}
+	}
+
+// ]]>
+</script>
+
+<link href="styles/pbwow/theme/print.css" rel="stylesheet" type="text/css" media="print" title="printonly" />
+<link href="{T_STYLESHEET_LINK}" rel="stylesheet" type="text/css" media="screen, projection" />
+<link href="{T_IMAGESET_PATH}/favicon.ico" rel="shortcut icon" />
+
+<script type="text/javascript" src="{T_SUPER_TEMPLATE_PATH}/styleswitcher.js"></script> 
+<script type="text/javascript" src="{T_SUPER_TEMPLATE_PATH}/forum_fn.js"></script>
+<script type="text/javascript" src="{T_SUPER_TEMPLATE_PATH}/js/detection.js"></script>
+<script type="text/javascript" src="{T_SUPER_TEMPLATE_PATH}/js/forum.js"></script>
+<script type="text/javascript">
+	if(Browser.ie7) {
+		addStylesheet('styles/pbwow/theme/wow/fixes/additional-win-ie7.css');
+		}
+	else if(Browser.ie6) {
+		addStylesheet('styles/pbwow/theme/wow/fixes/additional-win-ie.css');
+		}
+	else if(Browser.opera) {
+		addStylesheet('styles/pbwow/theme/wow/fixes/additional-win-opera.css');
+		}
+	else if(Browser.safari && !Browser.safari3) {
+		addStylesheet('styles/pbwow/theme/wow/fixes/additional-mac-safari.css');
+		}
+</script>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+//v1.7
+// Flash Player Version Detection
+// Detect Client Browser type
+// Copyright 2005-2008 Adobe Systems Incorporated.  All rights reserved.
+var isIE  = (navigator.appVersion.indexOf("MSIE") != -1) ? true : false;
+var isWin = (navigator.appVersion.toLowerCase().indexOf("win") != -1) ? true : false;
+var isOpera = (navigator.userAgent.indexOf("Opera") != -1) ? true : false;
+function ControlVersion()
+{
+	var version;
+	var axo;
+	var e;
+	// NOTE : new ActiveXObject(strFoo) throws an exception if strFoo isn't in the registry
+	try {
+		// version will be set for 7.X or greater players
+		axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.7");
+		version = axo.GetVariable("$version");
+	} catch (e) {
+	}
+	if (!version)
+	{
+		try {
+			// version will be set for 6.X players only
+			axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.6");
+			
+			// installed player is some revision of 6.0
+			// GetVariable("$version") crashes for versions 6.0.22 through 6.0.29,
+			// so we have to be careful. 
+			
+			// default to the first public version
+			version = "WIN 6,0,21,0";
+			// throws if AllowScripAccess does not exist (introduced in 6.0r47)		
+			axo.AllowScriptAccess = "always";
+			// safe to call for 6.0r47 or greater
+			version = axo.GetVariable("$version");
+		} catch (e) {
+		}
+	}
+	if (!version)
+	{
+		try {
+			// version will be set for 4.X or 5.X player
+			axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.3");
+			version = axo.GetVariable("$version");
+		} catch (e) {
+		}
+	}
+	if (!version)
+	{
+		try {
+			// version will be set for 3.X player
+			axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.3");
+			version = "WIN 3,0,18,0";
+		} catch (e) {
+		}
+	}
+	if (!version)
+	{
+		try {
+			// version will be set for 2.X player
+			axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash");
+			version = "WIN 2,0,0,11";
+		} catch (e) {
+			version = -1;
+		}
+	}
+	
+	return version;
+}
+// JavaScript helper required to detect Flash Player PlugIn version information
+function GetSwfVer(){
+	// NS/Opera version >= 3 check for Flash plugin in plugin array
+	var flashVer = -1;
+	
+	if (navigator.plugins != null && navigator.plugins.length > 0) {
+		if (navigator.plugins["Shockwave Flash 2.0"] || navigator.plugins["Shockwave Flash"]) {
+			var swVer2 = navigator.plugins["Shockwave Flash 2.0"] ? " 2.0" : "";
+			var flashDescription = navigator.plugins["Shockwave Flash" + swVer2].description;
+			var descArray = flashDescription.split(" ");
+			var tempArrayMajor = descArray[2].split(".");			
+			var versionMajor = tempArrayMajor[0];
+			var versionMinor = tempArrayMajor[1];
+			var versionRevision = descArray[3];
+			if (versionRevision == "") {
+				versionRevision = descArray[4];
+			}
+			if (versionRevision[0] == "d") {
+				versionRevision = versionRevision.substring(1);
+			} else if (versionRevision[0] == "r") {
+				versionRevision = versionRevision.substring(1);
+				if (versionRevision.indexOf("d") > 0) {
+					versionRevision = versionRevision.substring(0, versionRevision.indexOf("d"));
+				}
+			}
+			var flashVer = versionMajor + "." + versionMinor + "." + versionRevision;
+		}
+	}
+	// MSN/WebTV 2.6 supports Flash 4
+	else if (navigator.userAgent.toLowerCase().indexOf("webtv/2.6") != -1) flashVer = 4;
+	// WebTV 2.5 supports Flash 3
+	else if (navigator.userAgent.toLowerCase().indexOf("webtv/2.5") != -1) flashVer = 3;
+	// older WebTV supports Flash 2
+	else if (navigator.userAgent.toLowerCase().indexOf("webtv") != -1) flashVer = 2;
+	else if ( isIE && isWin && !isOpera ) {
+		flashVer = ControlVersion();
+	}	
+	return flashVer;
+}
+// When called with reqMajorVer, reqMinorVer, reqRevision returns true if that version or greater is available
+function DetectFlashVer(reqMajorVer, reqMinorVer, reqRevision)
+{
+	versionStr = GetSwfVer();
+	if (versionStr == -1 ) {
+		return false;
+	} else if (versionStr != 0) {
+		if(isIE && isWin && !isOpera) {
+			// Given "WIN 2,0,0,11"
+			tempArray         = versionStr.split(" "); 	// ["WIN", "2,0,0,11"]
+			tempString        = tempArray[1];			// "2,0,0,11"
+			versionArray      = tempString.split(",");	// ['2', '0', '0', '11']
+		} else {
+			versionArray      = versionStr.split(".");
+		}
+		var versionMajor      = versionArray[0];
+		var versionMinor      = versionArray[1];
+		var versionRevision   = versionArray[2];
+        	// is the major.revision >= requested major.revision AND the minor version >= requested minor
+		if (versionMajor > parseFloat(reqMajorVer)) {
+			return true;
+		} else if (versionMajor == parseFloat(reqMajorVer)) {
+			if (versionMinor > parseFloat(reqMinorVer))
+				return true;
+			else if (versionMinor == parseFloat(reqMinorVer)) {
+				if (versionRevision >= parseFloat(reqRevision))
+					return true;
+			}
+		}
+		return false;
+	}
+}
+function AC_AddExtension(src, ext)
+{
+  if (src.indexOf('?') != -1)
+    return src.replace(/\?/, ext+'?'); 
+  else
+    return src + ext;
+}
+function AC_Generateobj(objAttrs, params, embedAttrs) 
+{ 
+  var str = '';
+  if (isIE && isWin && !isOpera)
+  {
+    str += '<object ';
+    for (var i in objAttrs)
+    {
+      str += i + '="' + objAttrs[i] + '" ';
+    }
+    str += '>';
+    for (var i in params)
+    {
+      str += '<param name="' + i + '" value="' + params[i] + '" /> ';
+    }
+    str += '</object>';
+  }
+  else
+  {
+    str += '<embed ';
+    for (var i in embedAttrs)
+    {
+      str += i + '="' + embedAttrs[i] + '" ';
+    }
+    str += '> </embed>';
+  }
+  document.write(str);
+}
+function AC_FL_RunContent(){
+  var ret = 
+    AC_GetArgs
+    (  arguments, ".swf", "movie", "clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+     , "application/x-shockwave-flash"
+    );
+  AC_Generateobj(ret.objAttrs, ret.params, ret.embedAttrs);
+}
+function AC_SW_RunContent(){
+  var ret = 
+    AC_GetArgs
+    (  arguments, ".dcr", "src", "clsid:166B1BCA-3F9C-11CF-8075-444553540000"
+     , null
+    );
+  AC_Generateobj(ret.objAttrs, ret.params, ret.embedAttrs);
+}
+function AC_GetArgs(args, ext, srcParamName, classid, mimeType){
+  var ret = new Object();
+  ret.embedAttrs = new Object();
+  ret.params = new Object();
+  ret.objAttrs = new Object();
+  for (var i=0; i < args.length; i=i+2){
+    var currArg = args[i].toLowerCase();    
+    switch (currArg){	
+      case "classid":
+        break;
+      case "pluginspage":
+        ret.embedAttrs[args[i]] = args[i+1];
+        break;
+      case "src":
+      case "movie":	
+        args[i+1] = AC_AddExtension(args[i+1], ext);
+        ret.embedAttrs["src"] = args[i+1];
+        ret.params[srcParamName] = args[i+1];
+        break;
+      case "onafterupdate":
+      case "onbeforeupdate":
+      case "onblur":
+      case "oncellchange":
+      case "onclick":
+      case "ondblclick":
+      case "ondrag":
+      case "ondragend":
+      case "ondragenter":
+      case "ondragleave":
+      case "ondragover":
+      case "ondrop":
+      case "onfinish":
+      case "onfocus":
+      case "onhelp":
+      case "onmousedown":
+      case "onmouseup":
+      case "onmouseover":
+      case "onmousemove":
+      case "onmouseout":
+      case "onkeypress":
+      case "onkeydown":
+      case "onkeyup":
+      case "onload":
+      case "onlosecapture":
+      case "onpropertychange":
+      case "onreadystatechange":
+      case "onrowsdelete":
+      case "onrowenter":
+      case "onrowexit":
+      case "onrowsinserted":
+      case "onstart":
+      case "onscroll":
+      case "onbeforeeditfocus":
+      case "onactivate":
+      case "onbeforedeactivate":
+      case "ondeactivate":
+      case "type":
+      case "codebase":
+      case "id":
+        ret.objAttrs[args[i]] = args[i+1];
+        break;
+      case "width":
+      case "height":
+      case "align":
+      case "vspace": 
+      case "hspace":
+      case "class":
+      case "title":
+      case "accesskey":
+      case "name":
+      case "tabindex":
+        ret.embedAttrs[args[i]] = ret.objAttrs[args[i]] = args[i+1];
+        break;
+      default:
+        ret.embedAttrs[args[i]] = ret.params[args[i]] = args[i+1];
+    }
+  }
+  ret.objAttrs["classid"] = classid;
+  if (mimeType) ret.embedAttrs["type"] = mimeType;
+  return ret;
+}
+// -->
+</script>
+</head>
+
+
+<body id="phpbb" <!-- IF .searchresults and not S_SHOW_TOPICS -->onload="javascript:init();"<!-- ENDIF -->>
+<div <!-- IF S_VIEWING_INDEX -->class="indexbg"<!-- ELSE -->class="outer-container"><!-- ENDIF --><!-- DIFFERENT FROM OTHER STYLES!!! -->
+
+<div id="shared_topnav" class="tn_forums">
+	<div class="topnav">
+		<div class="tn_interior">
+			<!-- IF S_BOARD_DISABLED and S_USER_LOGGED_IN and (U_MCP or U_ACP) -->
+			<span style="color:#FF0000; float:left; padding-left:20px">{L_INFORMATION}: {L_BOARD_DISABLED}</span>
+			<!-- ENDIF -->
+			<!-- IF U_PORTAL --><a href="{U_PORTAL}">{L_PORTAL}</a><img src='{T_IMAGESET_PATH}/topnav_div.gif'/><!-- ENDIF -->
+			
+			<!-- IF PBWOW_TOPNAV_CODE -->{PBWOW_TOPNAV_CODE}<!-- ENDIF -->
+			
+			<img src='{T_IMAGESET_PATH}/topnav_div.gif'/>
+			<a href="{U_LOGIN_LOGOUT}" title="{L_LOGIN_LOGOUT}">{L_LOGIN_LOGOUT}</a>
+			<!-- IF S_USER_NEW_PRIVMSG --><img src='{T_IMAGESET_PATH}/topnav_div.gif'/><a href="{U_PRIVATEMSGS}" style="color:#FF0000; ">{PRIVATE_MESSAGE_INFO}</a><!-- ENDIF -->
+		</div>
+	</div>
+	<div class="tn_push"></div>
+</div>
+
+<a id="top" name="top" accesskey="t"></a>
+<!-- headers/links -->
+<div id="header">
+	<div class="logo-container">
+		<div class="logo-right">
+			
+			<div style="position: relative; top: -26px; margin: 0px auto; padding: 0; width: 440px; height: 230px; z-index:1">
+			<!--url's used in the movie-->
+			<!--text used in the movie-->
+			<!-- saved from url=(0013)about:internet -->
+			<script language="JavaScript" type="text/javascript">
+				AC_FL_RunContent(
+					'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0',
+					'width', '440',
+					'height', '230',
+					'src', '{T_IMAGESET_PATH}/themes/diablo/logo',
+					'quality', 'high',
+					'pluginspage', 'http://www.adobe.com/go/getflashplayer',
+					'align', 'middle',
+					'play', 'true',
+					'loop', 'true',
+					'scale', 'showall',
+					'wmode', 'transparent',
+					'devicefont', 'false',
+					'id', 'diablologo',
+					'bgcolor', '#666666',
+					'name', 'diablologo',
+					'menu', 'false',
+					'allowFullScreen', 'false',
+					'allowScriptAccess','sameDomain',
+					'movie', '{T_IMAGESET_PATH}/themes/diablo/logo',
+					'salign', ''
+					); //end AC code
+			</script>
+			<noscript>
+				<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="440" height="230" id="diablologo" align="middle">
+				<param name="allowScriptAccess" value="sameDomain" />
+				<param name="allowFullScreen" value="false" />
+				<param name="movie" value="{T_IMAGESET_PATH}/themes/diablo/logo.swf" />
+				<param name="menu" value="false" />
+				<param name="quality" value="high" />
+				<param name="wmode" value="transparent" />
+				<param name="bgcolor" value="#666666" />	
+				<embed src="{T_IMAGESET_PATH}/themes/diablo/logo.swf" menu="false" quality="high" wmode="transparent" bgcolor="#666666" width="440" height="230" name="logo" align="middle" allowScriptAccess="sameDomain" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer" />
+				</object>
+			</noscript>
+			</div>
+			<a class="ielink" href="{U_INDEX}"></a>
+		</div>
+	</div>
+</div>
+<div class="gryph-container">
+	<div class="gryph-z">
+		<span class="left-gryphon"></span>
+		<span class="right-gryphon"></span>
+	</div>
+	<!--[if lte IE 6]>
+<img src="{T_IMAGESET_PATH}/pixel.gif" border="0" width="775" height="1" alt="" />
+<![endif]-->
+</div>
+
+<!-- IF S_QUICK_STYLE_OPTIONS -->
+<div id="style-switcher" style="z-index:7000;">
+	<div class="language-switcher-container">
+		<h1 class="theme-title"></h1>
+		<div class="language-selector">
+		<form action="{S_QUICK_STYLE_ACTION}" method="post">
+			<select name="prime_quick_style" id="prime_quick_style" class="gray" onchange="this.form.submit();">
+				{S_QUICK_STYLE_OPTIONS}
+			</select>
+			<noscript>
+			<div style="display:inline;">
+				<input type="submit" value="&nbsp;" style="height:19px; width:21px; background:url({T_IMAGESET_PATH}/jump-button.gif) no-repeat; border:none; cursor:pointer" />
+			</div>
+			</noscript>
+		</form>
+		</div>
+	</div>
+</div>
+<!-- ENDIF -->
+
+<!-- IF not S_VIEWING_INDEX -->
+<div class="drop-shadow"></div>
+<!-- ENDIF -->
+
+<!-- IF U_ACP --><div class="admin-shortcuts" style="position:fixed; z-index:999;"><a href="{U_ACP}" class="quickadmin"></a>
+<!-- IF U_WATCH_TOPIC --><a href="{U_WATCH_TOPIC}" class="view-sub"></a><!-- ENDIF --></div><!-- ENDIF -->

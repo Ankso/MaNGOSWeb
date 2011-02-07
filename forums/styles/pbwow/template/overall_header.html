@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<html xmlns="http://www.w3.org/1999/xhtml" dir="{S_CONTENT_DIRECTION}" lang="{S_USER_LANG}" xml:lang="{S_USER_LANG}">
+<head>
+<meta http-equiv="content-type" content="text/html; charset={S_CONTENT_ENCODING}" />
+<meta http-equiv="content-style-type" content="text/css" />
+<meta http-equiv="content-language" content="{S_USER_LANG}" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="resource-type" content="document" />
+<meta name="distribution" content="global" />
+<!--<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />-->
+<!-- IF S_ENABLE_FEEDS -->
+	<link rel="alternate" type="application/atom+xml" title="{L_FEED} - {SITENAME}" href="{U_FEED}" />
+	<!-- IF S_ENABLE_FEEDS_NEWS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FEED_NEWS}" href="{U_FEED}?mode=news" /><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_FORUMS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_ALL_FORUMS}" href="{U_FEED}?mode=forums" /><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_TOPICS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_ALL_TOPICS}" href="{U_FEED}?mode=topics" /><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_FORUM and S_FORUM_ID --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FORUM} - {FORUM_NAME}" href="{U_FEED}?f={S_FORUM_ID}" /><!-- ENDIF -->
+	<!-- IF S_ENABLE_FEEDS_TOPIC and S_TOPIC_ID --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_TOPIC} - {TOPIC_TITLE}" href="{U_FEED}?f={S_FORUM_ID}&amp;t={S_TOPIC_ID}" /><!-- ENDIF -->
+<!-- ENDIF -->
+<meta name="copyright" content="2000, 2002, 2005, 2007 phpBB Group" />
+<meta name="keywords" content="pbwow, pbunderground, phpbb, forum, skin, style, warcraft, world of warcraft, worldofwarcraft, diablo, new, pbunderground.com, pbwow.com, world, vbulletin, wow, custom, official, fan" />
+<meta name="description" content="" />
+{META}
+<title>{SITENAME} -&gt; <!-- IF S_IN_MCP -->{L_MCP} -&gt; <!-- ELSEIF S_IN_UCP -->{L_UCP} -&gt; <!-- ENDIF -->{PAGE_TITLE}</title>
+
+<script type="text/javascript">
+// <![CDATA[
+	var jump_page = '{LA_JUMP_PAGE}:';
+	var on_page = '{ON_PAGE}';
+	var per_page = '{PER_PAGE}';
+	var base_url = '{A_BASE_URL}';
+	var style_cookie = 'phpBBstyle';
+	var style_cookie_settings = '{A_COOKIE_SETTINGS}';
+	var onload_functions = new Array();
+	var onunload_functions = new Array();
+
+	<!-- IF S_USER_PM_POPUP -->
+		if ({S_NEW_PM})
+		{
+			var url = '{UA_POPUP_PM}';
+			window.open(url.replace(/&amp;/g, '&'), '_phpbbprivmsg', 'height=225,resizable=yes,scrollbars=yes, width=400');
+		}
+	<!-- ENDIF -->
+
+	/**
+	* Find a member
+	*/
+	function find_username(url)
+	{
+		popup(url, 760, 570, '_usersearch');
+		return false;
+	}
+
+	/**
+	* New function for handling multiple calls to window.onload and window.unload by pentapenguin
+	*/
+	window.onload = function()
+	{
+		for (var i = 0; i < onload_functions.length; i++)
+		{
+			eval(onload_functions[i]);
+		}
+	}
+
+	window.onunload = function()
+	{
+		for (var i = 0; i < onunload_functions.length; i++)
+		{
+			eval(onunload_functions[i]);
+		}
+	}
+
+// ]]>
+</script>
+
+<link href="styles/pbwow/theme/print.css" rel="stylesheet" type="text/css" media="print" title="printonly" />
+<link href="{T_STYLESHEET_LINK}" rel="stylesheet" type="text/css" media="screen, projection" />
+<link href="{T_IMAGESET_PATH}/favicon.ico" rel="shortcut icon" />
+
+<script type="text/javascript" src="{T_SUPER_TEMPLATE_PATH}/styleswitcher.js"></script> 
+<script type="text/javascript" src="{T_SUPER_TEMPLATE_PATH}/forum_fn.js"></script>
+<script type="text/javascript" src="{T_SUPER_TEMPLATE_PATH}/js/detection.js"></script>
+<script type="text/javascript" src="{T_SUPER_TEMPLATE_PATH}/js/forum.js"></script>
+<script type="text/javascript">
+	if(Browser.ie7) {
+		addStylesheet('styles/pbwow/theme/wow/fixes/additional-win-ie7.css');
+		}
+	else if(Browser.ie6) {
+		addStylesheet('styles/pbwow/theme/wow/fixes/additional-win-ie.css');
+		}
+	else if(Browser.opera) {
+		addStylesheet('styles/pbwow/theme/wow/fixes/additional-win-opera.css');
+		}
+	else if(Browser.safari && !Browser.safari3) {
+		addStylesheet('styles/pbwow/theme/wow/fixes/additional-mac-safari.css');
+		}
+</script>
+</head>
+
+
+<body id="phpbb" <!-- IF .searchresults and not S_SHOW_TOPICS -->onload="javascript:init();"<!-- ENDIF --> <!-- IF S_VIEWING_INDEX -->class="indexbg"<!-- ENDIF -->>
+<div class="outer-container"><!-- Needed for Bnet theme -->
+
+<div id="shared_topnav" class="tn_forums">
+	<div class="topnav">
+		<div class="tn_interior">
+			<!-- IF S_BOARD_DISABLED and S_USER_LOGGED_IN and (U_MCP or U_ACP) -->
+			<span style="color:#FF0000; float:left; padding-left:20px">{L_INFORMATION}: {L_BOARD_DISABLED}</span>
+			<!-- ENDIF -->
+			<!-- IF U_PORTAL --><a href="{U_PORTAL}">{L_PORTAL}</a><img src='{T_IMAGESET_PATH}/topnav_div.gif'/><!-- ENDIF -->
+			
+			<!-- IF PBWOW_TOPNAV_CODE -->{PBWOW_TOPNAV_CODE}<!-- ENDIF -->
+			
+			<img src='{T_IMAGESET_PATH}/topnav_div.gif'/>
+			<a href="{U_LOGIN_LOGOUT}" title="{L_LOGIN_LOGOUT}">{L_LOGIN_LOGOUT}</a>
+			<!-- IF S_USER_NEW_PRIVMSG --><img src='{T_IMAGESET_PATH}/topnav_div.gif'/><a href="{U_PRIVATEMSGS}" style="color:#FF0000; ">{PRIVATE_MESSAGE_INFO}</a><!-- ENDIF -->
+		</div>
+	</div>
+	<div class="tn_push"></div>
+</div>
+
+<a id="top" name="top" accesskey="t"></a>
+<!-- headers/links -->
+<div id="header">
+	<div class="logo-container">
+		<div class="logo-right">
+			<h1 class="wow-logo"></h1>
+			<a class="ielink" href="{U_INDEX}"></a>
+		</div>
+	</div>
+</div>
+<div class="gryph-container">
+	<div class="gryph-z">
+		<span class="left-gryphon"></span>
+		<span class="right-gryphon"></span>
+	</div>
+	<!--[if lte IE 6]>
+<img src="{T_IMAGESET_PATH}/pixel.gif" border="0" width="775" height="1" alt="" />
+<![endif]-->
+</div>
+
+<!-- IF S_QUICK_STYLE_OPTIONS -->
+<div id="style-switcher" style="z-index:7000;">
+	<div class="language-switcher-container">
+		<h1 class="theme-title"></h1>
+		<div class="language-selector">
+		<form action="{S_QUICK_STYLE_ACTION}" method="post">
+			<select name="prime_quick_style" id="prime_quick_style" class="gray" onchange="this.form.submit();">
+				{S_QUICK_STYLE_OPTIONS}
+			</select>
+			<noscript>
+			<div style="display:inline;">
+				<input type="submit" value="&nbsp;" style="height:19px; width:21px; background:url({T_IMAGESET_PATH}/jump-button.gif) no-repeat; border:none; cursor:pointer" />
+			</div>
+			</noscript>
+		</form>
+		</div>
+	</div>
+</div>
+<!-- ENDIF -->
+
+<!-- IF not S_VIEWING_INDEX -->
+<div class="drop-shadow"></div>
+<!-- ENDIF -->
+
+<!-- IF U_ACP --><div class="admin-shortcuts" style="position:fixed; z-index:999;"><a href="{U_ACP}" class="quickadmin"></a>
+<!-- IF U_WATCH_TOPIC --><a href="{U_WATCH_TOPIC}" class="view-sub"></a><!-- ENDIF --></div><!-- ENDIF -->

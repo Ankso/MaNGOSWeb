@@ -1,0 +1,78 @@
+<!-- INCLUDE overall_header.html -->
+
+<!-- INCLUDE pbwow_header.html -->
+
+	<div id="acpost">
+		<div class="post-box">
+			<div class="post-box-bottom">
+				<div class="post-box-top">
+					<div id="post-topic-shell">
+						<div class="resultbox">
+							<div id="postdisplay">
+								<div class="innerborder">
+									<div class="insert">
+										<blockquote>
+											<div class="post-top">
+
+												<div style="position: relative; width: 330px; height: 1px;">
+													<div class="options-title" style="background: url('{T_IMAGESET_PATH}/x_custom/txt-mcp.gif') no-repeat;"></div>
+												</div>
+												
+												<div style="width:auto; padding:0 10px 10px 10px;">
+
+
+
+<div id="tabs">
+	<ul>
+		<!-- BEGIN l_block1 -->
+		<li<!-- IF l_block1.S_SELECTED --> class="activetab"<!-- ENDIF -->><a href="{l_block1.U_TITLE}"><span>{l_block1.L_TITLE}</span></a></li>
+		<!-- END l_block1 -->
+	</ul>
+</div>
+
+<div class="panel bg3">
+
+	<div style="width: 100%;">
+
+	<div id="cp-menu">
+		<div id="navigation">
+			<ul>
+			<!-- BEGIN l_block1 -->
+			<!-- IF l_block1.S_SELECTED -->
+				<!-- BEGIN l_block2 -->
+				<!-- IF l_block1.l_block2.S_SELECTED -->
+				<li id="active-subsection"><a href="{l_block1.l_block2.U_TITLE}"><span>{l_block1.l_block2.L_TITLE}<!-- IF l_block1.l_block2.ADD_ITEM --> ({l_block1.l_block2.ADD_ITEM})<!-- ENDIF --></span></a></li>
+				<!-- ELSE -->
+				<li><a href="{l_block1.l_block2.U_TITLE}"><span>{l_block1.l_block2.L_TITLE}<!-- IF l_block1.l_block2.ADD_ITEM --> ({l_block1.l_block2.ADD_ITEM})<!-- ENDIF --></span></a></li>
+				<!-- ENDIF -->
+				<!-- END l_block2 -->
+			<!-- ENDIF -->
+			<!-- END l_block1 -->
+			</ul>
+		</div>
+	</div>
+
+	<div id="cp-main" class="mcp-main">
+		<!-- IF MESSAGE -->
+		<div class="content">
+			<h2>{L_MESSAGE}</h2>
+			<p class="error">{MESSAGE}</p>
+			<p><!-- BEGIN return_links -->{return_links.MESSAGE_LINK}<br /><br /><!-- END return_links --></p>
+		</div>
+		<!-- ENDIF -->
+
+		<!-- IF CONFIRM_MESSAGE -->
+			<form id="confirm" method="post" action="{S_CONFIRM_ACTION}"{S_FORM_ENCTYPE}>
+
+			<div class="content">
+				<h2>{L_PLEASE_CONFIRM}</h2>
+				<p>{CONFIRM_MESSAGE}</p>
+			
+				<fieldset class="submit-buttons">
+					{S_HIDDEN_FIELDS}<input class="button1" type="submit" name="submit" value="{L_YES}" />&nbsp; 
+					<input class="button2" type="cancel" value="{L_NO}" />
+				</fieldset>
+			</div>
+
+			</form>
+		<!-- ENDIF -->

@@ -1,0 +1,36 @@
+<!-- INCLUDE overall_header.html -->
+
+<form action="{S_PROFILE_ACTION}" method="post" id="resend">
+<div class="clear"></div>
+<div style="width: 100%; margin: 0 auto; text-align: left;">
+	<div style="display: block; width: 100%; text-align: center;">
+		<div id="character-post-info" style="margin-top: 100px; margin-bottom: 50px; padding:20px 0px;"><!--<img src="{T_IMAGESET_PATH}/pixel.gif" width="567" height="1" alt="" /><br />-->
+		
+
+	<div class="content">
+		<h2>{L_UCP_RESEND}</h2>
+
+		<fieldset>
+		<dl>
+			<dt><label for="username">{L_USERNAME}:</label></dt>
+			<dd><input class="inputbox narrow" type="text" name="username" id="username" size="25" /></dd>
+		</dl>
+		<dl>
+			<dt><label for="email">{L_EMAIL_ADDRESS}:</label><br /><span>{L_EMAIL_REMIND}</span></dt>
+			<dd><input class="inputbox narrow" type="text" name="email" id="email" size="25" maxlength="100" /></dd>
+		</dl>
+		<dl>
+			<dt>&nbsp;</dt>
+			<dd>{S_HIDDEN_FIELDS}{S_FORM_TOKEN}<input type="submit" name="submit" id="submit" class="button1" value="{L_SUBMIT}" tabindex="2" />&nbsp; <input type="reset" value="{L_RESET}" name="reset" class="button2" /></dd>
+		</dl>
+		</fieldset>
+	</div>
+
+
+		</div>
+	</div>
+</div>
+<div class="clear" style="height: 40px;"></div>
+</form>
+
+<!-- INCLUDE overall_footer.html -->

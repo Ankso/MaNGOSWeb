@@ -1,0 +1,155 @@
+
+<div class="clear"></div>
+<div id="topicheader" <!-- IF S_IN_MCP -->style="min-width:530px"<!-- ENDIF -->>
+	<div id="topicview" style="margin-top: 14px;">
+		<ul>
+			<li><span><b>{L_TOPIC_REVIEW}: {TOPIC_TITLE}</b></span></li>
+		</ul>
+	</div>
+	<div id="topicview" style="margin-top: 14px; float:right">
+		<ul>
+			<li><span><b><a href="#review" onclick="viewableArea(getElementById('topicreview'), true); var rev_text = getElementById('review').getElementsByTagName('a').item(0).firstChild; if (rev_text.data == '{LA_EXPAND_VIEW}'){rev_text.data = '{LA_COLLAPSE_VIEW}'; } else if (rev_text.data == '{LA_COLLAPSE_VIEW}'){rev_text.data = '{LA_EXPAND_VIEW}'};">{L_EXPAND_VIEW}</a></b></span></li>
+		</ul>
+	</div>
+</div>
+
+
+
+
+<div id="postbackground">
+	<div class="right">
+<script type="text/javascript">
+// <![CDATA[
+	bbcodeEnabled = {S_BBCODE_ALLOWED};
+// ]]>
+</script>
+<div id="topicreview">
+<!-- BEGIN topic_review_row -->
+
+			<!-- IF topic_review_row.S_FIRST_UNREAD --><a id="unread"></a><!-- ENDIF -->
+			<a id="p{topic_review_row.POST_ID}">
+			<!-- IF topic_review_row.S_ROW_COUNT is odd --><div id="postshell21"><!-- ELSE --><div id="postshell11"><!-- ENDIF -->
+				<div class="resultbox" id="pr{topic_review_row.POST_ID}">
+					<div class="postdisplay">
+						<div class="innerborder">
+							<!-- IF topic_review_row.S_ROW_COUNT is odd --><div class="postingcontainer21"><!-- ELSE --><div class="postingcontainer11"><!-- ENDIF -->
+								<div class="insert">
+								<!-- IF topic_review_row.S_ROW_COUNT is odd --><table id="posttable21" cellpadding="0" cellspacing="0" border="0">
+								<!-- ELSE --><table id="posttable11" cellpadding="0" cellspacing="0" border="0"><!-- ENDIF -->
+									<tr>
+										<!-- IF topic_review_row.S_ROW_COUNT is odd --><td class="id21" id="id" rowspan="2" style="background-image:none"><!-- ELSE --><td class="id11" id="id" rowspan="2" style="background-image:none"><!-- ENDIF -->
+
+											<div id="avatar" style="display:none"></div>
+											<div style="clear: left;">
+												<!--ie-->
+											</div>
+											
+											<div style="min-height:100px; <!-- IF not S_IN_MCP -->width: 200px;<!-- ENDIF -->">
+												<div id="pinfo" class="pinfo" style="background:none; padding:5px 0 0 0; <!-- IF S_IN_MCP -->width: 100%;<!-- ENDIF -->">
+													<div id="pinfobackground" class="pinfobackground" style="background:none; <!-- IF S_IN_MCP -->width: 100%;<!-- ENDIF -->">
+
+														<div class="chardata">
+															<span><b>
+																{L_POST_BY_AUTHOR} 
+																<!-- IF topic_review_row.U_POST_AUTHOR -->
+																<a href="{topic_review_row.U_POST_AUTHOR}">{topic_review_row.POST_AUTHOR_FULL}</a>
+																<!-- ELSE -->
+																{topic_review_row.POST_AUTHOR}
+																<!-- ENDIF -->
+																</b></span>
+														</div>
+													</div>
+													<!-- end pinfobackground -->
+												</div>
+												<!-- end pinfo -->
+												<div id="hideplayerfooter" style="display:none">
+												</div>
+											</div>
+										</td>
+										
+										<!-- IF topic_review_row.S_ROW_COUNT is odd --><td class ="tools21"><div id="postid21"><!-- ELSE --><td class="tools11"><div id="postid11"><!-- ENDIF -->
+												<ul>
+													<li style="display:table-cell;"><span class="white">
+													<!-- IF topic_review_row.S_IGNORE_POST -->
+														<div style="width:100px"><small>{topic_review_row.L_IGNORE_POST}</small></div>
+													<!-- ELSE -->
+													<!-- IF topic_review_row.S_POST_REPORTED --><a href="{topic_review_row.U_MCP_REPORT}"><strong style="color:#FF0000">{L_POST_REPORTED}</strong></a><!-- ELSE -->
+														<a href="{topic_review_row.U_MINI_POST}">{topic_review_row.POST_SUBJECT}</a><!-- ENDIF --></b>&nbsp;&nbsp;<small>&raquo; {topic_review_row.POST_DATE}</small>
+													<!-- ENDIF -->
+													</span></li>
+												</ul>
+											</div>
+											<!-- End Post Info -->
+											<div class="miniadmin">
+												<ul>
+													<!-- IF topic_review_row.U_MCP_DETAILS -->&nbsp;<a href="{topic_review_row.U_MCP_DETAILS}" title="{L_POST_DETAILS}"><img src="{T_IMAGESET_PATH}/x_custom/icon-help.gif" border="0" alt="{L_POST_DETAILS}" /></a><!-- ENDIF -->
+													<!-- IF topic_review_row.POSTER_QUOTE and topic_review_row.DECODED_MESSAGE -->
+													<a href="#postingbox" onclick="addquote({topic_review_row.POST_ID}, '{topic_review_row.POSTER_QUOTE}');" title="{L_QUOTE} {topic_review_row.POST_AUTHOR}"><img src="{T_IMAGESET_LANG_PATH}/quote-button.gif" width="63" height="18" border="0" alt="{L_QUOTE} {topic_review_row.POST_AUTHOR}" /></a>
+													<!-- ELSE -->
+													<img src="{T_IMAGESET_LANG_PATH}/quote-button-inactive.gif" width="63" height="18" border="0" alt="" />
+													<!-- ENDIF -->
+												</ul>													
+											</div>
+										</td>
+									</tr>
+									<tr id="body">
+										<!-- IF topic_review_row.S_ROW_COUNT is odd -->
+										<td class="message21">
+											<table id="postbody21" cellspacing="0" border="0" style="height:auto">
+										<!-- ELSE -->
+										<td class="message11">
+											<table id="postbody11" cellspacing="0" border="0" style="height:auto">
+										<!-- ENDIF -->
+												<tr>
+													<td>
+														<div class="breakWord" style="min-height:75px">
+															<div class="message-format">
+																<span>																
+																<span style="color:{topic_review_row.POST_AUTHOR_COLOUR}">
+																	{topic_review_row.MESSAGE}
+																</span>
+																
+																<!-- IF topic_review_row.POSTER_QUOTE and topic_review_row.DECODED_MESSAGE -->
+																	<div id="message_{topic_review_row.POST_ID}" style="display: none;">{topic_review_row.DECODED_MESSAGE}</div>
+																<!-- ENDIF -->
+
+																<!-- IF topic_review_row.S_HAS_ATTACHMENTS -->
+																	<ins><hr noshade="noshade" size="1" color="#9e9e9e" /></ins>
+																	<b>{L_ATTACHMENTS}</b>
+																		<!-- BEGIN attachment -->
+																		{topic_review_row.attachment.DISPLAY_ATTACHMENT}
+																		<!-- END attachment -->
+																<!-- ENDIF -->
+																</span>
+															</div>
+														</div>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+								<!-- End table posttable -->
+							</div> 
+							<!-- end insert -->
+						</div>
+						<!-- end innercontainer -->
+					</div>
+					<!-- end border -->
+				</div>
+				<!-- end postdisplay -->
+			</div>
+			<!-- end resultbox -->
+		</div>
+		<!-- End div postshell -->
+
+<!-- END topic_review_row -->
+</div>
+
+	</div>
+</div>
+<!-- IF not S_IN_MCP -->
+<div class="forum-index">
+	<div class="findex"> <a href="{U_VIEW_FORUM}"><img src="{T_IMAGESET_LANG_PATH}/forum-index.gif" width="104" height="41" border="0" title="" alt="" /></a> </div>
+</div>
+<!-- ENDIF -->

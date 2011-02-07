@@ -1,0 +1,273 @@
+<!-- INCLUDE overall_header.html -->
+
+<!-- INCLUDE pbwow_header.html -->
+
+<!-- IF not S_HAS_SUBFORUM or S_IS_POSTABLE -->
+
+<table cellspacing="0" cellpadding="1" border="0" width="100%" class="board-clear">
+	<tr>
+		<td class="tableoutline<!-- IF S_HAS_SUBFORUM or S_PBWOW_ADS_TOP --> adbg<!-- ENDIF -->">
+		
+			<!-- IF S_HAS_SUBFORUM -->
+			<div style="width:100%;" align="center">
+				<div class="indexing" style="width:700px; padding:3px;" align="left">
+				<!-- INCLUDE forumlist_body.html -->
+				<!-- IF not S_IS_BOT and U_MARK_FORUMS -->
+					<div style="width:100%; text-align:center; padding:5px;"><a href="{U_MARK_FORUMS}">{L_MARK_FORUMS_READ}</a></div>
+				<!-- ENDIF -->
+				</div>
+			</div>
+			<!-- ENDIF -->
+
+			<!-- IF S_PBWOW_ADS_TOP and not S_HAS_SUBFORUM -->
+			<center>
+				<div id="ad_728x90" style="margin-bottom:12px; margin-top:10px; padding: 1px; width:728px; background:#1E1E1E none repeat scroll right center;">
+					<!-- IF S_PBWOW_IE6MESSAGE -->{PBWOW_IE6MESSAGE_CODE}<!-- ENDIF -->
+					{PBWOW_ADS_TOP_CODE}
+				</div>
+			</center>
+			<!-- ENDIF -->
+
+			<table cellspacing="0" cellpadding="0" border="0" width="100%" class="tableoutline">
+				<tr>
+					<td>
+						<div class="theader">
+							<div class="lpage"> <span>
+								<!-- IF S_DISPLAY_POST_INFO or PAGINATION or TOTAL_POSTS or TOTAL_TOPICS -->
+									<!-- INCLUDE pbwow_pagination.html -->
+								<!-- ENDIF -->									
+							</span> </div>
+							<div class="rpage" style="width: 500px">
+								<ul>
+									<li>
+									<!-- IF S_SELECT_SORT_DAYS and not S_DISPLAY_ACTIVE -->
+										<form method="post" class="gray" action="{S_FORUM_ACTION}">
+											{S_SELECT_SORT_DAYS} {S_SELECT_SORT_KEY} {S_SELECT_SORT_DIR} <input type="submit" name="sort" value="&nbsp;" style="height:19px; width:21px; background:url({T_IMAGESET_PATH}/jump-button.gif) no-repeat; border:none; cursor:pointer" />
+											<!--{L_DISPLAY_TOPICS}: {S_SELECT_SORT_DAYS}-->
+										</form>
+									<!-- ENDIF -->
+									</li>
+									<li style="margin: 3px 2px 0 3px;"><span><b>{L_SORT_BY}:&nbsp;</b></span></li>
+								</ul>
+							</div>
+						</div>
+
+
+<div id="postbackground">
+	<div class="right">
+		<table width="97%" style="padding:0 0 0 1%; margin:0 auto; text-align:left;">
+			<tr>
+				<td valign="top" align="left">
+							
+					<!-- IF S_FORUM_RULES -->
+					<div class="vp-content" style="padding-bottom:20px">
+						<table style="width:100%">
+							<thead>
+								<tr>
+									<td>
+									<!-- IF U_FORUM_RULES -->
+										<a href="{U_FORUM_RULES}">{L_FORUM_RULES}</a>
+									<!-- ELSE -->
+										{L_FORUM_RULES}
+									<!-- ENDIF -->
+									</td>
+								</tr>
+							</thead>
+							<!-- IF not U_FORUM_RULES -->
+							<tbody>
+								<tr class="r0">
+									<td>
+										{FORUM_RULES}
+									</td>
+								</tr>
+							</tbody>
+							<!-- ENDIF -->
+						</table>
+					</div>
+					<!-- ENDIF -->
+
+					<table width="100%" border="0" cellpadding="0" cellspacing="0" class="tableoutline" style="margin: 0 auto;">
+						<tr>
+							<td class="tableheader" style="text-align: center;"><!-- IF not S_IS_BOT and U_MARK_TOPICS --><a href="{U_MARK_TOPICS}"><img src="{T_IMAGESET_PATH}/icons/flag.gif" border="0" width="18" height="13" alt="{L_MARK_TOPICS_READ}" title="{L_MARK_TOPICS_READ}" /></a><!-- ELSE --><img src="{T_IMAGESET_PATH}/icons/flag.gif" border="0" width="18" height="13" alt="" title="Flags" /><!-- ENDIF --></td>
+							<td class="tableheader">
+								<table cellspacing="0" cellpadding="0" border="0">
+									<tr>
+										<td><img src="{T_IMAGESET_PATH}/pixel.gif" border="0" width="1" height="22" alt="" /></td>
+										<td style="padding: 0 0 0 5px;"><span> <a class="filter" href="#">{L_SUBJECT}</a></span></td>
+									</tr>
+								</table>
+							</td>
+							<td align="center" class="tableheader"><span> <a class="filter" href="#">{L_AUTHOR}</a></span></td>
+							<td align="center" class="tableheader"><span> <a class="filter" href="#">{L_REPLIES}</a></span></td>
+							<td align="center" class="tableheader"><span> <a class="filter" href="#">{L_VIEWS}</a></span></td>
+							<!-- IF not S_IS_BOT --><td align="center" class="tableheader"><span> <a class="filter" href="#">{L_LAST_POST}</a></span></td><!-- ENDIF -->
+						</tr>
+
+
+						<!-- BEGIN topicrow -->
+
+						<tr class="rows">
+							<!-- IF topicrow.S_ROW_COUNT is even -->
+							<td style="width:120px;" class="na1">
+							<!-- ELSE -->
+							<td style="width:120px;" class="n1">
+							<!-- ENDIF -->
+								<!-- IF topicrow.S_POST_STICKY or topicrow.S_POST_ANNOUNCE -->
+								<img src="{T_IMAGESET_PATH}/icons/sticky.gif" border="0" alt="{L_POST_STICKY}" title="{L_POST_STICKY}" /> 
+								<!-- ELSEIF topicrow.S_POST_GLOBAL -->
+								<img src="{T_IMAGESET_PATH}/x_custom/sticky_b.gif" border="0" alt="{L_VIEW_TOPIC_GLOBAL}" title="{L_VIEW_TOPIC_GLOBAL}" /> 
+								<!-- ELSE -->
+								<img src="{T_IMAGESET_PATH}/pixel.gif" border="0" width="22" height="15" alt="" /> 
+								<!-- ENDIF -->
+								
+								<!-- IF topicrow.S_TOPIC_LOCKED -->
+								<img src="{T_IMAGESET_PATH}/icons/lock-icon.gif" border="0" alt="{L_TOPIC_LOCKED_SHORT}" title="{L_TOPIC_LOCKED_SHORT}" /> 
+								<!-- ELSE -->
+								<img src="{T_IMAGESET_PATH}/pixel.gif" border="0" width="15" height="16" alt="" /> 
+								<!-- ENDIF -->
+								
+								<!-- IF topicrow.S_HAS_POLL -->
+								<img src="{T_IMAGESET_PATH}/icons/poll.gif" border="0" alt="{L_POLL_QUESTION}" title="{L_POLL_QUESTION}" /> 
+								<!-- ELSE -->
+								<img src="{T_IMAGESET_PATH}/pixel.gif" border="0" width="20" height="17" alt="" /> 
+								<!-- ENDIF -->
+					
+								<!-- IF topicrow.S_POST_ANNOUNCE or topicrow.S_POST_GLOBAL -->
+								<img src="{T_IMAGESET_PATH}/icons/blizz.gif" border="0" alt="{L_ANNOUNCEMENTS}" title="{L_ANNOUNCEMENTS}" />
+								<!-- ELSE -->
+								<img src="{T_IMAGESET_PATH}/pixel.gif" border="0" width="22" height="15" alt="" /> 
+								<!-- ENDIF -->
+								
+								<!-- IF topicrow.S_TOPIC_MOVED -->
+								<img src="{T_IMAGESET_PATH}/icons/arrow.gif" border="0" alt="{L_TOPIC_MOVED}" title="{L_TOPIC_MOVED}" /> 
+								<!-- ELSE -->
+								<img src="{T_IMAGESET_PATH}/pixel.gif" border="0" width="17" height="11" alt="" /> 
+								<!-- ENDIF -->
+							</td>
+							<!-- IF topicrow.S_ROW_COUNT is even -->
+							<td class="ta2">
+							<!-- ELSE -->
+							<td class="t2">
+							<!-- ENDIF -->	
+								<!-- IF topicrow.S_TOPIC_UNAPPROVED or topicrow.S_POSTS_UNAPPROVED or topicrow.S_TOPIC_REPORTED or topicrow.ATTACH_ICON_IMG -->
+									<div style="float:right; display:inline">
+								<!-- IF topicrow.S_TOPIC_UNAPPROVED or topicrow.S_POSTS_UNAPPROVED --><a href="{topicrow.U_MCP_QUEUE}">{topicrow.UNAPPROVED_IMG}</a>&nbsp;<!-- ENDIF -->
+								<!-- IF topicrow.S_TOPIC_REPORTED --><a href="{topicrow.U_MCP_REPORT}"><img src="{T_IMAGESET_PATH}/biohazard-button.gif" border="0" /></a>&nbsp;<!-- ENDIF -->
+								<!-- IF topicrow.ATTACH_ICON_IMG --><img src="{T_IMAGESET_PATH}/x_custom/icon_topic_attach.gif" border="0" />&nbsp;<!-- ENDIF -->
+									</div>	
+								<!-- ENDIF -->
+								<!-- IF topicrow.S_UNREAD_TOPIC -->
+								<a href="{topicrow.U_NEWEST_POST}"><img src="{T_IMAGESET_PATH}/square-new.gif" width="15" height="15" style="vertical-align:middle;" border="0" alt="" /></a>
+								<!-- ELSEIF topicrow.S_USER_POSTED -->
+								<a href="{topicrow.U_NEWEST_POST}"><img src="{T_IMAGESET_PATH}/square.gif" width="15" height="15" style="vertical-align:middle;" border="0" alt="" /></a>
+								<!-- ELSE -->
+								<a href="{topicrow.U_NEWEST_POST}"><img src="{T_IMAGESET_PATH}/square-grey.gif" width="15" height="15" style="vertical-align:middle;" border="0" alt="" /></a>
+								<!-- ENDIF -->
+								<a href="{topicrow.U_VIEW_TOPIC}" class="active">{topicrow.TOPIC_TITLE}</a>
+								<!-- IF topicrow.PAGINATION -->
+									<small>[Page: {topicrow.PAGINATION}</small>] 
+								<!-- ENDIF -->
+								
+							</td>
+							<!-- IF topicrow.S_ROW_COUNT is even --><td class="ta3" style="white-space:nowrap">
+							<!-- ELSE --><td class="t3" style="white-space:nowrap"><!-- ENDIF --><!-- IF topicrow.U_TOPIC_AUTHOR --><!-- IF topicrow.TOPIC_AUTHOR_COLOUR --><a href="{topicrow.U_TOPIC_AUTHOR}" style="text-decoration:none; color:{topicrow.TOPIC_AUTHOR_COLOUR}"><!-- ELSE --><a href="{topicrow.U_TOPIC_AUTHOR}" style="text-decoration:none; color:#d7cea4"><!-- ENDIF -->{topicrow.TOPIC_AUTHOR}</a><!-- ELSE -->{topicrow.TOPIC_AUTHOR}<!-- ENDIF -->&nbsp;<!-- IF topicrow.TOPIC_AUTHOR_RANK_IMG -->{topicrow.TOPIC_AUTHOR_RANK_IMG}<!-- ENDIF --></td>
+							<!-- IF topicrow.S_ROW_COUNT is even --><td class="ta4">
+							<!-- ELSE --><td class="t4"><!-- ENDIF -->{topicrow.REPLIES}</td>
+							<!-- IF topicrow.S_ROW_COUNT is even --><td class="ta5">
+							<!-- ELSE --><td class="t5"><!-- ENDIF -->{topicrow.VIEWS}</td>
+							<!-- IF not S_IS_BOT -->
+							<!-- IF topicrow.S_ROW_COUNT is even --><td class="ta6" style="white-space: nowrap">
+							<!-- ELSE --><td class="t6" style="white-space: nowrap" ><!-- ENDIF -->{L_POST_BY_AUTHOR}&nbsp;<b><!-- IF topicrow.U_LAST_POST_AUTHOR --><a href="{topicrow.U_LAST_POST_AUTHOR}" style="text-decoration:none; color:#d7cea4">{topicrow.LAST_POST_AUTHOR}</a><!-- ELSE -->{topicrow.LAST_POST_AUTHOR}<!-- ENDIF --></b></td>
+							<!-- ENDIF -->
+						</tr>
+						
+						<!-- BEGINELSE -->
+					
+						<!-- IF S_IS_POSTABLE -->
+						<tr class="rows" style="height:30px">
+							<td class="ta5" colspan="6">
+							<span style="color:#FFFFFF;"><strong>{L_NO_TOPICS}</strong></span>
+							</td>
+						</tr>
+						<!-- ENDIF -->
+
+						<!-- END topicrow -->
+
+
+						<!-- IF S_NO_READ_ACCESS -->
+						<tr class="rows" style="height:30px">
+							<td class="ta5" colspan="6">
+							<span style="color:#FF0000;"><strong>{L_NO_READ_ACCESS}</strong></span>
+							</td>
+						</tr>
+						<!-- ENDIF -->
+
+					</table>
+				</td>
+				<!-- IF S_PBWOW_ADS_SIDE -->
+				<td width="130px" valign="top" align="center">
+					<div style="width:160px; height:600px; padding:1px;margin:4px 0 0 0; background:#1E1E1E none repeat scroll center bottom;">
+						<div id="ad_160x600" style="width:160px; height:12px; text-align:center">
+							{PBWOW_ADS_SIDE_CODE}
+						</div>
+					</div>
+				</td>
+				<!-- ENDIF -->
+			</tr>
+		</table>
+	</div>
+</div>
+						<div class="theader">
+							<div class="lpage">
+								<!-- IF S_DISPLAY_POST_INFO or PAGINATION or TOTAL_POSTS or TOTAL_TOPICS -->
+									<!-- INCLUDE pbwow_pagination.html -->
+								<!-- ENDIF -->	
+							</div>
+						</div>
+						<div class="tbottom"></div>
+						<!-- INCLUDE pbwow_jumpbox.html -->
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+
+	
+<div align="center" style="padding:10px;">
+	<span><b>{L_LEGEND}</b> [ <a href="{U_FAQ}" title="{L_FAQ_EXPLAIN}">More Details</a> ]</span>
+	<table cellspacing="0" cellpadding="0" id="iconLegend">
+		<tr>
+			<td>
+				<table class="tb2" width="100%" cellspacing="0" cellpadding="0" border="0">
+					<tr>
+						<td><img src="{T_IMAGESET_PATH}/square.gif" style="margin: 0 3px 0 2px;" border="0" alt="Unviewed Post" /><small>&nbsp;{L_SEARCH_SELF}</small></td>
+						<td><img src="{T_IMAGESET_PATH}/square-grey.gif" border="0" alt="Viewed Post" /><small>&nbsp;{L_NO_NEW_POSTS}</small></td>
+						<td><img src="{T_IMAGESET_PATH}/square-new.gif" style="margin: 0 3px 0 2px;" border="0" alt="New Post" /><small>&nbsp;{L_NEW_POSTS}</small></td>
+						<td><img src="{T_IMAGESET_PATH}/icons/arrow.gif" style="margin: 0 3px 0 2px;" border="0" alt="{L_TOPIC_MOVED}" /><small>&nbsp;{L_TOPIC_MOVED}</small></td>
+					</tr>
+					<tr>
+						<td><img src="{T_IMAGESET_PATH}/icons/sticky.gif" border="0" alt="{L_POST_STICKY}" /><small>&nbsp;{L_POST_STICKY}</small></td>
+						<td><img src="{T_IMAGESET_PATH}/icons/lock-icon.gif" border="0" alt="{L_TOPIC_LOCKED_SHORT}" /><small>&nbsp;{L_TOPIC_LOCKED_SHORT}</small></td>			 
+						<td><img src="{T_IMAGESET_PATH}/icons/poll.gif" style="margin: 0 3px 0 2px;" border="0" alt="{L_POLL_QUESTION}" /><small>&nbsp;{L_VIEW_TOPIC_POLL}</small></td>			
+						<td><img src="{T_IMAGESET_PATH}/icons/blizz.gif" border="0" alt="Blizzard Rep" /><small>&nbsp;{L_ANNOUNCEMENTS}</small></td>
+					</tr>
+					<!-- IF MODERATORS -->
+					<tr>
+						<td style="padding:10px; text-align:center" colspan="4">
+							<span><b><!-- IF S_SINGLE_MODERATOR -->{L_MODERATOR}<!-- ELSE -->{L_MODERATORS}<!-- ENDIF -->:</b> {MODERATORS}</span>
+						</td>
+					</tr>
+					<!-- ENDIF -->
+				</table>
+			</td>
+		</tr>
+	</table>
+</div>
+
+<!-- ELSE -->
+<div class="tbottom"></div>
+<!-- ENDIF -->
+
+<!-- INCLUDE overall_footer.html -->

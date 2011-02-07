@@ -1,0 +1,29 @@
+/*  phpBB 3.0 Style Sheet
+    --------------------------------------------------------------
+	Style name:		PBWoW
+	Based on style:	proSilver (this is the default phpBB 3 style)
+	Original author:	PayBas ( http://pbwow.com/ )
+	Modified by:		
+	
+	Copyright 2009 PayBas ( http://pbwow.com/ )
+    --------------------------------------------------------------
+*/
+
+@import url("common.css");
+@import url("links.css");
+@import url("content.css");
+@import url("buttons.css");
+@import url("cp.css");
+@import url("forms.css");
+@import url("tweaks.css");
+@import url("colours.css");
+
+@import url("wow/master.css");
+@import url("wow/forums.css");
+@import url("wow/topnav.css");
+@import url("wow/languages.css");
+
+@import url("wow/common.css");
+@import url("wow/cataclysm.css");
+
+@import url("portal.css");
