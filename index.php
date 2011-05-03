@@ -1,10 +1,10 @@
 <?php
 /****************************************************************************/
-/*  					< MangosWeb Enhanced v3 >  							*/
+/*  					< MangosWeb Enhanced v3 >  	    */
 /*              Copyright (C) <2009 - 2011>  <Wilson212>                    */
-/*						  < http://keyswow.com >							*/
-/*																			*/
-/*			Original MangosWeb (C) 2007, Sasha, Nafe, TGM, Peec				*/
+/*						  < http://keyswow.com >    */
+/*									    */
+/*			Original MangosWeb (C) 2007, Sasha, Nafe, TGM, Peec */
 /****************************************************************************/
 
 /***************************************************************
